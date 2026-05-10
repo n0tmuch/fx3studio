@@ -469,7 +469,7 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); position: relative; }
 .cv-company { font-size: 14px; color: var(--fg-2); margin-bottom: 10px; }
 .cv-bullets { list-style: none; padding: 0; }
 .cv-bullets li { font-size: 14px; color: var(--fg-2); line-height: 1.55; padding-left: 18px; position: relative; margin-bottom: 4px; }
-.cv-bullets li::before { content: "—"; position: absolute; left: 0; color: var(--fg-dim); }
+.cv-bullets li::before { content: "·"; position: absolute; left: 0; color: var(--fg-dim); }
 
 .skills-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
 .skill {

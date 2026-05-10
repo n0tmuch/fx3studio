@@ -75,7 +75,7 @@ export function LaRoseCaseStudy({ collection, onClose }) {
       </section>
 
       <div className="fifa-end">
-        <span>End · 09 — La Rose et le Chien · Artist Project · Men's Wear A/W 2025</span>
+        <span>End · 09 · La Rose et le Chien · Artist Project · Men's Wear A/W 2025</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

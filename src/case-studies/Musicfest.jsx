@@ -69,7 +69,7 @@ export function MusicFestCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 06 — Music Festival Performers · Portfolio Book · Menswear</span>
+        <span>End · 06 · Music Festival Performers · Portfolio Book · Menswear</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

@@ -45,7 +45,7 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
       </section>
 
       <div className="fifa-end">
-        <span>End · 05 — Fold into the Ease · Portfolio Book · Menswear</span>
+        <span>End · 05 · Fold into the Ease · Portfolio Book · Menswear</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

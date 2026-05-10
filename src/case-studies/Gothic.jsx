@@ -84,7 +84,7 @@ export function GothicCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 08 — Gothic Winter · Portfolio Book · Womenswear</span>
+        <span>End · 08 · Gothic Winter · Portfolio Book · Womenswear</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

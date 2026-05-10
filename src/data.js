@@ -7,7 +7,7 @@ export const SITE = {
   location: "Los Angeles, California",
   tagline: "A fashion atelier built on individuality, handmade detail, and authentic expression.",
   longTagline:
-    "Fx3 Studio is a fashion atelier based in Los Angeles, founded by artist and designer Spencer Harrison. We make pieces for everyone and anyone — inspired by music, skateboarding, and underground art culture.",
+    "Fx3 Studio is a fashion atelier based in Los Angeles, founded by artist and designer Spencer Harrison. We make pieces for everyone and anyone, inspired by music, skateboarding, and underground art culture.",
   email: "spencer@fx3studio.com",
   domain: "fx3studio.com",
   instagram: "@fx3studio",
@@ -64,9 +64,9 @@ export const COLLECTIONS = [
     year: "2025–26",
     role: "Mentorship · Otis College",
     blurb:
-      "An upcycled knitwear collection developed under the FRAME × Salvation Army × Otis mentorship — eleven plates across three groups, every fabric sourced from donated garments. Cable-felt fusion in cream meets deconstructed open-knit transparency in navy; the mentor-selected long coat (C3) was draped, patterned, cut, and sewn entirely by hand.",
+      "An upcycled knitwear collection developed under the FRAME × Salvation Army × Otis mentorship. Eleven plates across three groups, every fabric sourced from donated garments. Cable-felt fusion in cream meets deconstructed open-knit transparency in navy; the mentor-selected long coat (C3) was draped, patterned, cut, and sewn entirely by hand.",
     concept:
-      "The brief asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and re-laced through dyed silk mesh by hand. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the indigo lace coat family — finished with cord-pleat backs and lace-paneled hems.",
+      "The brief asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and re-laced through dyed silk mesh by hand. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the indigo lace coat family, finished with cord-pleat backs and lace-paneled hems.",
     tags: ["Knitwear", "Upcycling", "Otis 2025–26", "FRAME × Salvation Army"],
     looks: 11,
   },
@@ -194,7 +194,7 @@ export const EXPERIENCE = [
     company: "Mentorship Project",
     period: "Aug 2025 – Jan 2026",
     bullets: [
-      "Conceptualized and executed an upcycled knitwear collection — transforming donated garments into elevated, gallery-ready designs.",
+      "Conceptualized and executed an upcycled knitwear collection, transforming donated garments into elevated, gallery-ready designs.",
       "Developed a full collection balancing artistic expression with wearability.",
       "Mentor-selected look brought to life entirely by hand through draping, pattern-making, cutting, and sewing.",
     ],
@@ -215,7 +215,7 @@ export const EXPERIENCE = [
     company: "Junior Mentorship Project",
     period: "2024",
     bullets: [
-      "Conceptualized and executed a twelve-look junior-year collection under the Revolve × Otis brief — four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim.",
+      "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim.",
       "Translated anatomical motifs (ribcages, skulls, the architecture of bone) into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
       "Hand-treated every fabric in the dye studio before cutting; developed reverse-embroidery and ombré dye-grading techniques across mesh, jersey, and denim.",
     ],

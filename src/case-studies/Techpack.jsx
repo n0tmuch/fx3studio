@@ -64,7 +64,7 @@ export function TechPackCaseStudy({ collection, onClose }) {
       </section>
 
       <div className="fifa-end">
-        <span>End · 10 — Avenue Collection · Tech Pack · Fall</span>
+        <span>End · 10 · Avenue Collection · Tech Pack · Fall</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

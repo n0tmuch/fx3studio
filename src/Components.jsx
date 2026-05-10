@@ -1,4 +1,4 @@
-// components.jsx — small reusable building blocks for the Fx3 Studio site.
+// components.jsx: small reusable building blocks for the Fx3 Studio site.
 
 import { useState, useEffect, useRef } from "react";
 import { SITE, BIO_LONG, BIO_SUMMARY, COLLECTIONS, EXPERIENCE, EDUCATION, SKILLS } from "./data.js";
@@ -12,7 +12,7 @@ import { LaRoseCaseStudy } from "./case-studies/Larose.jsx";
 import { TechPackCaseStudy } from "./case-studies/Techpack.jsx";
 import { FoldEaseCaseStudy } from "./case-studies/Foldease.jsx";
 
-// Image slot placeholder — labeled, dashed, monospace.
+// Image slot placeholder: labeled, dashed, monospace.
 // `label` describes what the image SHOULD be ("Hero · Look 01").
 // `id` makes it a real <image-slot> the user can drop a file onto and it persists.
 function Slot({ id, label, hint, className = "" }) {
@@ -20,7 +20,7 @@ function Slot({ id, label, hint, className = "" }) {
     <div className={"slot " + className} style={{ position: "relative", width: "100%", height: "100%" }}>
       <image-slot
         id={id}
-        placeholder={label + (hint ? " — " + hint : "")}
+        placeholder={label + (hint ? ": " + hint : "")}
         shape="rect"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
       </image-slot>
@@ -100,7 +100,7 @@ function Hero({ videoMode }) {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    // Belt and braces — ensure no audio under any condition
+    // Belt and braces: ensure no audio under any condition
     v.muted = true;
     v.volume = 0;
     v.defaultMuted = true;
@@ -170,7 +170,7 @@ function WorkGrid({ openProject }) {
   return (
     <section id="work">
       <div className="container">
-        <div className="eyebrow">Selected work · 2021—2026</div>
+        <div className="eyebrow">Selected work · 2021–2026</div>
         <h2 className="section-title">Selected work.</h2>
         <p className="section-lede">Ten projects spanning mentor briefs, portfolio books, full collections, and production tech packs. Each is rooted in a specific narrative built look-by-look, hand-finished where it matters.</p>
       </div>
@@ -191,11 +191,11 @@ function WorkGrid({ openProject }) {
               <article key={c.id} className="work-row" onClick={() => openProject(c.id)}>
                   <div className="work-row-img">
                     {t ?
-                  <img src={t.src} alt={c.title + " — thumbnail"} style={{ ...{ objectFit: t.fit }, objectFit: "cover" }} /> :
+                  <img src={t.src} alt={c.title + ": thumbnail"} style={{ ...{ objectFit: t.fit }, objectFit: "cover" }} /> :
                   <Slot id={"work-thumb-" + c.id} label={c.title + " · hero"} hint="4:5 lookbook image" />}
                   </div>
                   <div className="work-row-meta">
-                    <div className="work-no">{c.no} · {c.year || "—"}</div>
+                    <div className="work-no">{c.no} · {c.year || "–"}</div>
                     <div className="work-meta-title">{c.title}</div>
                     <div className="work-row-role">{c.role}</div>
                   </div>
@@ -240,7 +240,7 @@ function Process() {
         <div className="eyebrow">Process</div>
         <h2 className="section-title">Sketchbook.</h2>
         <p className="section-lede">
-          Five years of drawings, fabric studies, and mood research — the source material behind every collection.
+          Five years of drawings, fabric studies, and mood research: the source material behind every collection.
         </p>
       </div>
       <div className="process-strip">
@@ -257,7 +257,7 @@ function Process() {
 // ---------- CV ----------
 function CV() {
   const downloadResume = () => {
-    // generates a simple printable CV in a new tab — Spencer can replace with a hosted PDF
+    // generates a simple printable CV in a new tab: Spencer can replace with a hosted PDF
     const win = window.open("", "_blank");
     if (!win) return;
     win.document.write(`<!doctype html><html><head><title>Spencer Harrison · CV</title>
@@ -269,7 +269,7 @@ function CV() {
       <p class="meta">${SITE.email} · ${SITE.domain}</p>
       <h2>Summary</h2><p>${BIO_SUMMARY}</p>
       <h2>Experience</h2>
-      ${EXPERIENCE.map((e) => `<h3>${e.role} — ${e.company}</h3><p class="meta">${e.period}</p><ul>${e.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`).join("")}
+      ${EXPERIENCE.map((e) => `<h3>${e.role}: ${e.company}</h3><p class="meta">${e.period}</p><ul>${e.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`).join("")}
       <h2>Education</h2>${EDUCATION.map((e) => `<h3>${e.school}</h3><p>${e.degree}</p><p class="meta">${e.period} · ${e.location}</p>`).join("")}
       <h2>Skills</h2><p>${SKILLS.join(" · ")}</p>
       <script>window.print()<\/script></body></html>`);
@@ -385,7 +385,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* HERO */}
       <div className={"fifa-hero" + (fifaHeroMode === "full" ? " full" : "")}>
-        <img src={img("1 Large.jpeg")} alt="FIFA 1904 — editorial hero" />
+        <img src={img("1 Large.jpeg")} alt="FIFA 1904: editorial hero" />
         <div className="fifa-hero-overlay" style={{ backgroundSize: "contain" }} />
         <div className="fifa-hero-text">
           <div className="fifa-eyebrow">{c.no} · FIFA × Otis · {c.year}</div>
@@ -400,7 +400,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
           <div className="fifa-intro-meta">
             <div className="fifa-meta-row"><span>Project</span><span>FIFA × Otis Senior Show</span></div>
             <div className="fifa-meta-row"><span>Year</span><span>{c.year}</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>Four — Group A · Group B · Group C · Group D</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>Four: Group A · Group B · Group C · Group D</span></div>
             <div className="fifa-meta-row"><span>Setting</span><span>Buenos Aires, Argentina</span></div>
             <div className="fifa-meta-row"><span>Customer</span><span>Fan · 31 · Painter · Palermo</span></div>
             <div className="fifa-meta-row"><span>Role</span><span>Concept · Pattern · Construction · Show production</span></div>
@@ -421,7 +421,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
           Each visual got pinned, cropped, and translated into a fabric, a silhouette, or a graphic.
         </p>
         <div className="fifa-fullbleed">
-          <img src={img("3 Large.jpeg")} alt="Concept board — Buenos Aires references" />
+          <img src={img("3 Large.jpeg")} alt="Concept board: Buenos Aires references" />
           <div className="fifa-cap">Concept board · Palermo, La Boca, Avenida 9 de Julio, stadium light, terrace breakfasts.</div>
         </div>
       </section>
@@ -447,7 +447,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
             </p>
           </div>
           <div className="fifa-customer-img">
-            <img src={img("5 Large.jpeg")} alt="Customer persona — Fan" />
+            <img src={img("5 Large.jpeg")} alt="Customer persona: Fan" />
           </div>
         </div>
       </section>
@@ -456,7 +456,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
       <section className="fifa-section">
         <SectionMark no="03" label="Color & Fabric" title="Stadium dusk. Loft brick. Cotton wool." />
         <div className="fifa-fullbleed">
-          <img src={img("4 Large.jpeg")} alt="Color story — Buenos Aires palette" />
+          <img src={img("4 Large.jpeg")} alt="Color story: Buenos Aires palette" />
           <div className="fifa-cap">Color story · Argentine sky-blue, obelisk amber, deep navy, Palermo brick, sand, charcoal.</div>
         </div>
         <div className="fifa-pair">
@@ -485,7 +485,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         </p>
         <div className="fifa-pair">
           <figure>
-            <img src={img("7 Large.jpeg")} alt="Detail swipes — pocket fold, snap, FIFA stripe" />
+            <img src={img("7 Large.jpeg")} alt="Detail swipes: pocket fold, snap, FIFA stripe" />
             <figcaption>Anatomy · pocket-in-fold · snap closure · heat-transfer stripe.</figcaption>
           </figure>
           <figure>
@@ -518,7 +518,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
       <section className="fifa-section">
         <SectionMark no="06" label="Group A · Lineup" title="Three looks. One fabric story." />
         <div className="fifa-fullbleed">
-          <img src={img("11 Large.jpeg")} alt="Group A — three looks" />
+          <img src={img("11 Large.jpeg")} alt="Group A: three looks" />
           <div className="fifa-cap">Group A · crepe wool, jersey, cotton wool · oversized topper + drape bottom.</div>
         </div>
       </section>
@@ -554,7 +554,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
       <section className="fifa-section">
         <SectionMark no="08" label="Group C · Lineup" title="Layered. Bellowed. Sand & black." />
         <div className="fifa-fullbleed">
-          <img src={img("22 Large.jpeg")} alt="Group C — three looks" />
+          <img src={img("22 Large.jpeg")} alt="Group C: three looks" />
           <div className="fifa-cap">Group C · suiting + cotton crepe · bellow pockets · pleated drop.</div>
         </div>
       </section>
@@ -564,29 +564,29 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <SectionMark no="09" label="In the studio" title="Spray, stitch, finish." />
         <div className="fifa-pair">
           <figure>
-            <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil — spray-painted graphic" />
+            <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil: spray-painted graphic" />
             <figcaption>Hand-stenciled FIFA 1904 graphic on wool crepe before assembly.</figcaption>
           </figure>
           <figure>
-            <img src={img("IMG_5399 Large.jpeg")} alt="Studio fitting — back view" />
+            <img src={img("IMG_5399 Large.jpeg")} alt="Studio fitting: back view" />
             <figcaption>Fitting · cotton-twill topper over crepe maxi · back.</figcaption>
           </figure>
         </div>
         <div className="fifa-six">
           <figure>
-            <img src={img("IMG_5401 Large.jpeg")} alt="Studio fitting — front view, cotton-twill topper over crepe maxi" />
+            <img src={img("IMG_5401 Large.jpeg")} alt="Studio fitting: front view, cotton-twill topper over crepe maxi" />
             <figcaption>Fitting · cotton-twill topper over crepe maxi · front.</figcaption>
           </figure>
           <figure>
-            <img src={img("IMG_5400 Large.jpeg")} alt="Studio fitting — side view, cotton-twill topper over crepe maxi" />
+            <img src={img("IMG_5400 Large.jpeg")} alt="Studio fitting: side view, cotton-twill topper over crepe maxi" />
             <figcaption>Fitting · cotton-twill topper over crepe maxi · side.</figcaption>
           </figure>
           <figure>
-            <img src={img("IMG_5403 Large.jpeg")} alt="Studio fitting — halter maxi gown, side view" />
+            <img src={img("IMG_5403 Large.jpeg")} alt="Studio fitting: halter maxi gown, side view" />
             <figcaption>Fitting · halter maxi gown · side.</figcaption>
           </figure>
           <figure>
-            <img src={img("IMG_5404 Large.jpeg")} alt="Studio fitting — halter maxi gown, back view" />
+            <img src={img("IMG_5404 Large.jpeg")} alt="Studio fitting: halter maxi gown, back view" />
             <figcaption>Fitting · halter maxi gown · back.</figcaption>
           </figure>
           <figure>
@@ -602,7 +602,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 01 — FIFA 1904 · Senior Thesis · 2026</span>
+        <span>End · 01 · FIFA 1904 · Senior Thesis · 2026</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);
@@ -642,7 +642,7 @@ function ProjectDetail({ collection, onClose, fifaHeroMode }) {
   if (c.id === "tech-pack" && TechPackCaseStudy) return <TechPackCaseStudy collection={c} onClose={onClose} />;
   if (c.id === "fold-ease" && FoldEaseCaseStudy) return <FoldEaseCaseStudy collection={c} onClose={onClose} />;
 
-  // gallery layout — varied to feel like a lookbook, repeats per project
+  // gallery layout: varied to feel like a lookbook, repeats per project
   const galleryRows = [
   ["span-12"],
   ["span-7", "span-5"],
@@ -661,7 +661,7 @@ function ProjectDetail({ collection, onClose, fifaHeroMode }) {
         </svg>
       </button>
       <div className="detail-hero">
-        <Slot id={`detail-hero-${c.id}`} label={`${c.title} — Hero image`} hint="21:9 full-bleed lookbook or runway shot" />
+        <Slot id={`detail-hero-${c.id}`} label={`${c.title}: Hero image`} hint="21:9 full-bleed lookbook or runway shot" />
       </div>
       <div className="detail-head">
         <div>

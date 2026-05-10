@@ -1,13 +1,13 @@
 # Fx3 Studio
 
-Portfolio site for Spencer Harrison — fashion designer, BFA Otis College of Art and Design.
+Portfolio site for Spencer Harrison: fashion designer, BFA Otis College of Art and Design.
 
 Live: https://fx3studio.vercel.app
 Final domain (planned): fx3studio.com
 
 ## Stack
 
-- Vite 6 + React 18 (no router — single page with a modal-style "project detail" overlay)
+- Vite 6 + React 18 (no router: single page with a modal-style "project detail" overlay)
 - Vanilla CSS (no framework)
 - `<image-slot>` web component for fillable image placeholders
 - Hosted on Vercel; auto-deploys from `main` (GitHub: [n0tmuch/fx3studio](https://github.com/n0tmuch/fx3studio))
@@ -32,7 +32,7 @@ src/
   main.jsx              React root + side-effect imports (styles, image-slot)
   App.jsx               top-level page (Nav, Hero, About, WorkGrid, CV, Contact + modal)
   Components.jsx        Nav, Hero, About, WorkGrid, CV, Contact, ProjectDetail, FifaCaseStudy, Slot, etc.
-  data.js               site copy + collection metadata — edit for content changes
+  data.js               site copy + collection metadata: edit for content changes
   styles.css            all styles (cinema theme via [data-theme])
   case-studies/         one file per non-FIFA collection (Bloodmoon, Frame, Gothic, ...)
   lib/
@@ -46,7 +46,7 @@ Content edits almost always live in `src/data.js`. The `COLLECTIONS` array drive
 
 ## History
 
-### 2026-05-09 — Initial deploy
+### 2026-05-09: Initial deploy
 
 Site was exported from Claude Design as an HTML/CSS/JS prototype using React 18 + Babel standalone via UMD CDN. Deployed to Vercel as a static site so Spencer's family could review the design.
 
@@ -57,9 +57,9 @@ Repo + project created:
 
 One content edit during this phase: removed an em-dash in the long bio after "art culture".
 
-### 2026-05-10 — Vite/React rebuild
+### 2026-05-10: Vite/React rebuild
 
-Rebuilt as a proper Vite + React project. Visual design is **unchanged** — same layout, same colors, same fonts, same animations. What changed is the loading mechanism:
+Rebuilt as a proper Vite + React project. Visual design is **unchanged**: same layout, same colors, same fonts, same animations. What changed is the loading mechanism:
 
 - Before: ~5 MB of unminified React UMD + Babel standalone, with all JSX compiled in the browser on every page load. 3–5 second blank screen on mobile.
 - After: ~73 KB gzipped pre-built bundle. Instant first paint.
@@ -69,7 +69,7 @@ Conversion mechanics:
 - `data.jsx` → `src/data.js` with named exports.
 - `components.jsx` → `src/Components.jsx`; ProjectDetail dispatcher imports each case-study component instead of looking it up on `window`.
 - 9 case-study files moved to `src/case-studies/` and re-exported.
-- `tweaks-panel.jsx` (a design-tool host harness, never user-facing) replaced with `src/lib/tweaks.jsx` — a thin stub that preserves `useTweaks` but renders no panel.
+- `tweaks-panel.jsx` (a design-tool host harness, never user-facing) replaced with `src/lib/tweaks.jsx`: a thin stub that preserves `useTweaks` but renders no panel.
 - `image-slot.js` preserved as-is in `src/lib/` and imported for its side effect (registers the `<image-slot>` custom element).
 - `assets/` moved to `public/assets/` so Vite serves it at the same root path; no asset reference in the source code needed to change.
 - `vercel.json` added with `framework: vite` so the Vercel project (originally configured as static) builds with the right preset.

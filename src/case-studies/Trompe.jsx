@@ -1,5 +1,5 @@
 // ---------- TROMPE L'OEIL · PORTFOLIO BOOK ----------
-// "A Knite at the Gallery" — six-page knit + denim trompe-l'oeil concept book.
+// "A Knite at the Gallery": six-page knit + denim trompe-l'oeil concept book.
 // Layout matches Blood Moon / Fold Ease / Music Fest: cover first, then intro
 // inline under the cover, then remaining pages full-bleed.
 
@@ -66,7 +66,7 @@ export function TrompeCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 07 — Trompe L'Oeil · Portfolio Book · Knit + Denim</span>
+        <span>End · 07 · Trompe L'Oeil · Portfolio Book · Knit + Denim</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);
