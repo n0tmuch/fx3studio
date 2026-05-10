@@ -125,6 +125,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 36px;
   transform: translateY(-100%);
   transition: transform .4s cubic-bezier(.6,0,.2,1);
+  overflow: hidden;
 }
 .nav-sheet.open { transform: translateY(0); }
 .nav-sheet-close { position: absolute; top: 22px; right: var(--pad); font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -414,11 +415,10 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); position: relative; }
 /* ============== ABOUT ============== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 760px);
   gap: clamp(32px, 5vw, 80px);
   align-items: start;
 }
-@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
 
 .about-portrait { aspect-ratio: 4/5; max-height: 560px; background: var(--bg-2); position: relative; overflow: hidden; align-self: start; }
 .about-text p { font-size: clamp(15px, 1.2vw, 17px); margin-bottom: 0.7em; color: var(--fg-2); }

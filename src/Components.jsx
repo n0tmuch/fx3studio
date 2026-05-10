@@ -217,9 +217,6 @@ function About() {
         <div className="eyebrow">About</div>
         <h2 className="section-title">Made by hand,<br />for everyone.</h2>
         <div className="about-grid" style={{ marginTop: 48 }}>
-          <div className="about-portrait">
-            <Slot id="about-portrait" label="Studio portrait" hint="3:4 portrait of Spencer" />
-          </div>
           <div className="about-text">
             {BIO_LONG.map((p, i) => <p key={i}>{p}</p>)}
             <p style={{ marginTop: 16 }}>

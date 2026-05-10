@@ -36,7 +36,7 @@ src/
   styles.css            all styles (cinema theme via [data-theme])
   case-studies/         one file per non-FIFA collection (Bloodmoon, Frame, Gothic, ...)
   lib/
-    image-slot.js       <image-slot> custom element (used by About portrait)
+    image-slot.js       <image-slot> custom element (work tiles, process strip, detail hero)
     tweaks.jsx          stub for the design-tool tweaks panel (renders nothing)
 public/
   assets/               runway.mp4 + per-collection imagery
