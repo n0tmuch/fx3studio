@@ -124,17 +124,19 @@ function Hero({ videoMode }) {
       <div className="hero-overlay" />
       <div className="hero-content">
         <h1 className="hero-name">
-          <br />Fx3 Studio<em></em>
+          Spencer Harrison<em></em>
         </h1>
       </div>
       <div className="hero-bottom">
-        <p className="hero-tagline" style={{ position: "relative", zIndex: 2, color: "inherit", margin: 0 }}>
-          A fashion atelier built on individuality, handmade detail, and authentic expression.
-        </p>
-        <div className="hero-meta" style={{ fontFamily: "\"JetBrains Mono\"", fontSize: "16px" }}>
-          <div className="hero-meta-line">Spencer Harrison</div>
+        <div className="hero-meta hero-meta-left" style={{ fontFamily: "\"JetBrains Mono\"", fontSize: "16px" }}>
           <div className="hero-meta-line">Founder · Designer</div>
           <div className="hero-meta-line">Los Angeles · CA</div>
+        </div>
+        <div className="hero-studio">
+          <div className="hero-studio-name">Fx3 Studio</div>
+          <p className="hero-tagline" style={{ position: "relative", zIndex: 2, color: "inherit", margin: 0 }}>
+            A fashion atelier built on individuality, handmade detail, and authentic expression.
+          </p>
         </div>
       </div>
       <div className="hero-scrollcue">Scroll</div>

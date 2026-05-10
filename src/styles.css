@@ -185,6 +185,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: flex; flex-direction: column; gap: 6px;
   min-width: 200px;
 }
+.hero-meta-left { text-align: left; min-width: 0; }
 .hero-meta-line { opacity: 0.85; }
 .hero-bottom {
   position: relative; z-index: 2;
@@ -192,16 +193,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   gap: 32px;
   margin-top: 28px;
 }
-@media (max-width: 720px) {
+.hero-studio {
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 12px;
+  text-align: right;
+  max-width: 340px;
+}
+.hero-studio-name {
+  font-family: var(--mono);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.95;
+}
+@media (max-width: 1024px) {
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-studio { align-items: flex-start; text-align: left; max-width: 100%; }
 }
 .hero-tagline {
   font-family: var(--display);
-  font-size: clamp(20px, 2.4vw, 32px);
+  font-size: clamp(16px, 1.7vw, 22px);
   font-style: italic;
-  line-height: 1.2;
-  max-width: 560px;
-  margin-top: 28px;
+  line-height: 1.25;
+  max-width: 100%;
+  margin-top: 0;
+  text-wrap: balance;
 }
 [data-theme="zine"] .hero-tagline { font-style: normal; font-family: var(--body); font-weight: 500; }
 
