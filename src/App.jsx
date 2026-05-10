@@ -18,8 +18,20 @@ export function App() {
     document.documentElement.setAttribute('data-theme', t.theme);
   }, [t.theme]);
 
-  const openProject = (id) => setOpenId(id);
-  const closeProject = () => setOpenId(null);
+  useEffect(() => {
+    const onPop = (e) => setOpenId(e.state?.project ?? null);
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  const openProject = (id) => {
+    window.history.pushState({ project: id }, '');
+    setOpenId(id);
+  };
+  const closeProject = () => {
+    if (window.history.state?.project) window.history.back();
+    else setOpenId(null);
+  };
   const collection = openId ? COLLECTIONS.find((c) => c.id === openId) : null;
 
   return (
