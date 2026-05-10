@@ -19,7 +19,7 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
           <h2 className="fifa-section-title">The book, cover to flats.</h2>
         </div>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((n) =>
-        <React.Fragment key={n}>
+        <div key={n} className="fe-page-group">
             <div className="fifa-fullbleed bm-page">
               <img src={img(`page-${n}.jpeg`)} alt={`Page ${n} · book spread`} />
               <div className="fifa-cap">Page {n}.</div>
@@ -40,7 +40,7 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
                 </div>
               </div>
           }
-          </React.Fragment>
+          </div>
         )}
       </section>
 

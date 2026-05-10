@@ -20,13 +20,13 @@ export function RevolveCaseStudy({ collection, onClose }) {
       </button>
 
       {/* HERO: runway */}
-      <div className="fifa-hero">
+      <div className="fifa-hero contain">
         <img src={img("IMG_8644.jpeg")} alt="Revolve × Otis: runway hero" />
         <div className="fifa-hero-overlay" />
         <div className="fifa-hero-text">
           <div className="fifa-eyebrow">{c.no} · Revolve × Otis · {c.year}</div>
           <h1 className="fifa-title">Revolve<br /><em>× Otis</em></h1>
-          <div className="fifa-subtitle">A junior-year mentorship in mortality, dye, and reconstructed denim.</div>
+          <div className="fifa-subtitle">A junior-year mentorship in dye and deconstructed denim.</div>
         </div>
       </div>
 
@@ -38,8 +38,8 @@ export function RevolveCaseStudy({ collection, onClose }) {
             <div className="fifa-meta-row"><span>Year</span><span>{c.year}</span></div>
             <div className="fifa-meta-row"><span>Show</span><span>Otis Junior Fashion Show</span></div>
             <div className="fifa-meta-row"><span>Looks</span><span>Four groups: A · B · C · D</span></div>
-            <div className="fifa-meta-row"><span>Treatments</span><span>Reverse embroidery · ombré dye · reconstructed denim</span></div>
-            <div className="fifa-meta-row"><span>Role</span><span>Concept · dye · pattern · construction · show production</span></div>
+            <div className="fifa-meta-row"><span>Treatments</span><span>Reverse embroidery · ombré dye · deconstructed denim</span></div>
+            <div className="fifa-meta-row"><span>Role</span><span>Conceptualized and illustrated a full collection · dye yardage · drape · pattern · construction · show production</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
@@ -50,8 +50,8 @@ export function RevolveCaseStudy({ collection, onClose }) {
 
       {/* CONCEPT */}
       <section className="fifa-section">
-        <Mark no="01" label="Concept" title="What's underneath the surface." />
-        <p className="fifa-lede">The collection began with anatomical drawing, ribcages and skulls treated as architecture, not decoration. Three treatments map across the lineup: ensemble construction, reverse embroidery on knit, and dip-dye gradient running from sky-blue at the shoulder to bleed-pink at the hem.
+        <Mark no="01" label="Concept" title="A night at the club." />
+        <p className="fifa-lede">The prompt for this mentor project was a night at the club, DJs and dancing. Three treatments map across the lineup: ensemble construction, reverse embroidery on knit, and dip-dye gradient running from sky-blue at the shoulder to bleed-pink at the hem.
 
 
 
@@ -64,7 +64,7 @@ export function RevolveCaseStudy({ collection, onClose }) {
 
       {/* COLOR / FABRIC */}
       <section className="fifa-section">
-        <Mark no="02" label="Color & Fabric" title="Sky, bleed, bone, brick." />
+        <Mark no="02" label="Color & Fabric" title="Sky, bleed, sand, brick." />
         <div className="fifa-pair">
           <figure>
             <img src={img("10 Large.jpeg")} alt="Fabric and dye swatch board" />

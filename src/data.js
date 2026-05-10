@@ -48,9 +48,9 @@ export const COLLECTIONS = [
     year: "2024",
     role: "mentorship · Otis College",
     blurb:
-      "A junior-year collection developed under the Revolve × Otis mentorship.  Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim. The lineup translates anatomical drawing, ribcages, skulls, the architecture of bone into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
+      "A junior-year collection developed under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, dying yardage, and deconstructed denim. Every dyed yard was hand-treated by Spencer himself, no studio shortcuts, just a home bathtub and buckets, before being cut, patterned, and constructed for the runway.",
     concept:
-      "The starting point was the body underneath the body, what we look like when the surface is taken away. Reverse-embroidered ribcages bleed across mesh and jersey; ombré dye runs from sky-blue at the shoulder to bleed-pink at the hem; skull-tunic graphics sit over wide, drop-rise denim. Across four groups (A · ensemble, B · reverse embroidery, C · dye treatment, D · skull motif), every fabric in the collection was hand-treated in the dye studio before it was cut.",
+      "The prompt for this mentor project was a night at a club. DJs and dancing.",
     tags: ["Womenswear", "Junior show", "Otis 2024", "Revolve × Otis"],
     looks: 12,
     feature: false,
