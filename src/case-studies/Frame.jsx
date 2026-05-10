@@ -37,9 +37,9 @@ export function FrameCaseStudy({ collection, onClose }) {
             <div className="fifa-meta-row"><span>Project</span><span>FRAME × Salvation Army × Otis</span></div>
             <div className="fifa-meta-row"><span>Period</span><span>Aug 2025 – Jan 2026</span></div>
             <div className="fifa-meta-row"><span>Show</span><span>Mentor-selected look, fitted by hand</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>Three groups: A · B · C · 11 plates</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>Three groups: A · B · C</span></div>
             <div className="fifa-meta-row"><span>Treatments</span><span>Cable-felt fusion · deconstructed transparency · cord lacing</span></div>
-            <div className="fifa-meta-row"><span>Role</span><span>Concept · sourcing · dye · drape · pattern · hand construction</span></div>
+            <div className="fifa-meta-row"><span>Role</span><span>Concept · sourcing · drape · pattern · hand construction</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
@@ -52,7 +52,7 @@ export function FrameCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="fifa-fullbleed">
           <img src={img("cover-typewriter.jpeg")} alt="FRAME × Salvation Army × Otis title plate" style={{ background: "#f5f1ea" }} />
-          <div className="fifa-cap">Title plate · cream cable + indigo open-knit, the two material languages of the collection.</div>
+          <div className="fifa-cap">Title plate · cream cable + navy open-knit, the two material languages of the collection.</div>
         </div>
       </section>
 
@@ -60,10 +60,7 @@ export function FrameCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <Mark no="01" label="Concept" title="Two treatments, one collection." />
         <p className="fifa-lede">
-          Every fabric in the collection started as a donated Salvation Army garment, sweaters, table linens, knit curtains, second-hand cardigans. Two material languages emerged from the dye studio and the pattern table: a cream 
-
-          <em>cable-felt fusion</em> built up by hand, and a navy <em>deconstructed transparency</em> where
-          knit is sliced, opened, and re-laced through silk mesh.
+          Every fabric in the collection started as a donated Salvation Army garment, sweaters, table linens, knit curtains, second-hand cardigans. Two material languages emerged at the pattern table: a cream <em>cable-felt fusion</em> built up by hand, and a navy <em>deconstructed transparency</em> where knit is sliced, opened, and re-laced through silk mesh.
         </p>
         <div className="fifa-pair">
           <figure>
@@ -141,7 +138,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* GROUP C: Deconstructed transparency lineup */}
       <section className="fifa-section">
-        <Mark no="04" label="Group C · Deconstructed Transparency" title="Indigo, sliced, re-laced." />
+        <Mark no="04" label="Group C · Deconstructed Transparency" title="Navy, sliced, re-laced." />
         <div className="fifa-pair">
           <figure>
             <img src={img("C-group-lineup.jpeg")} alt="Group C lineup: front view" style={{ background: "#fff" }} />
@@ -149,23 +146,23 @@ export function FrameCaseStudy({ collection, onClose }) {
           </figure>
           <figure>
             <img src={img("B-group-lineup.jpeg")} alt="Group C lineup: back view" style={{ background: "#fff" }} />
-            <figcaption>Back · the same lineup · cord-laced seams visible through the indigo knit.</figcaption>
+            <figcaption>Back · the same lineup · cord-laced seams visible through the navy knit.</figcaption>
           </figure>
         </div>
       </section>
 
-      {/* PROCESS: sourcing, dye, knit reconstruction */}
+      {/* PROCESS: sourcing, knit reconstruction */}
       <section className="fifa-section">
-        <Mark no="05" label="In the studio" title="Donated, dyed, dismantled, re-laced." />
-        <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were dyed indigo or stripped to cream, then sliced into bands, opened on the loom, and re-laced through dyed silk mesh by hand.
+        <Mark no="05" label="In the studio" title="Donated, dismantled, re-laced." />
+        <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were sorted by tone, then sliced into bands, opened on the loom, and re-laced through silk mesh by hand.
 
 
 
         </p>
         <div className="fifa-pair">
           <figure>
-            <img src={img("process-overview.jpeg")} alt="Process overview: sliced indigo knit panel laid flat" />
-            <figcaption>Panel layout · indigo knit cut into horizontal bands, ready to be re-laced.</figcaption>
+            <img src={img("process-overview.jpeg")} alt="Process overview: sliced navy knit panel laid flat" />
+            <figcaption>Panel layout · navy knit cut into horizontal bands, ready to be re-laced.</figcaption>
           </figure>
           <figure>
             <img src={img("process-board.jpeg")} alt="Process board: cord, mesh, and knit components" />
@@ -254,7 +251,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 03 · FRAME × Salvation Army × Otis · Mentorship · 2025–2026</span>
+        <span>End · 03 · FRAME × Salvation Army × Otis · mentorship · 2025–2026</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

@@ -30,11 +30,11 @@ export const COLLECTIONS = [
     title: "FIFA 1904",
     subtitle: "FIFA × Otis · Senior Thesis",
     year: "2026",
-    role: "Mentorship · Otis College",
+    role: "mentorship · Otis College",
     blurb:
-      "A four-look senior thesis built around the FIFA × Otis brief, a hypothetical womenswear capsule for the modern fútbol fan. Set against the layered architecture and sun-faded color of Buenos Aires, the collection translates terrace culture, Argentine athleisure, and stadium graphics into tailored coats, drape skirts, and FIFA-stripe jacquard.",
+      "A four-look senior thesis built around the FIFA 1904 × Otis mentorship, a hypothetical womenswear capsule for the modern fútbol fan. Set against the layered architecture and sun-faded color of Buenos Aires, the collection translates terrace culture, Argentine athleisure, and stadium graphics into tailored coats, drape skirts, and FIFA-stripe jacquard.",
     concept:
-      "The starting point was a single question: what does a fútbol fan wear off the pitch? The collection answers it through the lens of Buenos Aires, Palermo terraces at golden hour, La Boca's painted facades, the brick-and-bedsheet warmth of an artist's loft. Each look pairs an oversized tailored topper with a fluid bottom, threading FIFA stripe and 1904 graphics through suiting, jersey knit, and crepe wool. The result is a wardrobe for a 31-year-old painter named Fan who plays rec-league soccer on weekends and dresses like she owns the city.",
+      "The starting point was a single question: what does a fútbol fan wear at the game and around town? The collection answers it through the lens of Buenos Aires, Palermo terraces at golden hour, La Boca's painted facades, the brick-and-bedsheet warmth of an artist's loft. Each look pairs an oversized tailored topper with a fluid bottom, threading FIFA stripe and 1904 graphics through suiting, jersey knit, and crepe wool. The result is a wardrobe for a 31-year-old painter named Fan who plays rec-league soccer on weekends and dresses like she owns the city.",
     tags: ["Womenswear", "Senior thesis", "Otis 2026", "FIFA × Otis"],
     looks: 12,
     feature: true,
@@ -44,11 +44,11 @@ export const COLLECTIONS = [
     no: "03",
     category: "Mentor Projects",
     title: "Revolve × Otis",
-    subtitle: "Junior Mentorship",
+    subtitle: "Junior mentorship",
     year: "2024",
-    role: "Mentorship · Otis College",
+    role: "mentorship · Otis College",
     blurb:
-      "A junior-year mentorship collection developed under the Revolve × Otis brief.  Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim. The lineup translates anatomical drawing, ribcages, skulls, the architecture of bone into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
+      "A junior-year collection developed under the Revolve × Otis mentorship.  Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim. The lineup translates anatomical drawing, ribcages, skulls, the architecture of bone into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
     concept:
       "The starting point was the body underneath the body, what we look like when the surface is taken away. Reverse-embroidered ribcages bleed across mesh and jersey; ombré dye runs from sky-blue at the shoulder to bleed-pink at the hem; skull-tunic graphics sit over wide, drop-rise denim. Across four groups (A · ensemble, B · reverse embroidery, C · dye treatment, D · skull motif), every fabric in the collection was hand-treated in the dye studio before it was cut.",
     tags: ["Womenswear", "Junior show", "Otis 2024", "Revolve × Otis"],
@@ -60,13 +60,13 @@ export const COLLECTIONS = [
     no: "02",
     category: "Mentor Projects",
     title: "FRAME × Salvation Army",
-    subtitle: "Otis Mentorship",
+    subtitle: "Otis mentorship",
     year: "2025–26",
-    role: "Mentorship · Otis College",
+    role: "mentorship · Otis College",
     blurb:
-      "An upcycled knitwear collection developed under the FRAME × Salvation Army × Otis mentorship. Eleven plates across three groups, every fabric sourced from donated garments. Cable-felt fusion in cream meets deconstructed open-knit transparency in navy; the mentor-selected long coat (C3) was draped, patterned, cut, and sewn entirely by hand.",
+      "An upcycled knitwear collection developed under the FRAME × Salvation Army × Otis mentorship. Across three groups, every fabric sourced from donated garments. Cable-felt fusion in cream meets deconstructed open-knit transparency in navy; the mentor-selected long coat (C3) was draped, patterned, cut, and sewn entirely by hand.",
     concept:
-      "The brief asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and re-laced through dyed silk mesh by hand. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the indigo lace coat family, finished with cord-pleat backs and lace-paneled hems.",
+      "The mentorship asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and re-laced through silk mesh by hand. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the navy lace coat family, finished with cord-pleat backs and lace-paneled hems.",
     tags: ["Knitwear", "Upcycling", "Otis 2025–26", "FRAME × Salvation Army"],
     looks: 11,
   },
@@ -191,7 +191,7 @@ export const EXPERIENCE = [
   },
   {
     role: "FRAME × Salvation Army × Otis College of Art and Design",
-    company: "Mentorship Project",
+    company: "mentorship Project",
     period: "Aug 2025 – Jan 2026",
     bullets: [
       "Conceptualized and executed an upcycled knitwear collection, transforming donated garments into elevated, gallery-ready designs.",
@@ -212,7 +212,7 @@ export const EXPERIENCE = [
   },
   {
     role: "Revolve × Otis College of Art and Design",
-    company: "Junior Mentorship Project",
+    company: "Junior mentorship Project",
     period: "2024",
     bullets: [
       "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim.",

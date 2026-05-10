@@ -172,7 +172,7 @@ function WorkGrid({ openProject }) {
       <div className="container">
         <div className="eyebrow">Selected work · 2021–2026</div>
         <h2 className="section-title">Selected work.</h2>
-        <p className="section-lede">Ten projects spanning mentor briefs, portfolio books, full collections, and production tech packs. Each is rooted in a specific narrative built look-by-look, hand-finished where it matters.</p>
+        <p className="section-lede">Ten projects spanning mentor projects, portfolio books, full collections, and production tech packs. Each is rooted in a specific narrative built look-by-look, hand-finished where it matters.</p>
       </div>
 
       {grouped.map((g) =>
@@ -388,9 +388,9 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <img src={img("1 Large.jpeg")} alt="FIFA 1904: editorial hero" />
         <div className="fifa-hero-overlay" style={{ backgroundSize: "contain" }} />
         <div className="fifa-hero-text">
-          <div className="fifa-eyebrow">{c.no} · FIFA × Otis · {c.year}</div>
+          <div className="fifa-eyebrow">{c.no} · FIFA 1904 · {c.year}</div>
           <h1 className="fifa-title">FIFA<br /><em>1904</em></h1>
-          <div className="fifa-subtitle">A senior thesis in fútbol fandom, Buenos Aires color, and tailored athleisure.</div>
+          <div className="fifa-subtitle">Conceptualized and pitched an original luxury streetwear collection to Creative Director Marcus Clayton and the team at FIFA 1904.</div>
         </div>
       </div>
 
@@ -398,7 +398,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
       <section className="fifa-section fifa-intro">
         <div className="fifa-intro-grid">
           <div className="fifa-intro-meta">
-            <div className="fifa-meta-row"><span>Project</span><span>FIFA × Otis Senior Show</span></div>
+            <div className="fifa-meta-row"><span>Project</span><span>FIFA 1904 × Otis</span></div>
             <div className="fifa-meta-row"><span>Year</span><span>{c.year}</span></div>
             <div className="fifa-meta-row"><span>Looks</span><span>Four: Group A · Group B · Group C · Group D</span></div>
             <div className="fifa-meta-row"><span>Setting</span><span>Buenos Aires, Argentina</span></div>
@@ -414,7 +414,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* CONCEPT */}
       <section className="fifa-section">
-        <SectionMark no="01" label="Concept" title="Buenos Aires, after the match." />
+        <SectionMark no="01" label="Concept" title="Buenos Aires at the game and after the match." />
         <p className="fifa-lede">
           The collection is built around the look of a city: the obelisk at sundown, La Boca's painted board-and-batten facades,
           the brick-and-bedsheet warmth of a Palermo loft, and the dust-scattered light of a stadium when the floodlights lift.
@@ -422,7 +422,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         </p>
         <div className="fifa-fullbleed">
           <img src={img("3 Large.jpeg")} alt="Concept board: Buenos Aires references" />
-          <div className="fifa-cap">Concept board · Palermo, La Boca, Avenida 9 de Julio, stadium light, terrace breakfasts.</div>
+          <div className="fifa-cap">Concept board · Palermo, La Boca, stadium light, terrace breakfasts.</div>
         </div>
       </section>
 
@@ -440,7 +440,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
               <div><dt>Energy</dt><dd>Tomboy · community-oriented · goal-focused</dd></div>
               <div><dt>Style</dt><dd>Athleisure · new money · die-hard fan</dd></div>
             </dl>
-            <p className="fifa-customer-day">Wakes at 9:30, espresso and a pastry at the corner café, into the studio by mid-morning. Setting up an art show one weekend, after-parties the next. Plays rec-league soccer with friends, attends matches at home and on holiday.
+            <p className="fifa-customer-day">Wakes at 9:30, espresso and a pastry at the corner café, into the studio by mid-morning. Setting up an art show one weekend, after-parties the next. Plays rec-league soccer with friends, attends matches at home and away on holidays.
 
 
 
@@ -454,7 +454,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* COLOR + FABRIC */}
       <section className="fifa-section">
-        <SectionMark no="03" label="Color & Fabric" title="Stadium dusk. Loft brick. Cotton wool." />
+        <SectionMark no="03" label="Color & Fabric" title="Stadium dusk. Loft brick. La Bocas." />
         <div className="fifa-fullbleed">
           <img src={img("4 Large.jpeg")} alt="Color story: Buenos Aires palette" />
           <div className="fifa-cap">Color story · Argentine sky-blue, obelisk amber, deep navy, Palermo brick, sand, charcoal.</div>
@@ -465,20 +465,15 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
             <figcaption>Story 1 · Wool crepe · cotton wool · rib knit · jersey · wool suiting.</figcaption>
           </figure>
           <figure>
-            <img src={img("6 Large.jpeg")} alt="Fabric story 2" />
+            <img src={img("22(1) Large.jpeg")} alt="Fabric story 2" />
             <figcaption>Story 2 · Cotton faux fur · suiting · wool crepe · rib knit · rayon satin.</figcaption>
           </figure>
-        </div>
-        <div className="fifa-palette">
-          {["#7da9c8", "#4d6f8c", "#1d3349", "#efe7d8", "#d8b896", "#6b3a25", "#2a1c14", "#0e0e0e"].map((sw, i) =>
-          <div key={i} className="fifa-swatch" style={{ background: sw }} />
-          )}
         </div>
       </section>
 
       {/* SWIPES */}
       <section className="fifa-section">
-        <SectionMark no="04" label="Design Swipes" title="Six details, traced and stolen." />
+        <SectionMark no="04" label="Design Swipes" title="Six details." />
         <p className="fifa-lede">Detail research from existing garments, the language of pockets, plackets, and stripes that the collection would inherit and reinterpret. Snap closures, bib panels, FIFA stripe, bellows pockets, zipper plackets, quilted seams.
 
 

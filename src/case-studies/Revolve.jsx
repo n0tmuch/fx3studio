@@ -34,7 +34,7 @@ export function RevolveCaseStudy({ collection, onClose }) {
       <section className="fifa-section fifa-intro">
         <div className="fifa-intro-grid">
           <div className="fifa-intro-meta">
-            <div className="fifa-meta-row"><span>Project</span><span>Revolve × Otis Junior Mentorship</span></div>
+            <div className="fifa-meta-row"><span>Project</span><span>Revolve × Otis Junior mentorship</span></div>
             <div className="fifa-meta-row"><span>Year</span><span>{c.year}</span></div>
             <div className="fifa-meta-row"><span>Show</span><span>Otis Junior Fashion Show</span></div>
             <div className="fifa-meta-row"><span>Looks</span><span>Four groups: A · B · C · D</span></div>
@@ -215,7 +215,7 @@ export function RevolveCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 02 · Revolve × Otis · Junior Mentorship · 2025</span>
+        <span>End · 02 · Revolve × Otis · Junior mentorship · 2025</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);
