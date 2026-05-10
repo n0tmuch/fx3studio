@@ -2,7 +2,7 @@
 // 6-page production tech pack for the Avenue Collection green rain coat.
 // Style: hood wraps · drawstring waist · size 26-28 (XXL) · fall.
 
-function TechPackCaseStudy({ collection, onClose }) {
+export function TechPackCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/techpack/${n}`;
 
@@ -71,4 +71,3 @@ function TechPackCaseStudy({ collection, onClose }) {
 
 }
 
-window.TechPackCaseStudy = TechPackCaseStudy;

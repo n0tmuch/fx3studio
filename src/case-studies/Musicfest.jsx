@@ -1,7 +1,7 @@
 // ---------- MUSIC FESTIVAL PERFORMERS · PORTFOLIO BOOK ----------
 // Mirrors the Blood Moon book layout: short intro, then full-bleed pages.
 
-function MusicFestCaseStudy({ collection, onClose }) {
+export function MusicFestCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/musicfest/${n}`;
 
@@ -76,4 +76,3 @@ function MusicFestCaseStudy({ collection, onClose }) {
 
 }
 
-window.MusicFestCaseStudy = MusicFestCaseStudy;

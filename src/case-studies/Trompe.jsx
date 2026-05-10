@@ -3,7 +3,7 @@
 // Layout matches Blood Moon / Fold Ease / Music Fest: cover first, then intro
 // inline under the cover, then remaining pages full-bleed.
 
-function TrompeCaseStudy({ collection, onClose }) {
+export function TrompeCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/trompe/${n}`;
 
@@ -73,4 +73,3 @@ function TrompeCaseStudy({ collection, onClose }) {
 
 }
 
-window.TrompeCaseStudy = TrompeCaseStudy;

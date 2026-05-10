@@ -1,6 +1,6 @@
 // ---------- FRAME × SALVATION ARMY × OTIS CASE STUDY ----------
 // Senior mentorship · upcycled knitwear collection. Mirrors RevolveCaseStudy structure.
-function FrameCaseStudy({ collection, onClose }) {
+export function FrameCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/frame/${n}`;
 
@@ -261,4 +261,3 @@ function FrameCaseStudy({ collection, onClose }) {
 
 }
 
-window.FrameCaseStudy = FrameCaseStudy;

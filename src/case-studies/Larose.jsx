@@ -2,7 +2,7 @@
 // 10-page menswear A/W 2025 concept book inspired by Dorothea Tanning's
 // painting "La Rose et le Chien" (1952). Cover-to-flats with installation shot.
 
-function LaRoseCaseStudy({ collection, onClose }) {
+export function LaRoseCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/larose/${n}`;
 
@@ -82,4 +82,3 @@ function LaRoseCaseStudy({ collection, onClose }) {
 
 }
 
-window.LaRoseCaseStudy = LaRoseCaseStudy;

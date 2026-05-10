@@ -1,6 +1,6 @@
 // ---------- FOLD INTO THE EASE · PORTFOLIO BOOK ----------
 // Hybrid format: short hero + intro, then book pages 1–8 as full-bleed plates.
-function FoldEaseCaseStudy({ collection, onClose }) {
+export function FoldEaseCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/foldease/${n}`;
 
@@ -52,4 +52,3 @@ function FoldEaseCaseStudy({ collection, onClose }) {
 
 }
 
-window.FoldEaseCaseStudy = FoldEaseCaseStudy;

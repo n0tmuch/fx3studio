@@ -2,7 +2,7 @@
 // Hybrid format: short hero + intro, then book pages 1–6 as full-bleed plates.
 // Pages updated Nov 2026 — corrected spelling/numbering, six-page final book.
 
-function BloodMoonCaseStudy({ collection, onClose }) {
+export function BloodMoonCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/bloodmoon/${n}`;
 
@@ -85,4 +85,3 @@ function BloodMoonCaseStudy({ collection, onClose }) {
 
 }
 
-window.BloodMoonCaseStudy = BloodMoonCaseStudy;

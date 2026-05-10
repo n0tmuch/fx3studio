@@ -1,6 +1,16 @@
 // components.jsx — small reusable building blocks for the Fx3 Studio site.
 
-const { useState, useEffect, useRef } = React;
+import { useState, useEffect, useRef } from "react";
+import { SITE, BIO_LONG, BIO_SUMMARY, COLLECTIONS, EXPERIENCE, EDUCATION, SKILLS } from "./data.js";
+import { RevolveCaseStudy } from "./case-studies/Revolve.jsx";
+import { FrameCaseStudy } from "./case-studies/Frame.jsx";
+import { BloodMoonCaseStudy } from "./case-studies/Bloodmoon.jsx";
+import { MusicFestCaseStudy } from "./case-studies/Musicfest.jsx";
+import { TrompeCaseStudy } from "./case-studies/Trompe.jsx";
+import { GothicCaseStudy } from "./case-studies/Gothic.jsx";
+import { LaRoseCaseStudy } from "./case-studies/Larose.jsx";
+import { TechPackCaseStudy } from "./case-studies/Techpack.jsx";
+import { FoldEaseCaseStudy } from "./case-studies/Foldease.jsx";
 
 // Image slot placeholder — labeled, dashed, monospace.
 // `label` describes what the image SHOULD be ("Hero · Look 01").
@@ -135,7 +145,7 @@ function Hero({ videoMode }) {
 // ---------- WORK GRID ----------
 function WorkGrid({ openProject }) {
   const CATEGORY_ORDER = ["Mentor Projects", "Portfolio Book", "Collections", "Tech Pack"];
-  const sorted = [...window.COLLECTIONS].sort((a, b) => a.no.localeCompare(b.no));
+  const sorted = [...COLLECTIONS].sort((a, b) => a.no.localeCompare(b.no));
   const grouped = CATEGORY_ORDER.map((cat) => ({
     cat,
     items: sorted.filter((c) => c.category === cat)
@@ -209,7 +219,7 @@ function About() {
             <Slot id="about-portrait" label="Studio portrait" hint="3:4 portrait of Spencer" />
           </div>
           <div className="about-text">
-            {window.BIO_LONG.map((p, i) => <p key={i}>{p}</p>)}
+            {BIO_LONG.map((p, i) => <p key={i}>{p}</p>)}
             <p style={{ marginTop: 16 }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--fg-dim)" }}>
                 Inspirations ·
@@ -257,12 +267,12 @@ function CV() {
       h3{font-size:16px;margin-top:18px}p{margin:4px 0}ul{margin:6px 0 0 20px}li{margin-bottom:4px;font-size:14px}
       .meta{color:#555;font-size:13px}@media print{body{margin:0}}</style></head><body>
       <h1>Spencer Harrison</h1><p class="meta">Fx3 Studio · Founder & Designer · Los Angeles, CA</p>
-      <p class="meta">${window.SITE.email} · ${window.SITE.domain}</p>
-      <h2>Summary</h2><p>${window.BIO_SUMMARY}</p>
+      <p class="meta">${SITE.email} · ${SITE.domain}</p>
+      <h2>Summary</h2><p>${BIO_SUMMARY}</p>
       <h2>Experience</h2>
-      ${window.EXPERIENCE.map((e) => `<h3>${e.role} — ${e.company}</h3><p class="meta">${e.period}</p><ul>${e.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`).join("")}
-      <h2>Education</h2>${window.EDUCATION.map((e) => `<h3>${e.school}</h3><p>${e.degree}</p><p class="meta">${e.period} · ${e.location}</p>`).join("")}
-      <h2>Skills</h2><p>${window.SKILLS.join(" · ")}</p>
+      ${EXPERIENCE.map((e) => `<h3>${e.role} — ${e.company}</h3><p class="meta">${e.period}</p><ul>${e.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`).join("")}
+      <h2>Education</h2>${EDUCATION.map((e) => `<h3>${e.school}</h3><p>${e.degree}</p><p class="meta">${e.period} · ${e.location}</p>`).join("")}
+      <h2>Skills</h2><p>${SKILLS.join(" · ")}</p>
       <script>window.print()<\/script></body></html>`);
     win.document.close();
   };
@@ -273,10 +283,10 @@ function CV() {
         <div className="eyebrow">Curriculum Vitae</div>
         <h2 className="section-title">Experience.</h2>
         <p className="section-lede">
-          Internships, runway production, and senior thesis work. {window.BIO_SUMMARY}
+          Internships, runway production, and senior thesis work. {BIO_SUMMARY}
         </p>
 
-        {window.EXPERIENCE.map((e, i) =>
+        {EXPERIENCE.map((e, i) =>
         <div className="cv-grid" key={i}>
             <div className="cv-label">Experience<br />{String(i + 1).padStart(2, "0")}</div>
             <div className="cv-entry">
@@ -295,7 +305,7 @@ function CV() {
         <div className="cv-grid">
           <div className="cv-label">Education</div>
           <div>
-            {window.EDUCATION.map((e, i) =>
+            {EDUCATION.map((e, i) =>
             <div key={i} className="cv-entry">
                 <div className="cv-entry-head">
                   <div className="cv-role">{e.school}</div>
@@ -310,7 +320,7 @@ function CV() {
         <div className="cv-grid">
           <div className="cv-label">Skills</div>
           <div className="skills-cloud">
-            {window.SKILLS.map((s) => <span key={s} className="skill">{s}</span>)}
+            {SKILLS.map((s) => <span key={s} className="skill">{s}</span>)}
           </div>
         </div>
 
@@ -338,7 +348,7 @@ function Contact() {
           <dl className="contact-info">
             <div>
               <dt>Email</dt>
-              <dd><a href={`mailto:${window.SITE.email}`}>{window.SITE.email}</a></dd>
+              <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
             </div>
             <div>
               <dt>Studio</dt>
@@ -346,7 +356,7 @@ function Contact() {
             </div>
             <div>
               <dt>Instagram</dt>
-              <dd><a href="https://instagram.com/fx3studio" target="_blank" rel="noreferrer">{window.SITE.instagram}</a></dd>
+              <dd><a href="https://instagram.com/fx3studio" target="_blank" rel="noreferrer">{SITE.instagram}</a></dd>
             </div>
             <div>
               <dt>Open to</dt>
@@ -623,15 +633,15 @@ function ProjectDetail({ collection, onClose, fifaHeroMode }) {
   if (!collection) return null;
   const c = collection;
   if (c.id === "fifa1904") return <FifaCaseStudy collection={c} onClose={onClose} fifaHeroMode={fifaHeroMode} />;
-  if (c.id === "revolve-otis" && window.RevolveCaseStudy) return <window.RevolveCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "frame-salvation" && window.FrameCaseStudy) return <window.FrameCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "blood-moon" && window.BloodMoonCaseStudy) return <window.BloodMoonCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "music-fest" && window.MusicFestCaseStudy) return <window.MusicFestCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "trompe" && window.TrompeCaseStudy) return <window.TrompeCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "gothic-winter" && window.GothicCaseStudy) return <window.GothicCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "la-rose" && window.LaRoseCaseStudy) return <window.LaRoseCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "tech-pack" && window.TechPackCaseStudy) return <window.TechPackCaseStudy collection={c} onClose={onClose} />;
-  if (c.id === "fold-ease" && window.FoldEaseCaseStudy) return <window.FoldEaseCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "revolve-otis" && RevolveCaseStudy) return <RevolveCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "frame-salvation" && FrameCaseStudy) return <FrameCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "blood-moon" && BloodMoonCaseStudy) return <BloodMoonCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "music-fest" && MusicFestCaseStudy) return <MusicFestCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "trompe" && TrompeCaseStudy) return <TrompeCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "gothic-winter" && GothicCaseStudy) return <GothicCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "la-rose" && LaRoseCaseStudy) return <LaRoseCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "tech-pack" && TechPackCaseStudy) return <TechPackCaseStudy collection={c} onClose={onClose} />;
+  if (c.id === "fold-ease" && FoldEaseCaseStudy) return <FoldEaseCaseStudy collection={c} onClose={onClose} />;
 
   // gallery layout — varied to feel like a lookbook, repeats per project
   const galleryRows = [
@@ -692,4 +702,4 @@ function ProjectDetail({ collection, onClose, fifaHeroMode }) {
 
 }
 
-Object.assign(window, { Nav, Hero, WorkGrid, About, Process, CV, Contact, ProjectDetail, Slot, StripePlaceholder });
+export { Nav, Hero, WorkGrid, About, Process, CV, Contact, ProjectDetail, Slot, StripePlaceholder };

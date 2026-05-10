@@ -1,7 +1,6 @@
-// data.jsx — site content. Easy to edit.
-// All collections except "The Art of Duality" are placeholders Spencer can rename.
+// data.js — site content. Easy to edit.
 
-const SITE = {
+export const SITE = {
   studio: "Fx3 Studio",
   designer: "Spencer Harrison",
   role: "Founder · Fashion Designer",
@@ -14,18 +13,16 @@ const SITE = {
   instagram: "@fx3studio",
 };
 
-const BIO_SUMMARY =
+export const BIO_SUMMARY =
   "Spencer is a graduate in Fashion Design at Otis College of Art and Design, with a background in visual arts and photography. Highly driven by the creation of narratives through various media, their work integrates compelling conceptualization and skillful visualization. Spencer maintains communicative collaboration, positive team engagement, and an adaptive ability to take initiative while responding to direction.";
 
-const BIO_LONG = [
+export const BIO_LONG = [
   "Fx3 Studio is a fashion atelier based in Los Angeles, founded by artist and designer Spencer Harrison. We focus on creating pieces that are made for everyone and anyone. Individuality in celebration of authentic expression is our core principle.",
   "We are inspired by music, skateboarding, and underground art culture leading to pieces that showcase techniques in layering, handmade details, and bespoke personal designs. From the beginning, we have focused on creating custom pieces through understanding each individual we create for.",
   "Spencer approaches projects with the curiosity and confidence needed to try new things, maintains communicative collaboration and positive team engagement, and has an adaptive ability to take initiative while responding to direction.",
 ];
 
-// Ten collections grouped into four categories: Mentor Projects, Portfolio Book,
-// Collections, Tech Pack.
-const COLLECTIONS = [
+export const COLLECTIONS = [
   {
     id: "fifa1904",
     no: "01",
@@ -180,7 +177,7 @@ const COLLECTIONS = [
   },
 ];
 
-const EXPERIENCE = [
+export const EXPERIENCE = [
   {
     role: "FIFA 1904 × Otis College of Art and Design",
     company: "Senior Thesis Collaboration",
@@ -215,7 +212,7 @@ const EXPERIENCE = [
   },
 ];
 
-const SKILLS = [
+export const SKILLS = [
   "Fashion design",
   "Sewing",
   "Photography",
@@ -232,7 +229,7 @@ const SKILLS = [
   "Miro",
 ];
 
-const EDUCATION = [
+export const EDUCATION = [
   {
     school: "Otis College of Art and Design",
     period: "2021 – 2026",
@@ -240,11 +237,3 @@ const EDUCATION = [
     location: "Los Angeles, CA",
   },
 ];
-
-window.SITE = SITE;
-window.BIO_SUMMARY = BIO_SUMMARY;
-window.BIO_LONG = BIO_LONG;
-window.COLLECTIONS = COLLECTIONS;
-window.EXPERIENCE = EXPERIENCE;
-window.SKILLS = SKILLS;
-window.EDUCATION = EDUCATION;

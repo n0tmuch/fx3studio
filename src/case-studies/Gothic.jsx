@@ -3,7 +3,7 @@
 // felt + lace-quilted treatments. Layout matches Trompe / Blood Moon / Fold Ease /
 // Music Fest: cover first, intro inline under the cover, then remaining pages full-bleed.
 
-function GothicCaseStudy({ collection, onClose }) {
+export function GothicCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/gothic/${n}`;
 
@@ -91,4 +91,3 @@ function GothicCaseStudy({ collection, onClose }) {
 
 }
 
-window.GothicCaseStudy = GothicCaseStudy;

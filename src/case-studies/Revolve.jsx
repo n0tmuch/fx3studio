@@ -1,6 +1,6 @@
 // ---------- REVOLVE × OTIS CASE STUDY ----------
 // Junior-year mentorship collection. Mirrors FifaCaseStudy structure.
-function RevolveCaseStudy({ collection, onClose }) {
+export function RevolveCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/revolve/${n}`;
 
@@ -221,4 +221,3 @@ function RevolveCaseStudy({ collection, onClose }) {
     </div>);
 }
 
-window.RevolveCaseStudy = RevolveCaseStudy;
