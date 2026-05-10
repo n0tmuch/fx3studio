@@ -66,7 +66,7 @@ export const COLLECTIONS = [
     blurb:
       "An upcycled knitwear collection developed under the FRAME × Salvation Army × Otis mentorship. Across three groups, every fabric sourced from donated garments. Cable-felt fusion in cream meets deconstructed open-knit transparency in navy; the mentor-selected long coat (C3) was draped, patterned, cut, and sewn entirely by hand.",
     concept:
-      "The mentorship asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and re-laced through silk mesh by hand. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the navy lace coat family, finished with cord-pleat backs and lace-paneled hems.",
+      "The mentorship asked for elevated, gallery-ready design from second-hand material. Two languages emerged: in cream, wet-felted curls and cable braids fused into thick, sculptural surface; in navy, knit was sliced into horizontal bands, opened, and connected by I-cord ropes. Group A is fringe and fur-trim toppers; B is a cream two-look capsule; C is the navy lace coat family, finished with cord-pleat backs and lace-paneled hems.",
     tags: ["Knitwear", "Upcycling", "Otis 2025–26", "FRAME × Salvation Army"],
     looks: 11,
   },

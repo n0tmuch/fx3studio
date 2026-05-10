@@ -60,7 +60,7 @@ export function FrameCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <Mark no="01" label="Concept" title="Two treatments, one collection." />
         <p className="fifa-lede">
-          Every fabric in the collection started as a donated Salvation Army garment, sweaters, table linens, knit curtains, second-hand cardigans. Two material languages emerged at the pattern table: a cream <em>cable-felt fusion</em> built up by hand, and a navy <em>deconstructed transparency</em> where knit is sliced, opened, and re-laced through silk mesh.
+          Every fabric in the collection started as a donated Salvation Army garment, sweaters, table linens, knit curtains, second-hand cardigans. Two material languages emerged at the pattern table: a cream <em>cable-felt fusion</em> built up by hand, and a navy <em>deconstructed transparency</em> where knit is sliced, opened, and connected by I-cord ropes.
         </p>
         <div className="fifa-pair">
           <figure>
@@ -69,7 +69,7 @@ export function FrameCaseStudy({ collection, onClose }) {
           </figure>
           <figure>
             <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
-            <figcaption>Treatment B · deconstructed transparency: open knit re-laced over silk mesh ground.</figcaption>
+            <figcaption>Treatment B · deconstructed transparency: open knit connected by I-cord ropes.</figcaption>
           </figure>
         </div>
       </section>
@@ -142,7 +142,7 @@ export function FrameCaseStudy({ collection, onClose }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("C-group-lineup.jpeg")} alt="Group C lineup: front view" style={{ background: "#fff" }} />
-            <figcaption>Front · navy open-knit lineup · hand-laced through silk mesh.</figcaption>
+            <figcaption>Front · navy open-knit lineup · connected by I-cord ropes.</figcaption>
           </figure>
           <figure>
             <img src={img("B-group-lineup.jpeg")} alt="Group C lineup: back view" style={{ background: "#fff" }} />
@@ -154,7 +154,7 @@ export function FrameCaseStudy({ collection, onClose }) {
       {/* PROCESS: sourcing, knit reconstruction */}
       <section className="fifa-section">
         <Mark no="05" label="In the studio" title="Donated, dismantled, re-laced." />
-        <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were sorted by tone, then sliced into bands, opened on the loom, and re-laced through silk mesh by hand.
+        <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were sorted by tone, then sliced into bands, opened on the loom, and connected by I-cord ropes.
 
 
 
@@ -165,18 +165,18 @@ export function FrameCaseStudy({ collection, onClose }) {
             <figcaption>Panel layout · navy knit cut into horizontal bands, ready to be re-laced.</figcaption>
           </figure>
           <figure>
-            <img src={img("process-board.jpeg")} alt="Process board: cord, mesh, and knit components" />
-            <figcaption>Component map · cord, mesh ground, knit panels, eyelet trim.</figcaption>
+            <img src={img("process-board.jpeg")} alt="Process board: I-cord ropes and knit components" />
+            <figcaption>Component map · I-cord ropes, knit panels, eyelet trim.</figcaption>
           </figure>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("process-13.jpeg")} alt="Hand-lacing cord through eyelet knit" />
-            <figcaption>Hand-lacing · cord pulled through eyelet trim into the silk-mesh ground.</figcaption>
+            <figcaption>Hand-lacing · I-cord ropes pulled through eyelet trim to connect panels.</figcaption>
           </figure>
           <figure>
-            <img src={img("process-12.jpeg")} alt="Knit panel pinned to mesh on the table" />
-            <figcaption>Pinning · knit panel registered to mesh before lacing begins.</figcaption>
+            <img src={img("process-12.jpeg")} alt="Knit panel laid out on the table" />
+            <figcaption>Pinning · knit panel registered before lacing begins.</figcaption>
           </figure>
         </div>
         <div className="fifa-pair">
@@ -195,7 +195,7 @@ export function FrameCaseStudy({ collection, onClose }) {
             <figcaption>Hem · cord lacing carries through the full skirt panel on the form.</figcaption>
           </figure>
           <figure>
-            <img src={img("process-16.jpeg")} alt="Hand pinning a knit corner to mesh" />
+            <img src={img("process-16.jpeg")} alt="Hand finishing a knit corner" />
             <figcaption>Hand · finishing a corner before final lacing pass.</figcaption>
           </figure>
         </div>
