@@ -10,7 +10,7 @@ export const SITE = {
     "Fx3 Studio is a fashion atelier based in Los Angeles, founded by artist and designer Spencer Harrison. We make pieces for everyone and anyone, inspired by music, skateboarding, and underground art culture.",
   email: "spencer@fx3studio.com",
   domain: "fx3studio.com",
-  instagram: "@fx3studio",
+  instagram: "@fx3studiodesigns",
 };
 
 export const BIO_SUMMARY =

@@ -355,7 +355,7 @@ function Contact() {
             </div>
             <div>
               <dt>Instagram</dt>
-              <dd><a href="https://instagram.com/fx3studio" target="_blank" rel="noreferrer">{SITE.instagram}</a></dd>
+              <dd><a href="https://instagram.com/fx3studiodesigns" target="_blank" rel="noreferrer">{SITE.instagram}</a></dd>
             </div>
             <div>
               <dt>Open to</dt>
