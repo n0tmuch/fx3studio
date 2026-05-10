@@ -210,6 +210,16 @@ export const EXPERIENCE = [
       "Got proficient with Dropbox, Teams, and Slack. Learned how to navigate a line guide using a Miro board.",
     ],
   },
+  {
+    role: "Revolve × Otis College of Art and Design",
+    company: "Junior Mentorship Project",
+    period: "2024",
+    bullets: [
+      "Conceptualized and executed a twelve-look junior-year collection under the Revolve × Otis brief — four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim.",
+      "Translated anatomical motifs (ribcages, skulls, the architecture of bone) into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
+      "Hand-treated every fabric in the dye studio before cutting; developed reverse-embroidery and ombré dye-grading techniques across mesh, jersey, and denim.",
+    ],
+  },
 ];
 
 export const SKILLS = [
