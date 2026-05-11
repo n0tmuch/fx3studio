@@ -121,19 +121,6 @@ export function FrameCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* GROUP C: Deconstructed transparency lineup */}
-      <section className="fifa-section">
-        <Mark no="04" label="Group C · Deconstructed Transparency" title="Navy, sliced, re-laced." />
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("C-group-lineup.jpeg")} alt="Group C lineup: front view" style={{ background: "#fff" }} />
-          </figure>
-          <figure>
-            <img src={img("B-group-lineup.jpeg")} alt="Group C lineup: back view" style={{ background: "#fff" }} />
-          </figure>
-        </div>
-      </section>
-
       {/* PROCESS: sourcing, knit reconstruction */}
       <section className="fifa-section">
         <Mark no="05" label="In the studio" title="Donated, dismantled, re-laced." />
@@ -142,13 +129,8 @@ export function FrameCaseStudy({ collection, onClose }) {
 
 
         </p>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("process-overview.jpeg")} alt="Process overview: sliced navy knit panel laid flat" />
-          </figure>
-          <figure>
-            <img src={img("process-board.jpeg")} alt="Process board: I-cord ropes and knit components" />
-          </figure>
+        <div className="fifa-fullbleed">
+          <img src={img("process-board.jpeg")} alt="Process board: I-cord ropes and knit components" />
         </div>
         <div className="fifa-pair">
           <figure>
@@ -197,22 +179,6 @@ export function FrameCaseStudy({ collection, onClose }) {
           </figure>
           <figure>
             <img src={img("fitting-7410.jpeg")} alt="C3 long coat on dressform: hem detail" />
-          </figure>
-        </div>
-      </section>
-
-      {/* FITTING: on the model */}
-      <section className="fifa-section">
-        <Mark no="07" label="Fitting" title="In the studio" />
-        <div className="fifa-fullbleed">
-          <img src={img("runway-8161.jpeg")} alt="Final fitting: front view" />
-        </div>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("runway-8123.jpeg")} alt="Final fitting: side view" />
-          </figure>
-          <figure>
-            <img src={img("runway-8177.jpeg")} alt="Final fitting: back" />
           </figure>
         </div>
       </section>
