@@ -51,7 +51,7 @@ export function FrameCaseStudy({ collection, onClose }) {
       {/* COVER: typewriter title plate */}
       <section className="fifa-section">
         <div className="fifa-fullbleed">
-          <img src={img("cover-typewriter.jpeg")} alt="FRAME × Salvation Army × Otis title plate" style={{ background: "#f5f1ea" }} />
+          <img src={img("A1.jpeg")} alt="FRAME × Salvation Army × Otis title plate" style={{ background: "#f5f1ea" }} />
         </div>
       </section>
 
@@ -79,7 +79,7 @@ export function FrameCaseStudy({ collection, onClose }) {
         </div>
         <div className="fifa-pair">
           <figure>
-            <img src={img("A1.jpeg")} alt="A1 plate: fringe capelet + tulip skirt" style={{ background: "#fff" }} />
+            <img src={img("Cable Felt Large.jpeg")} alt="Cable Felt fusion: cream sweater forms in studio" style={{ background: "#fff" }} />
           </figure>
           <figure>
             <img src={img("A2.jpeg")} alt="A2 plate: wrap capelet + rib trouser" style={{ background: "#fff" }} />
