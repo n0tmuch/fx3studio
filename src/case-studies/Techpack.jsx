@@ -26,40 +26,17 @@ export function TechPackCaseStudy({ collection, onClose }) {
           <h2 className="fifa-section-title">The pack, cover to cuts.</h2>
         </div>
 
-        <Page n="5" alt="Page 1 · Rendered Flats and Exterior view"
-        />
+        <Page n="1" alt="Page 1 · Rear view" />
 
-        <div className="fifa-intro-grid fe-intro-after-cover">
-          <div className="fifa-intro-meta">
-            <div className="fifa-meta-row"><span>Project</span><span>Avenue Collection · Tech Pack</span></div>
-            <div className="fifa-meta-row"><span>Style</span><span>Green rain coat · hood wraps · drawstring waist</span></div>
-            <div className="fifa-meta-row"><span>Season</span><span>Fall · Street</span></div>
-            <div className="fifa-meta-row"><span>Size</span><span>26 – 28 · XXL · graded sample</span></div>
-            <div className="fifa-meta-row"><span>Self</span><span>100% Polyester · Army Green</span></div>
-            <div className="fifa-meta-row"><span>Lining</span><span>100% Nylon coated with polyurethane · Light Green</span></div>
-            <div className="fifa-meta-row"><span>Trim</span><span>Drawstring waistband · eyelets · elastic cuff and hem · L36 wooden buttons</span></div>
-            <div className="fifa-meta-row"><span>Pages</span><span>6 · rendered flats · arrows + spec · stitch detail · BOM · branding · pattern card</span></div>
-          </div>
-          <div className="fifa-intro-text">
-            <p className="fifa-blurb">{c.blurb}</p>
-            <p className="fifa-blurb dim">{c.concept}</p>
-          </div>
-        </div>
+        <Page n="2" alt="Page 2 · Interior view" />
 
-        <Page n="1" alt="Page 2 · Interior view and Arrows / Flats"
-        />
+        <Page n="3" alt="Page 3 · Spec Sheet and Bill of Materials" />
 
-        <Page n="3" alt="Page 3 · Spec Sheet and Bill of Materials"
-        />
+        <Page n="4" alt="Page 4 · Pattern Card" />
 
-        <Page n="2" alt="Page 4 · Exterior detail and Interior detail · stitch closeups"
-        />
+        <Page n="5" alt="Page 5 · Exterior view" />
 
-        <Page n="6" alt="Page 5 · Pattern Card · numbered pieces and cuts table"
-        />
-
-        <Page n="4" alt="Page 6 · Branding Page and Designer info"
-        />
+        <Page n="6" alt="Page 6 · Branding Page" />
       </section>
 
       <div className="fifa-end">

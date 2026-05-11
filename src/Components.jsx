@@ -162,7 +162,7 @@ function WorkGrid({ openProject }) {
     if (c.id === "trompe") return { src: "assets/trompe/page-1.jpeg", fit: "contain" };
     if (c.id === "gothic-winter") return { src: "assets/gothic/page-3.jpeg", fit: "contain" };
     if (c.id === "la-rose") return { src: "assets/larose/page-1.jpeg", fit: "contain" };
-    if (c.id === "tech-pack") return { src: "assets/techpack/page-5.jpeg", fit: "contain" };
+    if (c.id === "tech-pack") return { src: "assets/techpack/page-1.jpeg", fit: "contain" };
     if (c.id === "fold-ease") return { src: "assets/foldease/page-1.jpeg", fit: "contain" };
     return null;
   };
