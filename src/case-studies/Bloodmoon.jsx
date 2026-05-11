@@ -25,7 +25,6 @@ export function BloodMoonCaseStudy({ collection, onClose }) {
         {/* Page 1: cover */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-1.jpeg")} alt="Page 1 · cover" />
-          <div className="fifa-cap">Page 1 · setting + customer · Blood Moon Music Festival, Joshua Tree, ages 20–30 · eccentric, PLUR, community.</div>
         </div>
 
         {/* Intro under cover */}
@@ -48,31 +47,26 @@ export function BloodMoonCaseStudy({ collection, onClose }) {
         {/* Page 2: sample process */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-2.jpeg")} alt="Page 2 · sample process" />
-          <div className="fifa-cap">Page 2 · sample process · i-cord yarn hand-woven through laser-cut holes · reverse embroidery with ice-dyed jersey-knit couching.</div>
         </div>
 
         {/* Page 3: three-look lineup */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-3.jpeg")} alt="Page 3 · three-look lineup" />
-          <div className="fifa-cap">Page 3 · three-look lineup · L1 · embroidered red jacket + olive denim · L2 · burgundy faux-fur vest + i-cord red trouser · L3 · burgundy hooded cape coat + i-cord stone trouser.</div>
         </div>
 
         {/* Page 4: hero look + materials */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-4.jpeg")} alt="Page 4 · hero look + materials" />
-          <div className="fifa-cap">Page 4 · hero look + materials · cotton wool · cotton denim · rib knit · faux fur · cotton suiting · cotton knit · wooden toggle closure.</div>
         </div>
 
         {/* Page 5: construction flats, group A */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-5.jpeg")} alt="Page 5 · construction flats group A" />
-          <div className="fifa-cap">Page 5 · construction flats · hooded cropped jacket · double-zip mock-neck pullover · pocketed tee · long-sleeve · i-cord wide trouser.</div>
         </div>
 
         {/* Page 6: construction flats, group B */}
         <div className="fifa-fullbleed bm-page">
           <img src={img("page-6.jpeg")} alt="Page 6 · construction flats group B" />
-          <div className="fifa-cap">Page 6 · construction flats · toggle long coat · raglan ribbed-yoke hoodie · fur-hood jacket · toggle dress · raglan polo · i-cord trouser.</div>
         </div>
       </section>
 

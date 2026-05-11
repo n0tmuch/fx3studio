@@ -769,16 +769,22 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); position: relative; }
 }
 .fifa-blurb.dim { color: var(--fg-2); font-size: clamp(15px, 1.2vw, 17px); font-family: var(--body); font-style: normal; line-height: 1.65; }
 
-/* Full-bleed image with caption */
+/* Full-bleed image (caption-less since captions were removed site-wide) */
 .fifa-fullbleed { margin: 0 calc(var(--pad) * -1); }
 .fifa-fullbleed img { width: 100%; display: block; }
-.fifa-cap {
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--fg-dim);
-  padding: 14px var(--pad) 0;
-  border-top: 0;
-}
+
+/* Preserve the vertical breathing room that captions used to create
+   between stacked images within a section. */
+.fifa-fullbleed + .fifa-fullbleed,
+.fifa-fullbleed + .fifa-pair,
+.fifa-pair + .fifa-fullbleed,
+.fifa-pair + .fifa-pair,
+.fifa-fullbleed + .fifa-flats,
+.fifa-flats + .fifa-fullbleed,
+.fifa-flats + .fifa-flats,
+.fifa-six + .fifa-fullbleed,
+.fifa-fullbleed + .fifa-six,
+.fe-page-group + .fe-page-group { margin-top: clamp(24px, 3vw, 40px); }
 
 /* Two-image pair */
 .fifa-pair {

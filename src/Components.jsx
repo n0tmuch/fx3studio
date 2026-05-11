@@ -422,7 +422,6 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         </p>
         <div className="fifa-fullbleed">
           <img src={img("3 Large.jpeg")} alt="Concept board: Buenos Aires references" />
-          <div className="fifa-cap">Concept board · Palermo, La Boca, stadium light, terrace breakfasts.</div>
         </div>
       </section>
 
@@ -457,16 +456,13 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <SectionMark no="03" label="Color & Fabric" title="Stadium dusk. Loft brick. La Bocas." />
         <div className="fifa-fullbleed">
           <img src={img("4 Large.jpeg")} alt="Color story: Buenos Aires palette" />
-          <div className="fifa-cap">Color story · Argentine sky-blue, obelisk amber, deep navy, Palermo brick, sand, charcoal.</div>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("12 Large.jpeg")} alt="Fabric story 1" />
-            <figcaption>Story 1 · Wool crepe · cotton wool · rib knit · jersey · wool suiting.</figcaption>
           </figure>
           <figure>
             <img src={img("22(1) Large.jpeg")} alt="Fabric story 2" />
-            <figcaption>Story 2 · Cotton faux fur · suiting · wool crepe · rib knit · rayon satin.</figcaption>
           </figure>
         </div>
       </section>
@@ -481,11 +477,9 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("7 Large.jpeg")} alt="Detail swipes: pocket fold, snap, FIFA stripe" />
-            <figcaption>Anatomy · pocket-in-fold · snap closure · heat-transfer stripe.</figcaption>
           </figure>
           <figure>
             <img src={img("8 Large.jpeg")} alt="Six key swipes overlaid" />
-            <figcaption>Six key swipes · red-line construction trace.</figcaption>
           </figure>
         </div>
       </section>
@@ -500,11 +494,9 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("9 Large.jpeg")} alt="Seed group 1 and 2" />
-            <figcaption>Seed groups 01 / 02 · snap pocket, double zipper, FIFA stripe.</figcaption>
           </figure>
           <figure>
             <img src={img("10 Large.jpeg")} alt="Seed group 3 and 4" />
-            <figcaption>Seed groups 03 / 04 · snap vest, bellow pocket, quilted pattern.</figcaption>
           </figure>
         </div>
       </section>
@@ -514,7 +506,6 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <SectionMark no="06" label="Group A · Lineup" title="Three looks. One fabric story." />
         <div className="fifa-fullbleed">
           <img src={img("11 Large.jpeg")} alt="Group A: three looks" />
-          <div className="fifa-cap">Group A · crepe wool, jersey, cotton wool · oversized topper + drape bottom.</div>
         </div>
       </section>
 
@@ -528,19 +519,15 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <div className="fifa-flats">
           <figure>
             <img src={img("15 Large.jpeg")} alt="Look A2 flat" />
-            <figcaption>A2 · ribbed collar coat · FIFA waistband short.</figcaption>
           </figure>
           <figure>
             <img src={img("18 Large.jpeg")} alt="Look B2 flat" />
-            <figcaption>B2 · zip-front jacket · stripe skirt · wide trouser.</figcaption>
           </figure>
           <figure>
             <img src={img("27 Large.jpeg")} alt="Look C1 flat" />
-            <figcaption>C1 · cotton-twill zip-front · FIFA-1904 stripe maxi skirt.</figcaption>
           </figure>
           <figure>
             <img src={img("25 Large.jpeg")} alt="Look C3 flat" />
-            <figcaption>C3 · two-in-one snap coat · pleated dress.</figcaption>
           </figure>
         </div>
       </section>
@@ -550,7 +537,6 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <SectionMark no="08" label="Group C · Lineup" title="Layered. Bellowed. Sand & black." />
         <div className="fifa-fullbleed">
           <img src={img("22 Large.jpeg")} alt="Group C: three looks" />
-          <div className="fifa-cap">Group C · suiting + cotton crepe · bellow pockets · pleated drop.</div>
         </div>
       </section>
 
@@ -560,37 +546,29 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil: spray-painted graphic" />
-            <figcaption>Hand-stenciled FIFA 1904 graphic on wool crepe before assembly.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_5399 Large.jpeg")} alt="Studio fitting: back view" />
-            <figcaption>Fitting · cotton-twill topper over crepe maxi · back.</figcaption>
           </figure>
         </div>
         <div className="fifa-six">
           <figure>
             <img src={img("IMG_5401 Large.jpeg")} alt="Studio fitting: front view, cotton-twill topper over crepe maxi" />
-            <figcaption>Fitting · cotton-twill topper over crepe maxi · front.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_5400 Large.jpeg")} alt="Studio fitting: side view, cotton-twill topper over crepe maxi" />
-            <figcaption>Fitting · cotton-twill topper over crepe maxi · side.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_5403 Large.jpeg")} alt="Studio fitting: halter maxi gown, side view" />
-            <figcaption>Fitting · halter maxi gown · side.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_5404 Large.jpeg")} alt="Studio fitting: halter maxi gown, back view" />
-            <figcaption>Fitting · halter maxi gown · back.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_4512 Large.jpeg")} alt="On-platform staging · models and faculty in conversation" />
-            <figcaption>On-platform staging · final styling pass.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_4518 Large.jpeg")} alt="Faculty fitting on the platform · maxi skirt and cotton-twill topper" />
-            <figcaption>Walk-through with faculty before doors.</figcaption>
           </figure>
         </div>
       </section>

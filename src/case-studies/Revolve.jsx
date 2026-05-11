@@ -58,7 +58,6 @@ export function RevolveCaseStudy({ collection, onClose }) {
         </p>
         <div className="fifa-fullbleed">
           <img src={img("17 Large.jpeg")} alt="Concept overview: three treatments" />
-          <div className="fifa-cap">Concept overview · ensemble · reverse embroidery · dye treatment.</div>
         </div>
       </section>
 
@@ -68,11 +67,9 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("10 Large.jpeg")} alt="Fabric and dye swatch board" />
-            <figcaption>Swatch board · ribcage screenprint, ombré dye trials, skull appliqué, brick + sand wovens.</figcaption>
           </figure>
           <figure>
             <img src={img("12 Large.jpeg")} alt="Bathtub dye process and dyed jersey" />
-            <figcaption>Studio · bathtub gradient dye, shoulder-to-hem fade on jersey.</figcaption>
           </figure>
         </div>
         <div className="fifa-palette">
@@ -87,16 +84,13 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <Mark no="03" label="Group A · Ensemble" title="Patchwork tops, drop-rise cargo." />
         <div className="fifa-fullbleed">
           <img src={img("5 Large.jpeg")} alt="Group A lineup" />
-          <div className="fifa-cap">Group A · maxi-dress, denim cropped vest, patchwork top + cargo shorts, off-shoulder + cargo pant.</div>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("1 Large.jpeg")} alt="A1: patchwork top + shorts + leggings flat" />
-            <figcaption>A1 · patchwork pullover · cargo short · denim legging.</figcaption>
           </figure>
           <figure>
             <img src={img("8 Large.jpeg")} alt="A2: corset + cropped jacket + cargo flat" />
-            <figcaption>A2 · checkerboard corset · cropped denim jacket · drop-rise cargo.</figcaption>
           </figure>
         </div>
       </section>
@@ -106,20 +100,16 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <Mark no="04" label="Group B · Reverse Embroidery" title="The ribcage, set free of the body." />
         <div className="fifa-fullbleed">
           <img src={img("16 Large.jpeg")} alt="Group B: reverse embroidery looks" />
-          <div className="fifa-cap">Group B · sheer overall dress with ribcage embroidery · red puffer cropped jacket.</div>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("3 Large.jpeg")} alt="B1: hooded ribcage maxi flat" />
-            <figcaption>B1 · cropped hooded ribcage top · drop-front skirt · purple buckle bag.</figcaption>
           </figure>
           <figure>
             <img src={img("11 Large.jpeg")} alt="B2: ribcage overall dress flat" />
-            <figcaption>B2 · ribcage overall dress · sky-bleed jersey under · red puffer cropped jacket.</figcaption>
           </figure>
           <figure>
             <img src={img("19 Large.jpeg")} alt="B3: ribcage tunic + flared denim flat" />
-            <figcaption>B3 · oversized ribcage tunic · flare-leg denim with cuffed hem.</figcaption>
           </figure>
         </div>
       </section>
@@ -129,16 +119,13 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <Mark no="05" label="Group C · Dye Treatment" title="Shoulder-blue, hem-bleed." />
         <div className="fifa-fullbleed">
           <img src={img("13 Large.jpeg")} alt="Group C: dyed denim looks" />
-          <div className="fifa-cap">Group C · A-group + B-group dye lineup · cropped puffer · ripped dyed denim · drape cardigan.</div>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("6 Large.jpeg")} alt="C1: cropped jacket + denim short flat" />
-            <figcaption>C1 · cropped puffer over tank · dip-dye denim short.</figcaption>
           </figure>
           <figure>
             <img src={img("15 Large.jpeg")} alt="C2: drape cardigan + dyed cargo flat" />
-            <figcaption>C2 · long drape cardigan · ripped dip-dye cargo trouser.</figcaption>
           </figure>
         </div>
       </section>
@@ -148,16 +135,13 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <Mark no="06" label="Group D · Skull Motif" title="Reverse-cut skull, two-tone tunic." />
         <div className="fifa-fullbleed">
           <img src={img("18 Large.jpeg")} alt="Group D lineup" />
-          <div className="fifa-cap">Group D · split-color skull pullover · drape kimono jacket · skull-graphic tunic dress.</div>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("9 Large.jpeg")} alt="D1: skull pullover + cropped jacket flat" />
-            <figcaption>D1 · split-color skull pullover · cropped fringed jacket · drop-rise pant.</figcaption>
           </figure>
           <figure>
             <img src={img("2 Large.jpeg")} alt="D2: skull tunic + arrow-seam pant flat" />
-            <figcaption>D2 · two-color skull tunic · arrow-seam denim trouser.</figcaption>
           </figure>
         </div>
       </section>
@@ -168,7 +152,6 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("21 Large.jpeg")} alt="Featured hooded jumpsuit flats" />
-            <figcaption>Mentor-selected look · ivory tee under blue hooded zip-jacket · dip-dye cargo jumpsuit.</figcaption>
           </figure>
         </div>
       </section>
@@ -179,27 +162,22 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <div className="fifa-pair">
           <figure>
             <img src={img("IMG_7237 Large.jpeg")} alt="Faculty fitting on platform" />
-            <figcaption>Faculty review · hooded jumpsuit standing.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_6590 Large.jpeg")} alt="Mentor fitting on platform" />
-            <figcaption>Mentor adjusting on platform · mid-fitting.</figcaption>
           </figure>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("IMG_3816 Large.jpeg")} alt="Fitting: final styling pass" />
-            <figcaption>Stylist pinning the hem before doors.</figcaption>
           </figure>
           <figure>
             <img src={img("IMG_7802 Large.jpeg")} alt="Backstage: model standing" />
-            <figcaption>Backstage hold · between fittings.</figcaption>
           </figure>
         </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("IMG_9777 Large.jpeg")} alt="Show floor with white wedding pieces" />
-            <figcaption>On-floor staging · class lineup before doors.</figcaption>
           </figure>
         </div>
       </section>
@@ -209,7 +187,6 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <Mark no="09" label="Runway" title="Revolve × Otis · show floor." />
         <div className="fifa-fullbleed">
           <img src={img("IMG_8644.jpeg")} alt="Runway: hooded dip-dye jumpsuit" />
-          <div className="fifa-cap">Runway · hooded ivory zip-jacket over dip-dye cargo jumpsuit, silver heel boot.</div>
         </div>
       </section>
 

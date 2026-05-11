@@ -22,7 +22,6 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
         <div key={n} className="fe-page-group">
             <div className="fifa-fullbleed bm-page">
               <img src={img(`page-${n}.jpeg`)} alt={`Page ${n} · book spread`} />
-              <div className="fifa-cap">Page {n}.</div>
             </div>
             {n === 1 &&
           <div className="fifa-intro-grid fe-intro-after-cover">

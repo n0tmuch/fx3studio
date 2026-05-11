@@ -6,10 +6,9 @@ export function TechPackCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/techpack/${n}`;
 
-  const Page = ({ n, alt, cap }) =>
+  const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">
       <img src={img("page-" + n + ".jpeg")} alt={alt} />
-      <div className="fifa-cap">{cap}</div>
     </div>;
 
   return (
@@ -28,7 +27,7 @@ export function TechPackCaseStudy({ collection, onClose }) {
         </div>
 
         <Page n="5" alt="Page 1 · Rendered Flats and Exterior view"
-        cap="Page 1 · rendered flats and exterior line drawings · army green polyester self with light-green polyurethane-coated nylon lining · centered hood, set-in two-piece sleeve with cuff, two welt pockets with drawstring pulls, drawstring waist with elastic casing." />
+        />
 
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
@@ -48,19 +47,19 @@ export function TechPackCaseStudy({ collection, onClose }) {
         </div>
 
         <Page n="1" alt="Page 2 · Interior view and Arrows / Flats"
-        cap="Page 2 · interior view and arrows · twenty-four numbered measurement callouts mapped front, back, hood, cuff, sleeve, and hem · drawstring length, cuff opening, armhole circumference, hood width and scarf length all called out for grading." />
+        />
 
         <Page n="3" alt="Page 3 · Spec Sheet and Bill of Materials"
-        cap="Page 3 · spec sheet and bill of materials · twenty-four-row numeric spec from neck drop to draw-string length · BOM lists self body, sleeves, hood, hood scarf, cuff, yoke, pocket, pocket bag, lining, draw-string casing in army-green polyurethane and light-green polyurethane-coated nylon · trims include metal eyelet, aglet, toggle, woven elastic, cotton self and lining stitch, and four L36 wooden green buttons." />
+        />
 
         <Page n="2" alt="Page 4 · Exterior detail and Interior detail · stitch closeups"
-        cap="Page 4 · exterior detail in red, six callouts · shoulder yoke single-needle double stitch, drawstring casing, pocket, drawstring and eyelet, hood with extension, button hole and button · interior detail in blue, seven callouts · straight stitch single needle, straight blind, single needle, single-needle double, overlocked + single-needle stitch-down, elastic waistband, blind stitch." />
+        />
 
         <Page n="6" alt="Page 5 · Pattern Card · numbered pieces and cuts table"
-        cap="Page 5 · pattern card · twenty-four numbered pattern pieces mapped onto the flat · seventeen self-fabric pieces (left and right hood, left and right front body, back body, left and right yoke, left and right sleeve, back left and right sleeve, left and right pocket, cuff, drawstring, left and right inside lapel) and seven lining pieces with cut counts." />
+        />
 
         <Page n="4" alt="Page 6 · Branding Page and Designer info"
-        cap="Page 6 · branding page · woven label placement, 1″ × 2.5″ exterior, 1.5″ × 1.5″ interior, 5⁄8″ × 9⁄16″ care label · sized to 3″ × 4″ branding zone at center back hood · alongside designer summary, fashion experience, core skills, and education." />
+        />
       </section>
 
       <div className="fifa-end">

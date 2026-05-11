@@ -7,10 +7,9 @@ export function TrompeCaseStudy({ collection, onClose }) {
   const c = collection;
   const img = (n) => `assets/trompe/${n}`;
 
-  const Page = ({ n, alt, cap }) =>
+  const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">
       <img src={img("page-" + n + ".jpeg")} alt={alt} />
-      <div className="fifa-cap">{cap}</div>
     </div>;
 
   return (
@@ -30,7 +29,7 @@ export function TrompeCaseStudy({ collection, onClose }) {
         </div>
 
         <Page n="1" alt="Page 1 · cover · A Knite at the Gallery"
-        cap="Page 1 · cover · A Knite at the Gallery · Lower East Side gallery doorway, gilt frame, Salvation Army graphic, intern community walking out in upcycled denim and knit patchwork." />
+        />
 
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
@@ -49,19 +48,19 @@ export function TrompeCaseStudy({ collection, onClose }) {
         </div>
 
         <Page n="2" alt="Page 2 · materials + treatments"
-        cap="Page 2 · materials + treatments · ponte / eyelet / waffle / Y-knit · upcycled knit patchwork vest with i-cord stitches · laser-cut cable knit · direct-to-film heat-transfer denim prints rendered onto flat ponte." />
+        />
 
         <Page n="3" alt="Page 3 · five-look lineup"
-        cap="Page 3 · five-look lineup · L1 · navy patchwork shawl-collar coat + heat-transfer denim short · L2 · printed-denim funnel hood + cable trouser · L3 · printed-denim crop jacket + cable trouser · L4 · upcycled-knit asymmetric pullover + heat-transfer flare · L5 · i-cord-stitched long coat + heat-transfer denim trouser." />
+        />
 
         <Page n="4" alt="Page 4 · construction flats group A"
-        cap="Page 4 · construction flats · drawstring hooded pullover with patch pocket · vented inseam-pocket short · cowl-back vest with collar · gusset short with flat-felled inseam · i-cord-stitched mock-neck jacket." />
+        />
 
         <Page n="5" alt="Page 5 · construction flats group B"
-        cap="Page 5 · construction flats · cowl-neck pullover with flat-felled seam · wide cropped denim pant · zip-front patch-pocket cropped jacket · cowl-shoulder tee · gusset-paneled tapered trouser with darts." />
+        />
 
         <Page n="6" alt="Page 6 · construction flats group C"
-        cap="Page 6 · construction flats · i-cord-stitched hooded long pullover · darted flat-felled denim trouser · i-cord-stitched button-front long coat · five-pocket denim trouser." />
+        />
       </section>
 
       {/* CLOSE */}
