@@ -503,9 +503,15 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* GROUP A LINEUP */}
       <section className="fifa-section">
-        <SectionMark no="06" label="Group A · Lineup" title="Three looks. One fabric story." />
+        <SectionMark no="06" label="Group A · Group B sketches" title="Two groups, one fabric story." />
         <div className="fifa-fullbleed">
           <img src={img("11 Large.jpeg")} alt="Group A: three looks" />
+        </div>
+        <div className="fifa-fullbleed">
+          <img src={img("12 Fabric Large.jpeg")} alt="Fabric story shared between Group A and Group B" />
+        </div>
+        <div className="fifa-fullbleed">
+          <img src={img("11 Group2 Large.jpeg")} alt="Group B: four looks" />
         </div>
       </section>
 
