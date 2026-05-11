@@ -74,9 +74,6 @@ export function FrameCaseStudy({ collection, onClose }) {
       {/* GROUP A: Cable Felt Fusion lineup */}
       <section className="fifa-section">
         <Mark no="02" label="Group A · Cable Felt Fusion" title="Cream, fringe, fused cable." />
-        <div className="fifa-fullbleed">
-          <img src={img("A-group-lineup.jpeg")} alt="Group A lineup: A1 through A5" style={{ background: "#fff" }} />
-        </div>
         <div className="fifa-pair">
           <figure>
             <img src={img("Cable Felt Large.jpeg")} alt="Cable Felt fusion: cream sweater forms in studio" style={{ background: "#fff" }} />
@@ -131,6 +128,9 @@ export function FrameCaseStudy({ collection, onClose }) {
         </p>
         <div className="fifa-fullbleed">
           <img src={img("process-board.jpeg")} alt="Process board: I-cord ropes and knit components" />
+        </div>
+        <div className="fifa-fullbleed">
+          <img src={img("A-group-lineup.jpeg")} alt="Group A lineup: A1 through A5" style={{ background: "#fff" }} />
         </div>
         <div className="fifa-pair">
           <figure>
