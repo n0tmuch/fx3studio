@@ -72,7 +72,7 @@ export const COLLECTIONS = [
   },
   {
     id: "blood-moon",
-    no: "06",
+    no: "05",
     category: "Portfolio Book",
     title: "Blood Moon",
     subtitle: "Portfolio Book · Menswear",
@@ -102,7 +102,7 @@ export const COLLECTIONS = [
   },
   {
     id: "music-fest",
-    no: "05",
+    no: "04",
     category: "Portfolio Book",
     title: "Music Festival Performers",
     subtitle: "Portfolio Book · Menswear",
@@ -117,7 +117,7 @@ export const COLLECTIONS = [
   },
   {
     id: "trompe",
-    no: "04",
+    no: "06",
     category: "Portfolio Book",
     title: "Trompe L'Oeil",
     subtitle: "Portfolio Book · Knit + Denim",
