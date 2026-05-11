@@ -70,7 +70,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* GROUP B: Cream cable two-look pair */}
       <section className="fifa-section">
-        <Mark no="02" label="Plates · B + C" title="Six looks, two material languages." />
+        <Mark no="02" label="Group · A, B" title="Lineup page, flats." />
         <div className="fifa-pair">
           <figure>
             <img src={img("A3.jpeg")} alt="A3 plate: hooded fringe duster + jumpsuit" style={{ background: "#fff" }} />
