@@ -94,11 +94,11 @@ export const COLLECTIONS = [
     year: "",
     role: "Portfolio Book · Menswear",
     blurb:
-      "A menswear concept book about the unhurried life, 5 looks of relaxed, pleat-driven tailoring and pulled-from-the-river palettes, set against a tiger ‘jaws of ease’ motif. Cover-to-flats: setting, lineup, fabric story (with AI runway QR), full construction flats, and a complete item-flat catalog of bags and hats.",
+      "A menswear collection in the book of 7 relaxed looks, with pleat-driven tailoring for an investor enjoying time off in Southeast Asia. At the end of the lineup is a QR code that when scanned will show an AI runway including all 7 looks.",
     concept:
-      "The collection answers what menswear looks like when a body is allowed to move. Wide-leg pleated trousers, hooded T-coats, drop-shoulder tees and harem pants in linen, cotton, jersey-mesh and cotton eyelet in tobacco, sand, drift-wood and stone. Two treatments: an all-over cotton-eyelet perforation and a hand-painted tiger graphic that travels from the hero coat to the tee. Bags, bucket and military caps, and a sling pack are designed as part of the look, not an afterthought.",
+      "The collection answers what menswear looks like when a body is allowed to move. Two treatments: tea-dyed eyelet fabric, color-matched to chambray linen and paneled together in construction. The second treatment is a tiger graphic made using AI. All embellished with accessories from hats to bags to jewelry as part of the look, not an afterthought.",
     tags: ["Menswear", "Portfolio book", "Pleat tailoring", "Eyelet", "Tiger graphic"],
-    looks: 5,
+    looks: 7,
   },
   {
     id: "music-fest",

@@ -27,10 +27,10 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
           <div className="fifa-intro-grid fe-intro-after-cover">
                 <div className="fifa-intro-meta">
                   <div className="fifa-meta-row"><span>Project</span><span>Fold into the Ease · Portfolio Book</span></div>
-                  <div className="fifa-meta-row"><span>Format</span><span>8-page menswear book · setting · flats</span></div>
-                  <div className="fifa-meta-row"><span>Looks</span><span>5 · outerwear-led menswear + accessories</span></div>
-                  <div className="fifa-meta-row"><span>Treatments</span><span>Cotton-eyelet perforation · hand-painted tiger graphic</span></div>
-                  <div className="fifa-meta-row"><span>Materials</span><span>Linen · cotton · jersey mesh · cotton eyelet · jersey knit</span></div>
+                  <div className="fifa-meta-row"><span>Format</span><span>8-page menswear collection</span></div>
+                  <div className="fifa-meta-row"><span>Looks</span><span>7 · relaxed vacation-inspired collection</span></div>
+                  <div className="fifa-meta-row"><span>Treatments</span><span>Cotton eyelet dyed and paneled with a chambray linen, a tiger graphic, and construction using heavy pleats</span></div>
+                  <div className="fifa-meta-row"><span>Materials</span><span>Chambray linen · cotton · jersey mesh · cotton eyelet · jersey knit</span></div>
                   <div className="fifa-meta-row"><span>Accessories</span><span>Sling pack · duffle · fanny · bucket + military caps</span></div>
                 </div>
                 <div className="fifa-intro-text">
