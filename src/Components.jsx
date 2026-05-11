@@ -557,9 +557,34 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
         </div>
       </section>
 
+      {/* GROUP C FLATS */}
+      <section className="fifa-section">
+        <SectionMark no="09" label="Flats" title="Group C" />
+        <div className="fifa-flats">
+          <figure>
+            <img src={img("22 Large.jpeg")} alt="Group C flat: top left" />
+          </figure>
+          <figure>
+            <img src={img("Top Right.jpeg")} alt="Group C flat: top right" />
+          </figure>
+          <figure>
+            <img src={img("Mid Left.jpeg")} alt="Group C flat: mid left" />
+          </figure>
+          <figure>
+            <img src={img("Mid Right.jpeg")} alt="Group C flat: mid right" />
+          </figure>
+          <figure>
+            <img src={img("Bottom Left.jpeg")} alt="Group C flat: bottom left" />
+          </figure>
+          <figure>
+            <img src={img("Bottom Right.jpeg")} alt="Group C flat: bottom right" />
+          </figure>
+        </div>
+      </section>
+
       {/* MAKING */}
       <section className="fifa-section">
-        <SectionMark no="09" label="In the studio" title="Spray, stitch, finish." />
+        <SectionMark no="10" label="In the studio" title="Spray, stitch, finish." />
         <div className="fifa-pair">
           <figure>
             <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil: spray-painted graphic" />
