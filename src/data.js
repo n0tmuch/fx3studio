@@ -79,11 +79,11 @@ export const COLLECTIONS = [
     year: "",
     role: "Portfolio Book · Menswear",
     blurb:
-      "A menswear concept book set at the Blood Moon Music Festival, a fictional desert night-rave in Joshua Tree dressed for an eccentric, PLUR-rooted festival community ages 20–30. The book runs cover-to-tech-flats: setting, mood, sample process, three-look lineup, materials, and full construction flats.",
+      "A menswear collection in the book set at the Blood Moon Music Festival, a fictional desert night-rave in Joshua Tree dressed for an eccentric, PLUR (Peace, Love, Unity, Respect)-rooted festival community ages 20–30.",
     concept:
-      "The starting point: a desert night where the moon turns red and a small community moves under it until dawn. The wardrobe answers in cotton wool, cotton denim, faux fur, ribbed knit and cotton suiting, burgundy, scorched red, and olive with two signature treatments. I-cord yarn is hand-woven through laser-cut holes for a graphic vertical stitch language across trousers and outerwear; reverse embroidery with ice-dyed jersey couching builds the red-and-rust splatter graphic that anchors the hero coat. Wooden toggle closures, raglan sleeves, flat-felled seams, and double zippers carry the construction.",
+      "The starting point: a music festival taking place at night in Joshua Tree. Inspired by a painting titled Red Sky by Polish painter Zdzisław Beksiński. The shapes in the painting helped inform the designs of the silhouette, and the colors and textures in the painting gave a direction for the fabric story to follow, which led to treatments being designed to invoke a visual relationship between the painting and the clothing.",
     tags: ["Menswear", "Portfolio book", "I-cord", "Reverse embroidery"],
-    looks: 3,
+    looks: 4,
   },
   {
     id: "fold-ease",

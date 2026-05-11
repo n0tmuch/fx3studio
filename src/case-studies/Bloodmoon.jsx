@@ -31,12 +31,12 @@ export function BloodMoonCaseStudy({ collection, onClose }) {
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
             <div className="fifa-meta-row"><span>Project</span><span>Blood Moon · Portfolio Book</span></div>
-            <div className="fifa-meta-row"><span>Format</span><span>6-page menswear book · setting · flats</span></div>
+            <div className="fifa-meta-row"><span>Format</span><span>6-page menswear collection</span></div>
             <div className="fifa-meta-row"><span>Setting</span><span>Blood Moon Music Festival · Joshua Tree</span></div>
             <div className="fifa-meta-row"><span>Audience</span><span>Festival-goers age 20–30 · PLUR community</span></div>
             <div className="fifa-meta-row"><span>Treatments</span><span>I-cord through laser-cut holes · reverse embroidery · ice-dyed jersey couching</span></div>
             <div className="fifa-meta-row"><span>Materials</span><span>Cotton wool · cotton denim · rib knit · faux fur · cotton suiting</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>3 · outerwear-led menswear</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>4 · outerwear-led menswear</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
