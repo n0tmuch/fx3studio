@@ -55,25 +55,9 @@ export function FrameCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* CONCEPT: two treatments */}
-      <section className="fifa-section">
-        <Mark no="01" label="Concept" title="Two treatments, one collection." />
-        <p className="fifa-lede">
-          Every fabric in the collection started as a donated Salvation Army garment, sweaters, table linens, knit curtains, second-hand cardigans. Two material languages emerged at the pattern table: a cream <em>cable-felt fusion</em> built up by hand, and a navy <em>deconstructed transparency</em> where knit is sliced, opened, and connected by I-cord ropes.
-        </p>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("cable-felt-fusion.jpeg")} alt="Cable Felt Fusion concept board" style={{ background: "#fff" }} />
-          </figure>
-          <figure>
-            <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
-          </figure>
-        </div>
-      </section>
-
       {/* GROUP A: Cable Felt Fusion lineup */}
       <section className="fifa-section">
-        <Mark no="02" label="Group A · Cable Felt Fusion" title="Cream, fringe, fused cable." />
+        <Mark no="01" label="Group A · Cable Felt Fusion" title="Cream, fringe, fused cable." />
         <div className="fifa-pair">
           <figure>
             <img src={img("Cable Felt Large.jpeg")} alt="Cable Felt fusion: cream sweater forms in studio" style={{ background: "#fff" }} />
@@ -86,7 +70,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* GROUP B: Cream cable two-look pair */}
       <section className="fifa-section">
-        <Mark no="03" label="Plates · B + C" title="Six looks, two material languages." />
+        <Mark no="02" label="Plates · B + C" title="Six looks, two material languages." />
         <div className="fifa-pair">
           <figure>
             <img src={img("A3.jpeg")} alt="A3 plate: hooded fringe duster + jumpsuit" style={{ background: "#fff" }} />
@@ -120,7 +104,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* PROCESS: sourcing, knit reconstruction */}
       <section className="fifa-section">
-        <Mark no="05" label="In the studio" title="Donated, dismantled, re-laced." />
+        <Mark no="03" label="In the studio" title="Donated, dismantled, re-laced." />
         <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were sorted by tone, then sliced into bands, opened on the loom, and connected by I-cord ropes.
 
 
@@ -160,7 +144,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* DRESSFORM BUILD: selected look on the form */}
       <section className="fifa-section">
-        <Mark no="06" label="Build" title="Mentor-selected look · on the form." />
+        <Mark no="04" label="Build" title="Mentor-selected look · on the form." />
         <p className="fifa-lede">The mentor-selected look (C3) was draped, patterned, cut, and sewn entirely by hand, front placket, funnel collar, vertical cord pleat down center back, lace panel running hem.
 
 
