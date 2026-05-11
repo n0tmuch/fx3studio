@@ -517,7 +517,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* FLATS */}
       <section className="fifa-section">
-        <SectionMark no="07" label="Flats" title="Group A and Group B" />
+        <SectionMark no="07" label="Flats" title="Group A, Group B" />
         <div className="fifa-flats">
           <figure>
             <img src={img("A1 Large.jpeg")} alt="Look A1 flat" />
