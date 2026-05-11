@@ -84,6 +84,13 @@ export function FrameCaseStudy({ collection, onClose }) {
           <figure>
             <img src={img("A2.jpeg")} alt="A2 plate: wrap capelet + rib trouser" style={{ background: "#fff" }} />
           </figure>
+        </div>
+      </section>
+
+      {/* GROUP B: Cream cable two-look pair */}
+      <section className="fifa-section">
+        <Mark no="03" label="Plates · B + C" title="Six looks, two material languages." />
+        <div className="fifa-pair">
           <figure>
             <img src={img("A3.jpeg")} alt="A3 plate: hooded fringe duster + jumpsuit" style={{ background: "#fff" }} />
           </figure>
@@ -93,13 +100,6 @@ export function FrameCaseStudy({ collection, onClose }) {
           <figure>
             <img src={img("A5.jpeg")} alt="A5 plate: fringe hooded jacket + maxi skirt" style={{ background: "#fff" }} />
           </figure>
-        </div>
-      </section>
-
-      {/* GROUP B: Cream cable two-look pair */}
-      <section className="fifa-section">
-        <Mark no="03" label="Plates · B + C" title="Six looks, two material languages." />
-        <div className="fifa-pair">
           <figure>
             <img src={img("B1.jpeg")} alt="B1 plate: hooded cable cape + shorts" style={{ background: "#fff" }} />
           </figure>

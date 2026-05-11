@@ -99,3 +99,7 @@ FIFA 1904 structure now: intro · concept · color & fabric · swipes · seed gr
 Image conventions:
 - Each portfolio book's cover thumbnail is `assets/<slug>/page-1.jpeg` (tech-pack is the lone exception that switched mid-session).
 - FIFA 1904 flats use semantic filenames (`A1 Large.jpeg`, `B Lineup Large.jpeg`, `Top Right.jpeg`, etc.) rather than the numeric `<n> Large.jpeg` convention from the export.
+
+### 2026-05-10 (later): FRAME plate regroup
+
+Moved the bottom three plates of FRAME section 02 (`A3.jpeg` lineup, `A4.jpeg` A1 plate, `A5.jpeg` A2 plate) to the top of section 03 so the A3-plate now sits on the second pair-row with the A2-plate to its left, and the rest of B/C cascades down.
