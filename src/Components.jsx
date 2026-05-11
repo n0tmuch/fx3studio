@@ -584,7 +584,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* MAKING */}
       <section className="fifa-section">
-        <SectionMark no="10" label="In the studio" title="Spray, stitch, finish." />
+        <SectionMark no="10" label="In the studio" title="Mentor Fitting" />
         <div className="fifa-pair">
           <figure>
             <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil: spray-painted graphic" />
