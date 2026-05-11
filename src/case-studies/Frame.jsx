@@ -63,10 +63,10 @@ export function FrameCaseStudy({ collection, onClose }) {
         </p>
         <div className="fifa-pair">
           <figure>
-            <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
+            <img src={img("cable-felt-fusion.jpeg")} alt="Cable Felt Fusion concept board" style={{ background: "#fff" }} />
           </figure>
           <figure>
-            <img src={img("cable-felt-fusion.jpeg")} alt="Cable Felt Fusion concept board" style={{ background: "#fff" }} />
+            <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
           </figure>
         </div>
       </section>
@@ -152,10 +152,10 @@ export function FrameCaseStudy({ collection, onClose }) {
         </div>
         <div className="fifa-pair">
           <figure>
-            <img src={img("process-13.jpeg")} alt="Hand-lacing cord through eyelet knit" />
+            <img src={img("process-12.jpeg")} alt="Knit panel laid out on the table" />
           </figure>
           <figure>
-            <img src={img("process-12.jpeg")} alt="Knit panel laid out on the table" />
+            <img src={img("process-13.jpeg")} alt="Hand-lacing cord through eyelet knit" />
           </figure>
         </div>
         <div className="fifa-pair">
