@@ -32,7 +32,7 @@ export const COLLECTIONS = [
     year: "2026",
     role: "mentorship · Otis College",
     blurb:
-      "A four-look senior thesis built around the FIFA 1904 × Otis mentorship, a hypothetical womenswear capsule for the modern fútbol fan. Set against the layered architecture and sun-faded color of Buenos Aires, the collection translates terrace culture, Argentine athleisure, and stadium graphics into tailored coats, drape skirts, and FIFA-stripe jacquard.",
+      "FIFA 1904 × Otis mentorship, a hypothetical womenswear capsule for the modern fútbol fan. Set against the layered architecture and sun-faded color of Buenos Aires, the collection translates terrace culture, Argentine athleisure, and stadium graphics into tailored coats, drape skirts, and FIFA-stripe jacquard.",
     concept:
       "The starting point was a single question: what does a fútbol fan wear at the game and around town? The collection answers it through the lens of Buenos Aires, Palermo terraces at golden hour, La Boca's painted facades, the brick-and-bedsheet warmth of an artist's loft. Each look pairs an oversized tailored topper with a fluid bottom, threading FIFA stripe and 1904 graphics through suiting, jersey knit, and crepe wool. The result is a wardrobe for a 31-year-old painter named Fan who plays rec-league soccer on weekends and dresses like she owns the city.",
     tags: ["Womenswear", "Senior thesis", "Otis 2026", "FIFA × Otis"],
