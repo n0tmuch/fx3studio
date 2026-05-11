@@ -517,23 +517,31 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* FLATS */}
       <section className="fifa-section">
-        <SectionMark no="07" label="Flats" title="Front, back, and notes." />
-        <p className="fifa-lede">Technical flats with construction callouts, pocket-inside-snap, ribbed collar, FIFA-on-waistband, unsnap-to-two-garments coat. The collection's seams written down.
-
-
-        </p>
+        <SectionMark no="07" label="Flats" title="Group A and Group B" />
         <div className="fifa-flats">
           <figure>
-            <img src={img("15 Large.jpeg")} alt="Look A2 flat" />
+            <img src={img("A1 Large.jpeg")} alt="Look A1 flat" />
           </figure>
           <figure>
-            <img src={img("18 Large.jpeg")} alt="Look B2 flat" />
+            <img src={img("A2 Large.jpeg")} alt="Look A2 flat" />
           </figure>
           <figure>
-            <img src={img("27 Large.jpeg")} alt="Look C1 flat" />
+            <img src={img("A3 Large.jpeg")} alt="Look A3 flat" />
           </figure>
           <figure>
-            <img src={img("25 Large.jpeg")} alt="Look C3 flat" />
+            <img src={img("B Lineup Large.jpeg")} alt="Group B: four looks lineup" />
+          </figure>
+          <figure>
+            <img src={img("B1 Large.jpeg")} alt="Look B1 flat" />
+          </figure>
+          <figure>
+            <img src={img("B2 Large.jpeg")} alt="Look B2 flat" />
+          </figure>
+          <figure>
+            <img src={img("B3 Large.jpeg")} alt="Look B3 flat" />
+          </figure>
+          <figure>
+            <img src={img("B4 Large.jpeg")} alt="Look B4 flat" />
           </figure>
         </div>
       </section>
