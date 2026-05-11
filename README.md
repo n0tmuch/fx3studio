@@ -2,8 +2,7 @@
 
 Portfolio site for Spencer Harrison: fashion designer, BFA Otis College of Art and Design.
 
-Live: https://fx3studio.vercel.app
-Final domain (planned): fx3studio.com
+Live: https://fx3studio.com (also reachable at https://fx3studio.vercel.app)
 
 ## Stack
 
@@ -75,3 +74,18 @@ Conversion mechanics:
 - `vercel.json` added with `framework: vite` so the Vercel project (originally configured as static) builds with the right preset.
 
 The original static prototype is preserved in git history at commit `aaf6cbe`. Vercel rollback to a prior deployment is one CLI command (`vercel rollback`) if anything ever needs to revert.
+
+### 2026-05-10 (PM): fx3studio.com live + Workspace email
+
+Migrated `fx3studio.com` off Squarespace (where Spencer had built a placeholder site) and pointed it at the Vercel project. Set up Google Workspace for `spencer@fx3studio.com`.
+
+DNS (managed at Squarespace, registrar of record):
+- `A @ 76.76.21.21` and `CNAME www cname.vercel-dns.com` — point web traffic at Vercel
+- `MX @ 1 smtp.google.com` — email routes to Google Workspace
+- `TXT @ v=spf1 include:_spf.google.com ~all` — authorizes Google to send mail for the domain
+- `TXT _dmarc v=DMARC1; p=none; rua=mailto:spencer@fx3studio.com` — DMARC monitoring (graduate to `p=quarantine` then `p=reject` once DKIM is proven over ~30 days)
+- `TXT google._domainkey v=DKIM1; k=rsa; p=...` — Google's DKIM signing key (TTL 30 min for easy rotation)
+
+Vercel SSL cert (Let's Encrypt) covers apex + www, auto-renews.
+
+The old Squarespace site still exists at its `.squarespace.com` URL but is disconnected from the domain — Spencer's Squarespace site subscription is a separate billing line that should be canceled once we're sure the new site is stable.
