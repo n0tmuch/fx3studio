@@ -139,9 +139,9 @@ export const COLLECTIONS = [
     year: "",
     role: "Portfolio Book · Womenswear",
     blurb:
-      "A womenswear concept book set at an Innsbruck ski resort, the gothic alpine wardrobe of someone who treats the chairlift like a cathedral. Cover-to-flats: mood, fabric story, two lineup spreads, and eight pages of construction flats.",
+      "A womenswear après-ski collection set at an Innsbruck ski resort.",
     concept:
-      "The aesthetic is gothic, blacks and whites with pops of pastel and icy blue, draped against the velvet, lace, fur, weft jersey, interlock, flannel, Gore-Tex, silk, cotton and wool of an alpine wardrobe. Two signature treatments anchor the book. Treatment 1 is a striped wet-felted wool, cream felt with twin black stripes that travels across the hem of a long felt coat and the cuffs of a stripe-banded swing coat. Treatment 2 is a lace-quilted puffer, indigo lace pressed into a chevron quilt that becomes a cape, a cropped blazer, and a blanket-scarf vest. Silhouettes lean monastic and architectural, hooded longcoats with corset waists, swing capes, lace-up bodices, dome dresses, and ski-boot covers in matching felt.",
+      "The aesthetic is gothic, blacks and whites with pops of pastel and icy blue. Two signature treatments anchor the collection. Treatment 1 is a striped wet-felted wool, cream felt with twin black stripes that travels horizontally across the treatment. Treatment 2 is a lace-quilted puffer, black lace layered on top of nylon stitched down in a chevron pattern mimicking mountains.",
     tags: ["Womenswear", "Portfolio book", "Wet-felted wool", "Lace-quilted puffer"],
     looks: 8,
   },

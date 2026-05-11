@@ -25,7 +25,7 @@ export function GothicCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The book, cover to flats.</h2>
+          <h2 className="fifa-section-title">Gothic Winter collection</h2>
         </div>
 
         <Page n="1" alt="Page 1 · Mood board · Innsbruck, Austria"
@@ -33,10 +33,10 @@ export function GothicCaseStudy({ collection, onClose }) {
 
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
-            <div className="fifa-meta-row"><span>Project</span><span>Gothic Winter · Portfolio Book</span></div>
-            <div className="fifa-meta-row"><span>Format</span><span>12-page concept book · mood · lineup · flats</span></div>
+            <div className="fifa-meta-row"><span>Project</span><span>Gothic Winter · Collection</span></div>
+            <div className="fifa-meta-row"><span>Format</span><span>12-page collection</span></div>
             <div className="fifa-meta-row"><span>Setting</span><span>Innsbruck, Austria · alpine ski resort</span></div>
-            <div className="fifa-meta-row"><span>Aesthetic</span><span>Gothic · monastic silhouettes · ski-resort utility</span></div>
+            <div className="fifa-meta-row"><span>Aesthetic</span><span>Gothic après-ski</span></div>
             <div className="fifa-meta-row"><span>Treatments</span><span>Treatment 1 · striped wet-felted wool · Treatment 2 · lace-quilted puffer</span></div>
             <div className="fifa-meta-row"><span>Materials</span><span>Wool · lace · nylon · leather · chunky knit · cable knit · jersey · double knit · silk · denim</span></div>
             <div className="fifa-meta-row"><span>Looks</span><span>8 · cream + black + indigo · pops of icy blue and forest moss</span></div>
@@ -83,7 +83,7 @@ export function GothicCaseStudy({ collection, onClose }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 08 · Gothic Winter · Portfolio Book · Womenswear</span>
+        <span>End · 08 · Gothic Winter · Collection · Womenswear</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);
