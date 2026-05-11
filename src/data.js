@@ -109,11 +109,11 @@ export const COLLECTIONS = [
     year: "",
     role: "Portfolio Book · Menswear",
     blurb:
-      "A menswear concept book for an avant-garde fall band, the kind of group that headlines a small festival and dresses like the desk job paid for it. Cover-to-flats: customer story, sample process, three lineup spreads (groups A–Q), and three full pages of construction flats.",
+      "A menswear collection in the book for an avant-garde fall band, the kind of group that headlines a festival.",
     concept:
-      "The customer is 25–35, work-hard / play-hard, magnetic, six figures and visibly so. Two signature treatments carry the book: an all-over shaved-fur surface that softens cream wools to a worn-in nap, and a denim-and-cable-knit paneled construction that splices indigo workwear with rust cable into a single garment. Silhouettes lean draped and architectural, cowl pullovers, asymmetric shawl-collar coats, gusset-paneled trousers, carpenter overalls, and a long lancer-zip duster anchor the wardrobe.",
+      "The customer is 25–35, work-hard / play-hard, magnetic, six figures and visibly so. Two signature treatments carry the collection. An all-over shaved cream fur to add texture. And a denim knit paneled construction, blending denim construction and comfortable texture.",
     tags: ["Menswear", "Portfolio book", "Shaved fur", "Denim/knit paneling"],
-    looks: 18,
+    looks: 6,
   },
   {
     id: "trompe",

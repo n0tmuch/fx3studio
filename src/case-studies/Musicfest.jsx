@@ -32,11 +32,11 @@ export function MusicFestCaseStudy({ collection, onClose }) {
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
             <div className="fifa-meta-row"><span>Project</span><span>Music Festival Performers · Portfolio Book</span></div>
-            <div className="fifa-meta-row"><span>Format</span><span>8-page menswear book · cover · flats</span></div>
+            <div className="fifa-meta-row"><span>Format</span><span>8-page menswear collection</span></div>
             <div className="fifa-meta-row"><span>Season</span><span>Fall · avant-garde menswear</span></div>
             <div className="fifa-meta-row"><span>Customer</span><span>Performers age 25–35 · work-hard / play-hard · magnetic · $100K–250K</span></div>
             <div className="fifa-meta-row"><span>Treatments</span><span>Shaved fur · denim &amp; knit paneling</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>18 across six lineup groups (A · B · D · E · F · Q)</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>6 looks (A · B · D · E · F · G)</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
