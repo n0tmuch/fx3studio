@@ -215,9 +215,9 @@ export const EXPERIENCE = [
     company: "Junior mentorship Project",
     period: "2024",
     bullets: [
-      "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring mortality and renewal through reverse embroidery, dip-dye treatment, and reconstructed denim.",
-      "Translated anatomical motifs (ribcages, skulls, the architecture of bone) into hooded silhouettes, oversized knit toppers, and dye-graded cargo pants.",
-      "Hand-treated every fabric in the dye studio before cutting; developed reverse-embroidery and ombré dye-grading techniques across mesh, jersey, and denim.",
+      "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, exploring dye treatments (starting with white yardage, dyeing it blue then dip-dyeing red) and deconstructed denim.",
+      "Designed and constructed garments brought to life directly from original illustrations, with three rounds of fittings alongside the REVOLVE design team for real-world exposure to the professional fitting and revision process.",
+      "Deepened technical expertise in denim and knit outerwear construction across the mentorship.",
     ],
   },
 ];

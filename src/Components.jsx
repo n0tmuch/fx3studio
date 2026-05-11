@@ -282,7 +282,7 @@ function CV() {
         <div className="eyebrow">Curriculum Vitae</div>
         <h2 className="section-title">Experience.</h2>
         <p className="section-lede">
-          Internships, runway production, and senior thesis work. {BIO_SUMMARY}
+          Internships, runway production, and senior mentor projects. {BIO_SUMMARY}
         </p>
 
         {EXPERIENCE.map((e, i) =>

@@ -23,7 +23,7 @@ export function TechPackCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The pack, cover to cuts.</h2>
+          <h2 className="fifa-section-title">Tech Pack</h2>
         </div>
 
         <Page n="1" alt="Page 1 · Rear view" />
