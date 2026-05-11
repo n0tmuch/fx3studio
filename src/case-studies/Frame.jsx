@@ -139,11 +139,8 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* DRESSFORM BUILD: selected look on the form */}
       <section className="fifa-section">
-        <Mark no="04" label="Build" title="Mentor-selected look · on the form." />
-        <p className="fifa-lede">The mentor-selected look (C3) was draped, patterned, cut, and sewn entirely by hand, front placket, funnel collar, vertical cord pleat down center back, lace panel running hem.
-
-
-        </p>
+        <Mark no="04" label="Fitting" title="Mentor-selected look." />
+        <p className="fifa-lede">The mentor-selected look (C3) was draped, patterned, cut, and sewn entirely by hand.</p>
         <div className="fifa-pair">
           <figure>
             <img src={img("fitting-7408.jpeg")} alt="C3 long coat on dressform: front" />
