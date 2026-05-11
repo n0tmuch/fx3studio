@@ -104,12 +104,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* PROCESS: sourcing, knit reconstruction */}
       <section className="fifa-section">
-        <Mark no="03" label="In the studio" title="Donated, dismantled, re-laced." />
-        <p className="fifa-lede">Every panel started life as something else, a thrifted cardigan, a knit valance, a crochet table runner. Pieces were sorted by tone, then sliced into bands, opened on the loom, and connected by I-cord ropes.
-
-
-
-        </p>
+        <Mark no="03" label="Group C" title="Deconstructed transparency." />
         <div className="fifa-fullbleed">
           <img src={img("process-board.jpeg")} alt="Process board: I-cord ropes and knit components" />
         </div>
