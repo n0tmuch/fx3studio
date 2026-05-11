@@ -63,10 +63,10 @@ export function FrameCaseStudy({ collection, onClose }) {
         </p>
         <div className="fifa-pair">
           <figure>
-            <img src={img("cable-felt-fusion.jpeg")} alt="Cable Felt Fusion concept board" style={{ background: "#fff" }} />
+            <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
           </figure>
           <figure>
-            <img src={img("deconstructed-transparency.jpeg")} alt="Deconstructed Transparency concept board" style={{ background: "#fff" }} />
+            <img src={img("cable-felt-fusion.jpeg")} alt="Cable Felt Fusion concept board" style={{ background: "#fff" }} />
           </figure>
         </div>
       </section>
