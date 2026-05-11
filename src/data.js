@@ -124,9 +124,9 @@ export const COLLECTIONS = [
     year: "",
     role: "Portfolio Book · Knit + Denim",
     blurb:
-      "A Knite at the Gallery, a six-page knit-and-denim concept book staged in a Lower East Side gallery framed by graffiti and a Salvation Army poster. Illusion as method: printed denim that reads as real distress, knit patchwork that reads as repair, and i-cord stitches that turn a seam into a drawing.",
+      "A Knite at the Gallery, collection in the book. A poster advertising that this collection is for FRAME, and a collage of the Salvation Army to invoke the idea of upcycled materials that were donated from Salvation Army. Illusion as method: printed denim that reads as real distressed, laser cut denim that reads as a knit texture. Knit patchwork that reads as repaired, connected by I-cord stitches.",
     concept:
-      "Trompe l'oeil, 'fool the eye' runs through every choice. Direct-to-film heat-transfer prints recreate worn denim on flat ponte; laser-cut knit mimics open cabling; upcycled patchwork from ponte, eyelet, waffle and Y-knit is held together by visible i-cord stitches as decorative seam. Five looks read mostly indigo, navy and sea-green, with one ice-pale outlier.",
+      "Trompe l'oeil, 'deceives the eye' runs through every choice. Direct-to-film heat-transfer prints recreate distressed denim onto denim; laser cut denim mimics knit texture; upcycled patchwork from ponte, eyelet, waffle and Y-knit is held together by visible I-cord stitches.",
     tags: ["Knit + denim", "Portfolio book", "Trompe l'oeil print", "I-cord stitch"],
     looks: 5,
   },

@@ -35,11 +35,11 @@ export function TrompeCaseStudy({ collection, onClose }) {
           <div className="fifa-intro-meta">
             <div className="fifa-meta-row"><span>Project</span><span>Trompe L'Oeil · Portfolio Book</span></div>
             <div className="fifa-meta-row"><span>Format</span><span>6-page concept book · setting · flats</span></div>
-            <div className="fifa-meta-row"><span>Setting</span><span>A Knite at the Gallery · Lower East Side gallery doorway</span></div>
-            <div className="fifa-meta-row"><span>Premise</span><span>Fool-the-eye knit + denim · upcycled, repaired, and seam-as-drawing</span></div>
-            <div className="fifa-meta-row"><span>Treatments</span><span>Direct-to-film denim heat transfer · laser-cut knit · i-cord stitches · upcycled knit patchwork</span></div>
+            <div className="fifa-meta-row"><span>Setting</span><span>A Knite at the Gallery · Lower East Side gallery</span></div>
+            <div className="fifa-meta-row"><span>Premise</span><span>Rework FRAME x Salvation Army collection incorporating Trompe L'Oeil denim and laser cut denim</span></div>
+            <div className="fifa-meta-row"><span>Treatments</span><span>Direct-to-film denim heat transfer · laser-cut knit · I-cord stitches · upcycled knit patchwork</span></div>
             <div className="fifa-meta-row"><span>Materials</span><span>Ponte knit · eyelet knit · waffle knit · Y-knit · cotton denim</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>5 · indigo, navy, sea-green, with one ice-pale outlier</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>6 looks reworked to only using the treatments and upcycled knits</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
