@@ -57,7 +57,7 @@ export function FrameCaseStudy({ collection, onClose }) {
 
       {/* GROUP A: Cable Felt Fusion lineup */}
       <section className="fifa-section">
-        <Mark no="01" label="Group A · Cable Felt Fusion" title="Cream, fringe, fused cable." />
+        <Mark no="01" label="Treatment · Group A, Group B" title="Cable Felt Fusion." />
         <div className="fifa-pair">
           <figure>
             <img src={img("Cable Felt Large.jpeg")} alt="Cable Felt fusion: cream sweater forms in studio" style={{ background: "#fff" }} />
