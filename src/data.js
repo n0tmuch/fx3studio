@@ -154,9 +154,9 @@ export const COLLECTIONS = [
     year: "",
     role: "Artist Project · Men's Wear A/W 2025",
     blurb:
-      "A men's wear A/W 2025 capsule built from a single Dorothea Tanning painting, La Rose et le Chien, 1952. Six looks of romantic monastic tailoring in oxidized rust, ink, and olive, drawn out of the painting's hooded rose, its dog, and its bruised oil-on-canvas atmosphere.",
+      "A men's wear A/W 2025 capsule built from a single Dorothea Tanning painting, La Rose et le Chien, 1952. Six looks of romantic tailoring with emphasis on layering to reflect the petals of the rose.",
     concept:
-      "The painting is a hooded rose and a small black dog standing watch, all rendered in oxblood, ember, and shadow. The collection translates that into men's outerwear that drapes like fabric posing for a portrait. Two novelty fabrics carry the painting forward, oxidized wool felt that reads as the rose's bloom and a leather that holds the painting's bruised highlights. Bases are double-face cotton shirting (indigo with a rust reverse, picked up as collars and contrast facings), cotton suiting, wool coating, and a hand-dyed jersey-knit treatment for the layering tops. Construction tells: shawl collars, draped cowls, asymmetric wrap fronts, wavy curve-seam pants, double-sided exposed zippers, and a swing coat with a shaped armhole. The book runs lineup, fabric story, sewing samples, and five look pages of full flats, plus the installation shot from the Artist Project critique wall.",
+      "Inspired by the flower motif of the painting, the construction uses pleats so garments can be worn in varied draped configurations. Two shirting fabrics are combined into a double-faced treatment that can be worn either side out. The next two treatments are fabric manipulations drawn from the walls and table in the painting, each heavy in texture: a wool wet-felted to capture the fuzziness and variety of color, and a jersey knit dyed, bleached, and dyed again to create a muddy resemblance of the wall.",
     tags: ["Men's wear", "Artist project", "Dorothea Tanning", "A/W 2025"],
     looks: 6,
   },

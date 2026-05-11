@@ -23,7 +23,7 @@ export function LaRoseCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The book, cover to flats.</h2>
+          <h2 className="fifa-section-title">Menswear collection</h2>
         </div>
 
         <Page n="1" alt="Page 1 · Lineup of six menswear looks"
@@ -32,12 +32,12 @@ export function LaRoseCaseStudy({ collection, onClose }) {
         <div className="fifa-intro-grid fe-intro-after-cover">
           <div className="fifa-intro-meta">
             <div className="fifa-meta-row"><span>Project</span><span>La Rose et le Chien · Artist Project</span></div>
-            <div className="fifa-meta-row"><span>Format</span><span>10-page concept book · men's wear A/W 2025</span></div>
+            <div className="fifa-meta-row"><span>Format</span><span>10-page collection · men's wear A/W 2025</span></div>
             <div className="fifa-meta-row"><span>Source</span><span>Dorothea Tanning · La Rose et le Chien · 1952 · oil on canvas · 26 × 21 in</span></div>
-            <div className="fifa-meta-row"><span>Aesthetic</span><span>Painterly drape · romantic monastic men's wear · oxidized palette</span></div>
+            <div className="fifa-meta-row"><span>Aesthetic</span><span>Painterly drape · romantic tailored rustic tones</span></div>
             <div className="fifa-meta-row"><span>Materials</span><span>Leather · wool felt · jersey-knit dye treatment · double-face cotton shirting · cotton suiting · wool coating</span></div>
             <div className="fifa-meta-row"><span>Trims</span><span>Single-weight buttons · double-sided exposed zippers</span></div>
-            <div className="fifa-meta-row"><span>Looks</span><span>6 · oxblood, rust, oxidized olive, ink, jersey indigo</span></div>
+            <div className="fifa-meta-row"><span>Looks</span><span>6 · tailored menswear looks</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
