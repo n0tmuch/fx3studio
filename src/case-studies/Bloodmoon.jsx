@@ -19,7 +19,7 @@ export function BloodMoonCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The book, cover to flats.</h2>
+          <h2 className="fifa-section-title">Season: Winter</h2>
         </div>
 
         {/* Page 1: cover */}

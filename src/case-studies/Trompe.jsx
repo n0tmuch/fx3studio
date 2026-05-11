@@ -26,7 +26,7 @@ export function TrompeCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The book, cover to flats.</h2>
+          <h2 className="fifa-section-title">Season: Spring</h2>
         </div>
 
         <Page n="1" alt="Page 1 · cover · A Knite at the Gallery"

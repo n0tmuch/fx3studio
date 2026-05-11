@@ -16,7 +16,7 @@ export function FoldEaseCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <div className="bm-section-mark">
           <div className="fifa-section-no">Pages</div>
-          <h2 className="fifa-section-title">The book, cover to flats.</h2>
+          <h2 className="fifa-section-title">Season: Summer</h2>
         </div>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((n) =>
         <div key={n} className="fe-page-group">
