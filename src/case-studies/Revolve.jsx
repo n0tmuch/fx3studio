@@ -62,15 +62,28 @@ export function RevolveCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* COLOR / FABRIC */}
+      {/* GROUPS A,B,C,D · LINEUP PAGES */}
       <section className="fifa-section">
-        <Mark no="02" label="Color & Fabric" title="Sky, bleed, sand, brick." />
+        <Mark no="02" label="Group A, B, C, D" title="Lineup pages." />
         <div className="fifa-pair">
           <figure>
-            <img src={img("10 Large.jpeg")} alt="Fabric and dye swatch board" />
+            <img src={img("1 Large.jpeg")} alt="Lineup page · Group A" />
           </figure>
           <figure>
-            <img src={img("12 Large.jpeg")} alt="Bathtub dye process and dyed jersey" />
+            <img src={img("2 Large.jpeg")} alt="Lineup page · Group B" />
+          </figure>
+        </div>
+        <div className="fifa-pair">
+          <figure>
+            <img src={img("3 Large.jpeg")} alt="Lineup page · Group C" />
+          </figure>
+          <figure>
+            <img src={img("4 Large.jpeg")} alt="Lineup page · Group D" />
+          </figure>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <figure style={{ margin: 0, width: 'calc(50% - clamp(8px, 1vw, 14px))' }}>
+            <img src={img("5 Large.jpeg")} alt="Lineup page · combined look" style={{ width: '100%', display: 'block', background: 'var(--bg-2)' }} />
           </figure>
         </div>
         <div className="fifa-palette">
