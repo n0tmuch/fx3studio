@@ -93,18 +93,36 @@ export function RevolveCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* GROUP A */}
+      {/* GROUPS A,B,C,D · FLAT LAYOUT PAGE */}
       <section className="fifa-section">
-        <Mark no="03" label="Group A · Ensemble" title="Patchwork tops, drop-rise cargo." />
-        <div className="fifa-fullbleed">
-          <img src={img("5 Large.jpeg")} alt="Group A lineup" />
+        <Mark no="03" label="A, B, C, D" title="Flat layout page." />
+        <div className="fifa-pair">
+          <figure><img src={img("6 Large.jpeg")} alt="Flat layout · 6" /></figure>
+          <figure><img src={img("7 Large.jpeg")} alt="Flat layout · 7" /></figure>
         </div>
         <div className="fifa-pair">
-          <figure>
-            <img src={img("1 Large.jpeg")} alt="A1: patchwork top + shorts + leggings flat" />
-          </figure>
-          <figure>
-            <img src={img("8 Large.jpeg")} alt="A2: corset + cropped jacket + cargo flat" />
+          <figure><img src={img("8 Large.jpeg")} alt="Flat layout · 8" /></figure>
+          <figure><img src={img("9 Large.jpeg")} alt="Flat layout · 9" /></figure>
+        </div>
+        <div className="fifa-pair">
+          <figure><img src={img("10 Large.jpeg")} alt="Flat layout · 10" /></figure>
+          <figure><img src={img("11 Large.jpeg")} alt="Flat layout · 11" /></figure>
+        </div>
+        <div className="fifa-pair">
+          <figure><img src={img("12 Large.jpeg")} alt="Flat layout · 12" /></figure>
+          <figure><img src={img("13 Large.jpeg")} alt="Flat layout · 13" /></figure>
+        </div>
+        <div className="fifa-pair">
+          <figure><img src={img("14 Large.jpeg")} alt="Flat layout · 14" /></figure>
+          <figure><img src={img("15 Large.jpeg")} alt="Flat layout · 15" /></figure>
+        </div>
+        <div className="fifa-pair">
+          <figure><img src={img("16 Large.jpeg")} alt="Flat layout · 16" /></figure>
+          <figure><img src={img("17 Large.jpeg")} alt="Flat layout · 17" /></figure>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'clamp(24px, 3vw, 40px)' }}>
+          <figure style={{ margin: 0, width: 'calc(50% - clamp(8px, 1vw, 14px))' }}>
+            <img src={img("18 Large.jpeg")} alt="Flat layout · 18" style={{ width: '100%', display: 'block', background: 'var(--bg-2)' }} />
           </figure>
         </div>
       </section>
