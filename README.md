@@ -240,3 +240,7 @@ Round-two crawl by Perplexity (after Phase 3 + class-based hiding shipped) read 
 - Safety tag `pre-phase-5` at `c22388f` — `git reset --hard pre-phase-5` reverts Phase 5 entirely
 - Per-phase commits: Phase 5A is `57b6079`, Phase 5C is `12bf131`; `git revert <sha>` undoes either independently. (5C depends on 5A only for the `homeShell` `<img>` line; the `<video poster>`/`aria-label` change is standalone.)
 - Vercel can roll back to any previous production deployment from the dashboard
+
+### 2026-05-13: About section trim
+
+Removed the third `BIO_LONG` paragraph ("Spencer approaches projects...") from `src/data.js` and the "Inspirations · Music, skateboarding..." line from `Components.jsx::About`. The section sizes from content via `#about { padding: clamp(...) }`, so the `var(--bg-2)` panel collapses naturally — no empty space left behind.
