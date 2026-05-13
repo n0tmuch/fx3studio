@@ -136,51 +136,9 @@ export function RevolveCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* GROUP C */}
+      {/* FROM DRESS FORM TO LIVE MODEL · FITTINGS */}
       <section className="fifa-section">
-        <Mark no="05" label="Group C · Dye Treatment" title="Shoulder-blue, hem-bleed." />
-        <div className="fifa-fullbleed">
-          <img src={img("13 Large.jpeg")} alt="Group C: dyed denim looks" />
-        </div>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("6 Large.jpeg")} alt="C1: cropped jacket + denim short flat" />
-          </figure>
-          <figure>
-            <img src={img("15 Large.jpeg")} alt="C2: drape cardigan + dyed cargo flat" />
-          </figure>
-        </div>
-      </section>
-
-      {/* GROUP D */}
-      <section className="fifa-section">
-        <Mark no="06" label="Group D · Skull Motif" title="Reverse-cut skull, two-tone tunic." />
-        <div className="fifa-fullbleed">
-          <img src={img("18 Large.jpeg")} alt="Group D lineup" />
-        </div>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("9 Large.jpeg")} alt="D1: skull pullover + cropped jacket flat" />
-          </figure>
-          <figure>
-            <img src={img("2 Large.jpeg")} alt="D2: skull tunic + arrow-seam pant flat" />
-          </figure>
-        </div>
-      </section>
-
-      {/* PRINCIPAL HOODED LOOK */}
-      <section className="fifa-section">
-        <Mark no="07" label="Featured Look" title="Hooded jumpsuit · sky-to-bleed." />
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("21 Large.jpeg")} alt="Featured hooded jumpsuit flats" />
-          </figure>
-        </div>
-      </section>
-
-      {/* PROCESS / FITTINGS */}
-      <section className="fifa-section">
-        <Mark no="08" label="In the studio" title="Dye, drape, fit." />
+        <Mark no="05" label="From dress form to live model" title="Fittings." />
         <div className="fifa-pair">
           <figure>
             <img src={img("IMG_7237 Large.jpeg")} alt="Faculty fitting on platform" />
@@ -197,16 +155,11 @@ export function RevolveCaseStudy({ collection, onClose }) {
             <img src={img("IMG_7802 Large.jpeg")} alt="Backstage: model standing" />
           </figure>
         </div>
-        <div className="fifa-pair">
-          <figure>
-            <img src={img("IMG_9777 Large.jpeg")} alt="Show floor with white wedding pieces" />
-          </figure>
-        </div>
       </section>
 
       {/* RUNWAY */}
       <section className="fifa-section">
-        <Mark no="09" label="Runway" title="Revolve × Otis · show floor." />
+        <Mark no="06" label="Runway" title="Revolve × Otis." />
         <div className="fifa-fullbleed">
           <img src={img("IMG_8644.jpeg")} alt="Runway: hooded dip-dye jumpsuit" />
         </div>
