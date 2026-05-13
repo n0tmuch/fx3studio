@@ -487,6 +487,8 @@ section { padding: clamp(80px, 10vw, 140px) var(--pad); position: relative; }
   font-family: var(--mono); font-size: 12px;
   text-transform: uppercase; letter-spacing: 0.14em;
   margin-top: 28px;
+  color: inherit; text-decoration: none;
+  background: transparent; cursor: pointer;
   transition: background .2s, color .2s;
 }
 .cv-download:hover { background: var(--fg); color: var(--bg); }

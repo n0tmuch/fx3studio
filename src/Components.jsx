@@ -256,26 +256,6 @@ function Process() {
 
 // ---------- CV ----------
 function CV() {
-  const downloadResume = () => {
-    // generates a simple printable CV in a new tab: Spencer can replace with a hosted PDF
-    const win = window.open("", "_blank");
-    if (!win) return;
-    win.document.write(`<!doctype html><html><head><title>Spencer Harrison · CV</title>
-      <style>body{font-family:Georgia,serif;max-width:720px;margin:48px auto;padding:0 24px;color:#111;line-height:1.5}
-      h1{font-size:32px;margin-bottom:4px}h2{font-size:14px;letter-spacing:.16em;text-transform:uppercase;margin-top:32px;margin-bottom:12px;border-bottom:1px solid #000;padding-bottom:6px}
-      h3{font-size:16px;margin-top:18px}p{margin:4px 0}ul{margin:6px 0 0 20px}li{margin-bottom:4px;font-size:14px}
-      .meta{color:#555;font-size:13px}@media print{body{margin:0}}</style></head><body>
-      <h1>Spencer Harrison</h1><p class="meta">Fx3 Studio · Founder & Designer · Los Angeles, CA</p>
-      <p class="meta">${SITE.email} · ${SITE.domain}</p>
-      <h2>Summary</h2><p>${BIO_SUMMARY}</p>
-      <h2>Experience</h2>
-      ${EXPERIENCE.map((e) => `<h3>${e.role}: ${e.company}</h3><p class="meta">${e.period}</p><ul>${e.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`).join("")}
-      <h2>Education</h2>${EDUCATION.map((e) => `<h3>${e.school}</h3><p>${e.degree}</p><p class="meta">${e.period} · ${e.location}</p>`).join("")}
-      <h2>Skills</h2><p>${SKILLS.join(" · ")}</p>
-      <script>window.print()<\/script></body></html>`);
-    win.document.close();
-  };
-
   return (
     <section id="cv" style={{ background: "var(--bg-2)" }}>
       <div className="container">
@@ -323,12 +303,12 @@ function CV() {
           </div>
         </div>
 
-        <button className="cv-download" onClick={downloadResume}>
+        <a className="cv-download" href="/cv" target="_blank" rel="noopener">
           <span>Download CV</span>
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.4">
             <path d="M7 1v9M3 7l4 4 4-4M2 13h10" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </button>
+        </a>
       </div>
     </section>);
 
