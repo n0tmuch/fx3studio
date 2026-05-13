@@ -164,10 +164,10 @@ export const COLLECTIONS = [
     id: "tech-pack",
     no: "10",
     category: "Tech Pack",
-    title: "Avenue Collection",
+    title: "Tech Pack",
     subtitle: "Tech Pack · Green Rain Coat",
     year: "",
-    role: "Tech Pack · Production Documentation",
+    role: "Army Green Raincoat",
     blurb:
       "A six-page production tech pack for an Avenue Collection green rain coat. Rendered flats, twenty-four-point spec, full bill of materials, exterior and interior stitch callouts, branding placement, and a numbered pattern card. The whole jacket, ready to hand off to a sample room.",
     concept:
