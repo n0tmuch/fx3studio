@@ -158,3 +158,31 @@ External crawlers (LinkedIn unfurler, AI WebFetch, Google, recruiter ATS scraper
 - Safety tag `pre-seo-discoverability` at `e44428a` — `git reset --hard pre-seo-discoverability` reverts everything in this section
 - Per-phase commits: Phase 1 is `fa3c806`, Phase 2 is `78468f0`; `git revert <sha>` undoes either independently
 - Pre-Phase-1 Vercel production deployment: `fx3studio-8vixiouis-n0tmuchs-projects.vercel.app` — promotable from the Vercel dashboard if a deploy ever breaks the live URL faster than git can
+
+### 2026-05-12 (later still): static-shell prerender + crawlable CV (Phases 3 & 4)
+
+Closed the remaining gap from the Phase 1–2 section above: deep-link URLs were returning the same SPA shell as the home, so LinkedIn unfurls of `/work/<slug>` showed the home OG card and AI crawlers / ATS scrapers saw only the base-site meta on case-study pages.
+
+**Phase 3 — post-build prerender (commit `db092eb`):**
+- New `scripts/prerender.mjs`: a zero-dependency Node ESM script that runs after `vite build`. Imports `COLLECTIONS`, `BIO_LONG`, `BIO_SUMMARY`, `EXPERIENCE`, `EDUCATION`, `SITE`, `SKILLS` directly from `src/data.js` (pure-ESM, no JSX, so a plain dynamic `import()` works in Node). Reads the freshly built `dist/index.html` to extract the hashed `<script>` / `<link>` asset filenames, then writes:
+  - `dist/index.html` (home) — rewritten so `<div id="root">` contains BIO_SUMMARY + BIO_LONG, a `<ul>` of all 10 projects linking to `/work/<slug>`, EXPERIENCE / EDUCATION / SKILLS, and contact info
+  - `dist/work/<slug>/index.html` × 10 — each with route-specific `<title>`, `meta description`, OG/Twitter tags, canonical, a JSON-LD `@graph` (Person + Organization + WebSite + just that single CreativeWork), and the project's `title`, `subtitle`, `blurb`, `concept`, `tags`, `role`, `looks` inside the `#root`
+  - `dist/cv/index.html` — standalone print-friendly CV (no React; pure HTML + inline print CSS + JSON-LD `ProfilePage`)
+- All static-shell content is wrapped in a visually-offscreen `<div style="position:absolute;clip:rect(0 0 0 0);…">` so crawlers read it but humans never see a FOUC of plain text. React's `createRoot().render()` in `main.jsx` then wipes `#root`'s children on mount with no hydration — `hydrateRoot` is deliberately not used.
+- `package.json::build` chained: `"vite build && node scripts/prerender.mjs"`. Vercel runs both in its build step.
+- `public/sitemap.xml`: added `/cv`. Existing `vercel.json` rewrites for `/work/:slug` are left in place — Vercel serves static files before applying rewrites, so the prerendered file wins; unknown slugs still fall through to the home shell.
+
+**Phase 4 — crawlable CV (commit `7b5b451`):**
+- `src/Components.jsx::CV` "Download CV" was a `<button>` whose `onClick` opened a new tab and `document.write`-d a printable CV from scratch. That CV was never in the crawlable DOM. Replaced with a plain `<a href="/cv" target="_blank">` so it navigates to the prerendered `/cv` route Phase 3 generates. Users hit Cmd-P (or the "Print / Save PDF" button on `/cv`) for the same printable flow.
+- `src/styles.css::.cv-download`: added `text-decoration: none; color: inherit; background: transparent; cursor: pointer` so swapping from `<button>` to `<a>` is visually identical.
+
+**What this fixes:**
+- `curl https://fx3studio.com/work/fifa1904 | grep "Buenos Aires"` now returns the project's concept text instead of the home shell
+- LinkedIn / Slack / iMessage unfurls of any `/work/<slug>` show a project-specific card (title, blurb, and that project's hero image), not the FIFA hero card
+- AI WebFetch (Claude, ChatGPT, Perplexity) reads the right CreativeWork JSON-LD when given a deep link
+- `/cv` is a real shareable URL, crawlable by ATS scrapers and Google, with the full experience / education / skills as semantic HTML
+
+**Rollback paths in place:**
+- Safety tag `pre-phase-3` at `ae6d9cb` — `git reset --hard pre-phase-3` reverts Phases 3 + 4 together
+- Per-phase commits: Phase 3 is `db092eb`, Phase 4 is `7b5b451`. Phase 4 depends on Phase 3, so revert in reverse order
+- Vercel can roll back to any previous production deployment from the dashboard
