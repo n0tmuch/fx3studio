@@ -58,6 +58,100 @@ if (!jsHref || !cssHref) {
   process.exit(1);
 }
 
+// ---------- image extraction from case-study source ----------
+// Each project's <img> inventory lives in its case-study JSX file. We extract
+// it directly from source so the prerendered HTML mirrors the visible UI
+// image-for-image, in the same order, with the same alt text — no data
+// duplication. Three patterns are supported (covering all 10 current studies):
+//   1. <img src={img("FILE")} alt="ALT" ... />            — literal
+//   2. <Page n="N" alt="ALT" />  + a Page helper          — Gothic/Larose/etc.
+//   3. [a,b,...].map((n) => <img src={img(`...${n}...`)}  — Foldease only
+// Matches are recorded with their source-file index and sorted so the emitted
+// list preserves visible case-study order.
+
+const PROJECT_SOURCE = {
+  fifa1904: { file: 'src/Components.jsx', sliceFrom: 'function FifaCaseStudy', sliceTo: 'function SectionMark' },
+  'blood-moon': { file: 'src/case-studies/Bloodmoon.jsx' },
+  'fold-ease': { file: 'src/case-studies/Foldease.jsx' },
+  'frame-salvation': { file: 'src/case-studies/Frame.jsx' },
+  'gothic-winter': { file: 'src/case-studies/Gothic.jsx' },
+  'la-rose': { file: 'src/case-studies/Larose.jsx' },
+  'music-fest': { file: 'src/case-studies/Musicfest.jsx' },
+  'revolve-otis': { file: 'src/case-studies/Revolve.jsx' },
+  'tech-pack': { file: 'src/case-studies/Techpack.jsx' },
+  trompe: { file: 'src/case-studies/Trompe.jsx' },
+};
+
+const encodePath = (s) => s.split('/').map(encodeURIComponent).join('/');
+
+async function extractProjectImages(slug) {
+  const meta = PROJECT_SOURCE[slug];
+  if (!meta) return [];
+  let source = await readFile(resolve(ROOT, meta.file), 'utf8');
+  if (meta.sliceFrom && meta.sliceTo) {
+    const start = source.indexOf(meta.sliceFrom);
+    const end = source.indexOf(meta.sliceTo, start);
+    if (start !== -1 && end !== -1) source = source.slice(start, end);
+  }
+
+  // Path prefix from the file's `const img = (n) => `/assets/SLUG/${n}``
+  const prefixMatch = source.match(/const img = \(n\) => `(\/assets\/[^/]+\/)\$\{n\}`/);
+  if (!prefixMatch) return [];
+  const prefix = prefixMatch[1];
+
+  // Page helper (if present): captures the extension `.jpeg` / `.jpg`
+  const pageHelperExt = source.match(
+    /const Page = \(\{ n, alt \}\) =>[\s\S]{0,200}?img\("page-" \+ n \+ "(\.[a-z]+)"\)/,
+  )?.[1];
+
+  const matches = [];
+
+  // Pattern 1: literal <img src={img("...")} alt="..." [more attrs] />
+  const litRe = /<img\s+src=\{img\("([^"]+)"\)\}\s+alt="([^"]+)"/g;
+  for (let m; (m = litRe.exec(source)) !== null; ) {
+    matches.push({ pos: m.index, file: m[1], alt: m[2] });
+  }
+
+  // Pattern 2: <Page n="N" alt="..." /> calls (only if Page helper found)
+  if (pageHelperExt) {
+    const pageRe = /<Page\s+n="(\d+)"\s+alt="([^"]+)"/g;
+    for (let m; (m = pageRe.exec(source)) !== null; ) {
+      matches.push({ pos: m.index, file: `page-${m[1]}${pageHelperExt}`, alt: m[2] });
+    }
+  }
+
+  // Pattern 3: [a,b,...].map((n) => ... img(`PRE${n}POST`) ... alt={`PRE${n}POST`} ...)
+  const mapRe =
+    /\[([0-9, \n]+)\]\.map\(\(n\) =>[\s\S]*?img\(`([^`]*)\$\{n\}([^`]*)`\)[\s\S]*?alt=\{`([^`]*)\$\{n\}([^`]*)`\}/g;
+  for (let m; (m = mapRe.exec(source)) !== null; ) {
+    const nums = m[1].split(',').map((s) => s.trim()).filter(Boolean);
+    const [srcPre, srcPost, altPre, altPost] = [m[2], m[3], m[4], m[5]];
+    nums.forEach((n, i) => {
+      matches.push({
+        pos: m.index + i, // preserve array order at the map's source position
+        file: `${srcPre}${n}${srcPost}`,
+        alt: `${altPre}${n}${altPost}`,
+      });
+    });
+  }
+
+  matches.sort((a, b) => a.pos - b.pos);
+  return matches.map(({ file, alt }) => ({
+    src: prefix + encodePath(file),
+    alt,
+  }));
+}
+
+// Build the per-slug image inventory once, in parallel.
+const PROJECT_IMAGES = Object.fromEntries(
+  await Promise.all(
+    COLLECTIONS.map(async (c) => [c.id, await extractProjectImages(c.id)]),
+  ),
+);
+for (const c of COLLECTIONS) {
+  console.log(`prerender: extracted ${PROJECT_IMAGES[c.id].length} images for ${c.id}`);
+}
+
 // ---------- shared head ----------
 function commonHead({ title, description, url, image, imageAlt, jsonLd }) {
   return `  <meta charset="utf-8" />
@@ -157,18 +251,35 @@ const websiteNode = {
   inLanguage: 'en-US',
 };
 
-const creativeWorkNode = (c) => ({
-  '@type': 'CreativeWork',
-  name: c.title,
-  url: `https://fx3studio.com/work/${c.id}`,
-  creator: { '@id': 'https://fx3studio.com/#spencer' },
-  ...(c.year ? { dateCreated: String(c.year) } : {}),
-  keywords: c.tags.join(', '),
-  about: c.blurb,
-});
+const creativeWorkNode = (c) => {
+  const imgs = PROJECT_IMAGES[c.id] || [];
+  return {
+    '@type': 'CreativeWork',
+    name: c.title,
+    url: `https://fx3studio.com/work/${c.id}`,
+    creator: { '@id': 'https://fx3studio.com/#spencer' },
+    ...(c.year ? { dateCreated: String(c.year) } : {}),
+    keywords: c.tags.join(', '),
+    about: c.blurb,
+    ...(imgs.length
+      ? { image: imgs.map(({ src }) => `https://fx3studio.com${src}`) }
+      : {}),
+  };
+};
 
 // ---------- per-project page ----------
 function projectShell(c) {
+  const imgs = PROJECT_IMAGES[c.id] || [];
+  const imgsBlock = imgs.length
+    ? `
+        <h2>Imagery (${imgs.length})</h2>
+        ${imgs
+          .map(
+            ({ src, alt }) =>
+              `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">`,
+          )
+          .join('\n        ')}`
+    : '';
   return `<div class="prerender-shell">
       <header>
         <a href="/">Fx3 Studio · Spencer Harrison</a>
@@ -186,7 +297,7 @@ function projectShell(c) {
         <h2>Tags</h2>
         <ul>
           ${c.tags.map((t) => `<li>${esc(t)}</li>`).join('\n          ')}
-        </ul>
+        </ul>${imgsBlock}
         <p><a href="/">Back to all work</a></p>
       </article>
     </div>`;
@@ -435,7 +546,8 @@ console.log('prerender: wrote dist/index.html (home shell)');
 for (const c of COLLECTIONS) {
   const path = resolve(DIST, 'work', c.id, 'index.html');
   await writeFileWithDirs(path, projectPage(c));
-  console.log(`prerender: wrote dist/work/${c.id}/index.html`);
+  const imgCount = (PROJECT_IMAGES[c.id] || []).length;
+  console.log(`prerender: wrote dist/work/${c.id}/index.html (${imgCount} images)`);
 }
 
 await writeFileWithDirs(resolve(DIST, 'cv', 'index.html'), cvPage());
