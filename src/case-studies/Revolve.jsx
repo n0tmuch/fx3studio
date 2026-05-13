@@ -81,7 +81,7 @@ export function RevolveCaseStudy({ collection, onClose }) {
             <img src={img("4 Large.jpeg")} alt="Lineup page · Group D" />
           </figure>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'clamp(24px, 3vw, 40px)' }}>
           <figure style={{ margin: 0, width: 'calc(50% - clamp(8px, 1vw, 14px))' }}>
             <img src={img("5 Large.jpeg")} alt="Lineup page · combined look" style={{ width: '100%', display: 'block', background: 'var(--bg-2)' }} />
           </figure>
