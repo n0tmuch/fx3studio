@@ -42,9 +42,13 @@ const esc = (s) => String(s)
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-// Visually offscreen but in the DOM — crawlers read it, humans don't see it.
+// Hidden via a CSS class loaded by the bundled stylesheet, not an inline style.
+// Inline `clip:rect(0 0 0 0); width:1px; height:1px` is the canonical "sr-only"
+// pattern that cheap content extractors (AI fetchers, link-preview bots, ATS
+// scrapers) treat as hidden and skip — exactly the consumers we're prerendering
+// for. With class-based hiding, real browsers (which fetch + parse the bundled
+// CSS) hide the shell before paint, but raw-HTML readers see the full content.
 // React's createRoot.render() wipes #root's children on first mount.
-const SR = 'position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;overflow:hidden;';
 
 const builtIndex = await readFile(resolve(DIST, 'index.html'), 'utf8');
 const jsHref = builtIndex.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)?.[1];
@@ -165,7 +169,7 @@ const creativeWorkNode = (c) => ({
 
 // ---------- per-project page ----------
 function projectShell(c) {
-  return `<div style="${SR}">
+  return `<div class="prerender-shell">
       <header>
         <a href="/">Fx3 Studio · Spencer Harrison</a>
       </header>
@@ -244,7 +248,7 @@ function homeShell() {
     )
     .join('\n          ');
 
-  return `<div style="${SR}">
+  return `<div class="prerender-shell">
       <header>
         <h1>Fx3 Studio · Spencer Harrison</h1>
         <p>${esc(SITE.role)} · ${esc(SITE.location)}</p>
