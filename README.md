@@ -37,9 +37,16 @@ src/
   lib/
     image-slot.js       <image-slot> custom element (work tiles, process strip, detail hero)
     tweaks.jsx          stub for the design-tool tweaks panel (renders nothing)
+scripts/
+  prerender.mjs         post-build: writes static HTML shells for /, /work/<slug>, /cv so non-JS crawlers get real content
 public/
   assets/               runway.mp4 + per-collection imagery
+  robots.txt            allow all + sitemap pointer
+  sitemap.xml           home + all 10 /work/<slug> URLs + /cv
+  favicon.svg           placeholder serif "fx3" mark
 ```
+
+The build pipeline is `npm run build` → `vite build` (emits `dist/` with hashed bundles) → `node scripts/prerender.mjs` (overwrites `dist/index.html` and adds `dist/work/<slug>/index.html` × 10 and `dist/cv/index.html`). React's `createRoot().render()` in `main.jsx` wipes the prerendered `#root` on mount, so humans loading any URL in a browser see the SPA; non-JS clients (LinkedIn unfurl, AI WebFetch, ATS scrapers, Googlebot first pass) read the static HTML directly.
 
 Content edits almost always live in `src/data.js`. The `COLLECTIONS` array drives the work grid and case-study dispatch in `Components.jsx::ProjectDetail`.
 
