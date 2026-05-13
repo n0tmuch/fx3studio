@@ -52,8 +52,13 @@ export function RevolveCaseStudy({ collection, onClose }) {
       <section className="fifa-section">
         <Mark no="01" label="Fabric story" title="Every treatment, on one board." />
         <p className="fifa-lede">Every dye and reverse-embroidery experiment in the collection, laid out on one board. Ice-dyed ponte and sweater knits in pinks and blues. Denim dunked first in sky-blue, then ombré-dipped into red, finished with a hand-burned rib-cage screen print. Leftover purple denim bleached into a galaxy print and hand-painted. And a coffee-dyed panda skull, cut twice for reverse-embroidery depth.</p>
-        <div className="fifa-fullbleed">
-          <img src={img("17 Large.jpeg")} alt="Swatch board: every dye and reverse-embroidery treatment" />
+        <div className="fifa-pair">
+          <figure>
+            <img src={img("21 Large.jpeg")} alt="Swatch board, left half" />
+          </figure>
+          <figure>
+            <img src={img("22 Large.jpeg")} alt="Swatch board, right half" />
+          </figure>
         </div>
       </section>
 
