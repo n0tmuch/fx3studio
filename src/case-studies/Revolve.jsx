@@ -127,22 +127,12 @@ export function RevolveCaseStudy({ collection, onClose }) {
         </div>
       </section>
 
-      {/* GROUP B */}
+      {/* FINAL OUTCOME · MENTOR PICK */}
       <section className="fifa-section">
-        <Mark no="04" label="Group B · Reverse Embroidery" title="The ribcage, set free of the body." />
-        <div className="fifa-fullbleed">
-          <img src={img("16 Large.jpeg")} alt="Group B: reverse embroidery looks" />
-        </div>
+        <Mark no="04" label="Final outcome" title="Mentor pick." />
         <div className="fifa-pair">
-          <figure>
-            <img src={img("3 Large.jpeg")} alt="B1: hooded ribcage maxi flat" />
-          </figure>
-          <figure>
-            <img src={img("11 Large.jpeg")} alt="B2: ribcage overall dress flat" />
-          </figure>
-          <figure>
-            <img src={img("19 Large.jpeg")} alt="B3: ribcage tunic + flared denim flat" />
-          </figure>
+          <figure><img src={img("19 Large.jpeg")} alt="Mentor pick · 19" /></figure>
+          <figure><img src={img("20 Large.jpeg")} alt="Mentor pick · 20" /></figure>
         </div>
       </section>
 
