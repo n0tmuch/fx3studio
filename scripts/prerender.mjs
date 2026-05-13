@@ -364,6 +364,7 @@ function homeShell() {
         <h1>Fx3 Studio · Spencer Harrison</h1>
         <p>${esc(SITE.role)} · ${esc(SITE.location)}</p>
         <p>${esc(SITE.tagline)}</p>
+        <img src="/assets/fifa1904/1%20Large.jpeg" alt="Fx3 Studio runway hero: Spencer Harrison's FIFA 1904 × Otis senior thesis collection on the catwalk" loading="lazy" decoding="async">
       </header>
       <section>
         <h2>About</h2>

@@ -116,7 +116,8 @@ function Hero({ videoMode }) {
         className="hero-video"
         src="/assets/runway.mp4"
         autoPlay muted loop playsInline
-        poster="" /> :
+        poster="/assets/fifa1904/1 Large.jpeg"
+        aria-label="Fx3 Studio runway: Spencer Harrison's FIFA 1904 × Otis senior thesis collection on the catwalk" /> :
 
 
       <div className="hero-poster" style={{ background: "var(--bg-2)" }} />
