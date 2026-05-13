@@ -1,8 +1,9 @@
-// Post-build prerender: write a real HTML shell for the home, /cv, and every
-// /work/<slug> so non-JS crawlers (LinkedIn unfurl, AI WebFetch, ATS scrapers,
-// Googlebot first pass) read route-specific title / meta / OG / JSON-LD plus
-// the project's text content. React's createRoot.render() in main.jsx replaces
-// #root on mount, so the static shell never visibly competes with the SPA.
+// Post-build SSG: render the real React tree to HTML for every public route,
+// then write each route as its own dist/<route>/index.html. The bundled client
+// JS rehydrates on top via hydrateRoot, so server-rendered HTML and the first
+// client render produce the same tree. Replaces the Phase 3–5 hidden-shell
+// approach: no `.prerender-shell { display: none }` cloak any more — what tier-
+// two AI/recruiter extractors see is the same DOM real browsers paint.
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
@@ -11,17 +12,21 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const DIST = resolve(ROOT, 'dist');
+const SSR_DIST = resolve(ROOT, '.ssr-build');
 
 const dataUrl = pathToFileURL(resolve(ROOT, 'src/data.js')).href;
 const {
   COLLECTIONS,
-  BIO_LONG,
   BIO_SUMMARY,
   EXPERIENCE,
   EDUCATION,
   SITE,
   SKILLS,
 } = await import(dataUrl);
+
+// SSR bundle produced by `vite build --ssr src/entry-server.jsx`.
+const ssrEntryUrl = pathToFileURL(resolve(SSR_DIST, 'entry-server.js')).href;
+const { render } = await import(ssrEntryUrl);
 
 const PROJECT_COVER = {
   fifa1904: 'assets/fifa1904/1%20Large.jpeg',
@@ -42,14 +47,6 @@ const esc = (s) => String(s)
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-// Hidden via a CSS class loaded by the bundled stylesheet, not an inline style.
-// Inline `clip:rect(0 0 0 0); width:1px; height:1px` is the canonical "sr-only"
-// pattern that cheap content extractors (AI fetchers, link-preview bots, ATS
-// scrapers) treat as hidden and skip — exactly the consumers we're prerendering
-// for. With class-based hiding, real browsers (which fetch + parse the bundled
-// CSS) hide the shell before paint, but raw-HTML readers see the full content.
-// React's createRoot.render() wipes #root's children on first mount.
-
 const builtIndex = await readFile(resolve(DIST, 'index.html'), 'utf8');
 const jsHref = builtIndex.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)?.[1];
 const cssHref = builtIndex.match(/<link rel="stylesheet" crossorigin href="([^"]+)">/)?.[1];
@@ -58,102 +55,30 @@ if (!jsHref || !cssHref) {
   process.exit(1);
 }
 
-// ---------- image extraction from case-study source ----------
-// Each project's <img> inventory lives in its case-study JSX file. We extract
-// it directly from source so the prerendered HTML mirrors the visible UI
-// image-for-image, in the same order, with the same alt text — no data
-// duplication. Three patterns are supported (covering all 10 current studies):
-//   1. <img src={img("FILE")} alt="ALT" ... />            — literal
-//   2. <Page n="N" alt="ALT" />  + a Page helper          — Gothic/Larose/etc.
-//   3. [a,b,...].map((n) => <img src={img(`...${n}...`)}  — Foldease only
-// Matches are recorded with their source-file index and sorted so the emitted
-// list preserves visible case-study order.
-
-const PROJECT_SOURCE = {
-  fifa1904: { file: 'src/Components.jsx', sliceFrom: 'function FifaCaseStudy', sliceTo: 'function SectionMark' },
-  'blood-moon': { file: 'src/case-studies/Bloodmoon.jsx' },
-  'fold-ease': { file: 'src/case-studies/Foldease.jsx' },
-  'frame-salvation': { file: 'src/case-studies/Frame.jsx' },
-  'gothic-winter': { file: 'src/case-studies/Gothic.jsx' },
-  'la-rose': { file: 'src/case-studies/Larose.jsx' },
-  'music-fest': { file: 'src/case-studies/Musicfest.jsx' },
-  'revolve-otis': { file: 'src/case-studies/Revolve.jsx' },
-  'tech-pack': { file: 'src/case-studies/Techpack.jsx' },
-  trompe: { file: 'src/case-studies/Trompe.jsx' },
+// ---------- image-count audit (regression guard) ----------
+// Phase 5 emitted the full <img> inventory for each case study as part of the
+// hidden shell. With SSG the visible React tree itself is the inventory, so we
+// no longer need to re-extract — but we still want the build to fail loudly if
+// any project's count drops below the Phase-5 baseline.
+const PHASE5_BASELINE = {
+  fifa1904: 37,
+  'revolve-otis': 28,
+  'frame-salvation': 25,
+  'gothic-winter': 12,
+  'la-rose': 10,
+  'fold-ease': 8,
+  'music-fest': 8,
+  'blood-moon': 6,
+  trompe: 6,
+  'tech-pack': 6,
 };
 
-const encodePath = (s) => s.split('/').map(encodeURIComponent).join('/');
-
-async function extractProjectImages(slug) {
-  const meta = PROJECT_SOURCE[slug];
-  if (!meta) return [];
-  let source = await readFile(resolve(ROOT, meta.file), 'utf8');
-  if (meta.sliceFrom && meta.sliceTo) {
-    const start = source.indexOf(meta.sliceFrom);
-    const end = source.indexOf(meta.sliceTo, start);
-    if (start !== -1 && end !== -1) source = source.slice(start, end);
-  }
-
-  // Path prefix from the file's `const img = (n) => `/assets/SLUG/${n}``
-  const prefixMatch = source.match(/const img = \(n\) => `(\/assets\/[^/]+\/)\$\{n\}`/);
-  if (!prefixMatch) return [];
-  const prefix = prefixMatch[1];
-
-  // Page helper (if present): captures the extension `.jpeg` / `.jpg`
-  const pageHelperExt = source.match(
-    /const Page = \(\{ n, alt \}\) =>[\s\S]{0,200}?img\("page-" \+ n \+ "(\.[a-z]+)"\)/,
-  )?.[1];
-
-  const matches = [];
-
-  // Pattern 1: literal <img src={img("...")} alt="..." [more attrs] />
-  const litRe = /<img\s+src=\{img\("([^"]+)"\)\}\s+alt="([^"]+)"/g;
-  for (let m; (m = litRe.exec(source)) !== null; ) {
-    matches.push({ pos: m.index, file: m[1], alt: m[2] });
-  }
-
-  // Pattern 2: <Page n="N" alt="..." /> calls (only if Page helper found)
-  if (pageHelperExt) {
-    const pageRe = /<Page\s+n="(\d+)"\s+alt="([^"]+)"/g;
-    for (let m; (m = pageRe.exec(source)) !== null; ) {
-      matches.push({ pos: m.index, file: `page-${m[1]}${pageHelperExt}`, alt: m[2] });
-    }
-  }
-
-  // Pattern 3: [a,b,...].map((n) => ... img(`PRE${n}POST`) ... alt={`PRE${n}POST`} ...)
-  const mapRe =
-    /\[([0-9, \n]+)\]\.map\(\(n\) =>[\s\S]*?img\(`([^`]*)\$\{n\}([^`]*)`\)[\s\S]*?alt=\{`([^`]*)\$\{n\}([^`]*)`\}/g;
-  for (let m; (m = mapRe.exec(source)) !== null; ) {
-    const nums = m[1].split(',').map((s) => s.trim()).filter(Boolean);
-    const [srcPre, srcPost, altPre, altPost] = [m[2], m[3], m[4], m[5]];
-    nums.forEach((n, i) => {
-      matches.push({
-        pos: m.index + i, // preserve array order at the map's source position
-        file: `${srcPre}${n}${srcPost}`,
-        alt: `${altPre}${n}${altPost}`,
-      });
-    });
-  }
-
-  matches.sort((a, b) => a.pos - b.pos);
-  return matches.map(({ file, alt }) => ({
-    src: prefix + encodePath(file),
-    alt,
-  }));
-}
-
-// Build the per-slug image inventory once, in parallel.
-const PROJECT_IMAGES = Object.fromEntries(
-  await Promise.all(
-    COLLECTIONS.map(async (c) => [c.id, await extractProjectImages(c.id)]),
-  ),
-);
-for (const c of COLLECTIONS) {
-  console.log(`prerender: extracted ${PROJECT_IMAGES[c.id].length} images for ${c.id}`);
+function countImgs(html) {
+  return (html.match(/<img\b/g) || []).length;
 }
 
 // ---------- shared head ----------
-function commonHead({ title, description, url, image, imageAlt, jsonLd }) {
+function commonHead({ title, description, url, image, imageAlt, jsonLd, injectScript }) {
   return `  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
@@ -183,6 +108,7 @@ function commonHead({ title, description, url, image, imageAlt, jsonLd }) {
   <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}
   </script>
+  ${injectScript || ''}
   <script type="module" crossorigin src="${jsHref}"></script>
   <link rel="stylesheet" crossorigin href="${cssHref}">`;
 }
@@ -251,8 +177,76 @@ const websiteNode = {
   inLanguage: 'en-US',
 };
 
+// CreativeWork.image[] mirrors the rendered <img> inventory for each project,
+// extracted once via a regex over the case-study source (cheap; reuses the
+// Phase 5 extraction logic). Schema-aware crawlers can enumerate per-project
+// imagery without parsing body HTML.
+const PROJECT_SOURCE = {
+  fifa1904: { file: 'src/Components.jsx', sliceFrom: 'function FifaCaseStudy', sliceTo: 'function SectionMark' },
+  'blood-moon': { file: 'src/case-studies/Bloodmoon.jsx' },
+  'fold-ease': { file: 'src/case-studies/Foldease.jsx' },
+  'frame-salvation': { file: 'src/case-studies/Frame.jsx' },
+  'gothic-winter': { file: 'src/case-studies/Gothic.jsx' },
+  'la-rose': { file: 'src/case-studies/Larose.jsx' },
+  'music-fest': { file: 'src/case-studies/Musicfest.jsx' },
+  'revolve-otis': { file: 'src/case-studies/Revolve.jsx' },
+  'tech-pack': { file: 'src/case-studies/Techpack.jsx' },
+  trompe: { file: 'src/case-studies/Trompe.jsx' },
+};
+
+const encodePath = (s) => s.split('/').map(encodeURIComponent).join('/');
+
+async function extractProjectImages(slug) {
+  const meta = PROJECT_SOURCE[slug];
+  if (!meta) return [];
+  let source = await readFile(resolve(ROOT, meta.file), 'utf8');
+  if (meta.sliceFrom && meta.sliceTo) {
+    const start = source.indexOf(meta.sliceFrom);
+    const end = source.indexOf(meta.sliceTo, start);
+    if (start !== -1 && end !== -1) source = source.slice(start, end);
+  }
+  const prefixMatch = source.match(/const img = \(n\) => `(\/assets\/[^/]+\/)\$\{n\}`/);
+  if (!prefixMatch) return [];
+  const prefix = prefixMatch[1];
+  const pageHelperExt = source.match(
+    /const Page = \(\{ n, alt \}\) =>[\s\S]{0,200}?img\("page-" \+ n \+ "(\.[a-z]+)"\)/,
+  )?.[1];
+  const matches = [];
+  const litRe = /<img\s+src=\{img\("([^"]+)"\)\}\s+alt="([^"]+)"/g;
+  for (let m; (m = litRe.exec(source)) !== null; ) {
+    matches.push({ pos: m.index, file: m[1], alt: m[2] });
+  }
+  if (pageHelperExt) {
+    const pageRe = /<Page\s+n="(\d+)"\s+alt="([^"]+)"/g;
+    for (let m; (m = pageRe.exec(source)) !== null; ) {
+      matches.push({ pos: m.index, file: `page-${m[1]}${pageHelperExt}`, alt: m[2] });
+    }
+  }
+  const mapRe =
+    /\[([0-9, \n]+)\]\.map\(\(n\) =>[\s\S]*?img\(`([^`]*)\$\{n\}([^`]*)`\)[\s\S]*?alt=\{`([^`]*)\$\{n\}([^`]*)`\}/g;
+  for (let m; (m = mapRe.exec(source)) !== null; ) {
+    const nums = m[1].split(',').map((s) => s.trim()).filter(Boolean);
+    const [srcPre, srcPost, altPre, altPost] = [m[2], m[3], m[4], m[5]];
+    nums.forEach((n, i) => {
+      matches.push({
+        pos: m.index + i,
+        file: `${srcPre}${n}${srcPost}`,
+        alt: `${altPre}${n}${altPost}`,
+      });
+    });
+  }
+  matches.sort((a, b) => a.pos - b.pos);
+  return matches.map(({ file }) => `https://fx3studio.com${prefix}${encodePath(file)}`);
+}
+
+const PROJECT_IMAGE_URLS = Object.fromEntries(
+  await Promise.all(
+    COLLECTIONS.map(async (c) => [c.id, await extractProjectImages(c.id)]),
+  ),
+);
+
 const creativeWorkNode = (c) => {
-  const imgs = PROJECT_IMAGES[c.id] || [];
+  const imgs = PROJECT_IMAGE_URLS[c.id] || [];
   return {
     '@type': 'CreativeWork',
     name: c.title,
@@ -261,172 +255,64 @@ const creativeWorkNode = (c) => {
     ...(c.year ? { dateCreated: String(c.year) } : {}),
     keywords: c.tags.join(', '),
     about: c.blurb,
-    ...(imgs.length
-      ? { image: imgs.map(({ src }) => `https://fx3studio.com${src}`) }
-      : {}),
+    ...(imgs.length ? { image: imgs } : {}),
   };
 };
 
-// ---------- per-project page ----------
-function projectShell(c) {
-  const imgs = PROJECT_IMAGES[c.id] || [];
-  const imgsBlock = imgs.length
-    ? `
-        <h2>Imagery (${imgs.length})</h2>
-        ${imgs
-          .map(
-            ({ src, alt }) =>
-              `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">`,
-          )
-          .join('\n        ')}`
-    : '';
-  return `<div class="prerender-shell">
-      <header>
-        <a href="/">Fx3 Studio · Spencer Harrison</a>
-      </header>
-      <article>
-        <p>${esc(c.no)} · ${esc(c.category)}${c.year ? ' · ' + esc(c.year) : ''}</p>
-        <h1>${esc(c.title)}</h1>
-        <p>${esc(c.subtitle)}</p>
-        <p><strong>Role:</strong> ${esc(c.role)}</p>
-        <p><strong>Looks:</strong> ${esc(c.looks)}</p>
-        <h2>About this project</h2>
-        <p>${esc(c.blurb)}</p>
-        <h2>Concept</h2>
-        <p>${esc(c.concept)}</p>
-        <h2>Tags</h2>
-        <ul>
-          ${c.tags.map((t) => `<li>${esc(t)}</li>`).join('\n          ')}
-        </ul>${imgsBlock}
-        <p><a href="/">Back to all work</a></p>
-      </article>
-    </div>`;
-}
-
-function projectPage(c) {
-  const cover = PROJECT_COVER[c.id] || PROJECT_COVER.fifa1904;
-  const title = `${c.title} · Fx3 Studio · Spencer Harrison`;
-  const description = c.blurb;
-  const url = `https://fx3studio.com/work/${c.id}`;
-  const image = `https://fx3studio.com/${cover}`;
-  const imageAlt = `${c.title}: hero image from Spencer Harrison's Fx3 Studio portfolio`;
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [personNode, orgNode, websiteNode, creativeWorkNode(c)],
-  };
-
+// ---------- page template ----------
+function pageTemplate({ title, description, url, image, imageAlt, jsonLd, body, initialRoute }) {
+  const initScript = `<script>window.__INITIAL_ROUTE__=${JSON.stringify(initialRoute)};</script>`;
   return `<!doctype html>
 <html lang="en" data-theme="cinema">
 <head>
-${commonHead({ title, description, url, image, imageAlt, jsonLd })}
+${commonHead({ title, description, url, image, imageAlt, jsonLd, injectScript: initScript })}
 </head>
 <body>
-  <div id="root">
-    ${projectShell(c)}
-  </div>
+  <div id="root">${body}</div>
 </body>
 </html>
 `;
+}
+
+// ---------- per-project page ----------
+function projectPage(c, body) {
+  const cover = PROJECT_COVER[c.id] || PROJECT_COVER.fifa1904;
+  return pageTemplate({
+    title: `${c.title} · Fx3 Studio · Spencer Harrison`,
+    description: c.blurb,
+    url: `https://fx3studio.com/work/${c.id}`,
+    image: `https://fx3studio.com/${cover}`,
+    imageAlt: `${c.title}: hero image from Spencer Harrison's Fx3 Studio portfolio`,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [personNode, orgNode, websiteNode, creativeWorkNode(c)],
+    },
+    body,
+    initialRoute: c.id,
+  });
 }
 
 // ---------- home page ----------
-function homeShell() {
-  const expBlock = EXPERIENCE.map(
-    (e) => `
-        <article>
-          <h3>${esc(e.role)} · ${esc(e.company)}</h3>
-          <p>${esc(e.period)}</p>
-          <ul>
-            ${e.bullets.map((b) => `<li>${esc(b)}</li>`).join('\n            ')}
-          </ul>
-        </article>`,
-  ).join('');
-
-  const eduBlock = EDUCATION.map(
-    (e) => `
-        <article>
-          <h3>${esc(e.school)}</h3>
-          <p>${esc(e.degree)}</p>
-          <p>${esc(e.period)} · ${esc(e.location)}</p>
-        </article>`,
-  ).join('');
-
-  const workList = [...COLLECTIONS]
-    .sort((a, b) => a.no.localeCompare(b.no))
-    .map(
-      (c) => `<li><a href="/work/${esc(c.id)}">${esc(c.no)} · ${esc(c.title)}${c.year ? ' (' + esc(c.year) + ')' : ''} · ${esc(c.subtitle)}</a></li>`,
-    )
-    .join('\n          ');
-
-  return `<div class="prerender-shell">
-      <header>
-        <h1>Fx3 Studio · Spencer Harrison</h1>
-        <p>${esc(SITE.role)} · ${esc(SITE.location)}</p>
-        <p>${esc(SITE.tagline)}</p>
-        <img src="/assets/fifa1904/1%20Large.jpeg" alt="Fx3 Studio runway hero: Spencer Harrison's FIFA 1904 × Otis senior thesis collection on the catwalk" loading="lazy" decoding="async">
-      </header>
-      <section>
-        <h2>About</h2>
-        <p>${esc(BIO_SUMMARY)}</p>
-        ${BIO_LONG.map((p) => `<p>${esc(p)}</p>`).join('\n        ')}
-      </section>
-      <section>
-        <h2>Selected work</h2>
-        <ul>
-          ${workList}
-        </ul>
-      </section>
-      <section>
-        <h2>Experience</h2>${expBlock}
-      </section>
-      <section>
-        <h2>Education</h2>${eduBlock}
-      </section>
-      <section>
-        <h2>Skills</h2>
-        <p>${SKILLS.map(esc).join(' · ')}</p>
-      </section>
-      <section>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></p>
-        <p>Instagram: <a href="https://instagram.com/fx3studiodesigns">${esc(SITE.instagram)}</a></p>
-        <p>Studio: ${esc(SITE.location)}</p>
-      </section>
-    </div>`;
-}
-
-function homePage() {
-  const title = 'Fx3 Studio · Spencer Harrison — Fashion Designer · Los Angeles';
-  const description =
-    'Fx3 Studio is the portfolio of Spencer Harrison, a Los Angeles fashion designer and BFA graduate of Otis College of Art and Design. Senior thesis with FIFA 1904. Mentorships with FRAME, Revolve, and Salvation Army. Womenswear, menswear, knitwear, tech packs.';
-  const url = 'https://fx3studio.com/';
-  const image = 'https://fx3studio.com/assets/fifa1904/1%20Large.jpeg';
-  const imageAlt =
-    'Fx3 Studio — Spencer Harrison, FIFA 1904 × Otis senior thesis editorial hero';
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      personNode,
-      orgNode,
-      websiteNode,
-      ...COLLECTIONS.map(creativeWorkNode),
-    ],
-  };
-
-  return `<!doctype html>
-<html lang="en" data-theme="cinema">
-<head>
-${commonHead({ title, description, url, image, imageAlt, jsonLd })}
-</head>
-<body>
-  <div id="root">
-    ${homeShell()}
-  </div>
-</body>
-</html>
-`;
+function homePage(body) {
+  return pageTemplate({
+    title: 'Fx3 Studio · Spencer Harrison — Fashion Designer · Los Angeles',
+    description:
+      'Fx3 Studio is the portfolio of Spencer Harrison, a Los Angeles fashion designer and BFA graduate of Otis College of Art and Design. Senior thesis with FIFA 1904. Mentorships with FRAME, Revolve, and Salvation Army. Womenswear, menswear, knitwear, tech packs.',
+    url: 'https://fx3studio.com/',
+    image: 'https://fx3studio.com/assets/fifa1904/1%20Large.jpeg',
+    imageAlt: 'Fx3 Studio — Spencer Harrison, FIFA 1904 × Otis senior thesis editorial hero',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        personNode,
+        orgNode,
+        websiteNode,
+        ...COLLECTIONS.map(creativeWorkNode),
+      ],
+    },
+    body,
+    initialRoute: null,
+  });
 }
 
 // ---------- /cv page (standalone, no React) ----------
@@ -541,16 +427,34 @@ async function writeFileWithDirs(path, content) {
   await writeFile(path, content, 'utf8');
 }
 
-await writeFile(resolve(DIST, 'index.html'), homePage(), 'utf8');
-console.log('prerender: wrote dist/index.html (home shell)');
-
-for (const c of COLLECTIONS) {
-  const path = resolve(DIST, 'work', c.id, 'index.html');
-  await writeFileWithDirs(path, projectPage(c));
-  const imgCount = (PROJECT_IMAGES[c.id] || []).length;
-  console.log(`prerender: wrote dist/work/${c.id}/index.html (${imgCount} images)`);
+function assertImgCount(slug, html, baseline) {
+  const got = countImgs(html);
+  if (got < baseline) {
+    throw new Error(
+      `prerender: ${slug} rendered ${got} <img> tags, below Phase-5 baseline ${baseline}`,
+    );
+  }
+  return got;
 }
 
+// Home
+const homeRender = render('/');
+const homeHtml = homePage(homeRender.html);
+await writeFile(resolve(DIST, 'index.html'), homeHtml, 'utf8');
+console.log(`prerender: wrote dist/index.html (home · ${countImgs(homeHtml)} <img> in body)`);
+
+// Per-project
+for (const c of COLLECTIONS) {
+  const url = `/work/${c.id}`;
+  const { html } = render(url);
+  const page = projectPage(c, html);
+  const baseline = PHASE5_BASELINE[c.id];
+  const count = baseline ? assertImgCount(c.id, page, baseline) : countImgs(page);
+  await writeFileWithDirs(resolve(DIST, 'work', c.id, 'index.html'), page);
+  console.log(`prerender: wrote dist/work/${c.id}/index.html (${count} <img> in body)`);
+}
+
+// CV (standalone non-React page)
 await writeFileWithDirs(resolve(DIST, 'cv', 'index.html'), cvPage());
 console.log('prerender: wrote dist/cv/index.html');
 

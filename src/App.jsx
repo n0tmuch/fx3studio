@@ -77,14 +77,12 @@ function slugFromPath(pathname) {
   return m ? m[1] : null;
 }
 
-export function App() {
+// initialRoute is the slug (or null) of the open project at SSR/hydration time.
+// The server-rendered entry passes it in; main.jsx forwards window.__INITIAL_ROUTE__
+// so server HTML and the first client render produce the same tree.
+export function App({ initialRoute = null }) {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  const [openId, setOpenId] = useState(() => {
-    if (typeof window === 'undefined') return null;
-    const slug = slugFromPath(window.location.pathname);
-    if (!slug) return null;
-    return COLLECTIONS.some((c) => c.id === slug) ? slug : null;
-  });
+  const [openId, setOpenId] = useState(initialRoute);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', t.theme);

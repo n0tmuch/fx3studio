@@ -635,7 +635,7 @@
     }
   }
 
-  if (!customElements.get('image-slot')) {
+  if (typeof customElements !== 'undefined' && !customElements.get('image-slot')) {
     customElements.define('image-slot', ImageSlot);
   }
 })();
