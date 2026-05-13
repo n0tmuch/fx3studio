@@ -158,7 +158,7 @@ function WorkGrid({ openProject }) {
     if (c.id === "revolve-otis") return { src: "assets/revolve/IMG_8644.jpeg", fit: "cover" };
     if (c.id === "frame-salvation") return { src: "assets/frame/runway-8123.jpeg", fit: "cover" };
     if (c.id === "blood-moon") return { src: "assets/bloodmoon/page-1.jpeg", fit: "contain" };
-    if (c.id === "music-fest") return { src: "assets/musicfest/page-1.jpeg", fit: "contain" };
+    if (c.id === "music-fest") return { src: "assets/musicfest/page-1.jpg", fit: "contain" };
     if (c.id === "trompe") return { src: "assets/trompe/page-1.jpeg", fit: "contain" };
     if (c.id === "gothic-winter") return { src: "assets/gothic/page-3.jpeg", fit: "contain" };
     if (c.id === "la-rose") return { src: "assets/larose/page-1.jpeg", fit: "contain" };

@@ -7,7 +7,7 @@ export function MusicFestCaseStudy({ collection, onClose }) {
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">
-      <img src={img("page-" + n + ".jpeg")} alt={alt} />
+      <img src={img("page-" + n + ".jpg")} alt={alt} />
     </div>;
 
   return (
