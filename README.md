@@ -193,3 +193,17 @@ Closed the remaining gap from the Phase 1–2 section above: deep-link URLs were
 - Safety tag `pre-phase-3` at `ae6d9cb` — `git reset --hard pre-phase-3` reverts Phases 3 + 4 together
 - Per-phase commits: Phase 3 is `db092eb`, Phase 4 is `7b5b451`. Phase 4 depends on Phase 3, so revert in reverse order
 - Vercel can roll back to any previous production deployment from the dashboard
+
+### 2026-05-12 (still later): prerender visibility fix
+
+External AI fetchers (Claude `web_fetch`, Perplexity, link-preview cards) were still reporting "site has no body content" *after* Phase 3 shipped. The prerendered HTML was reaching them — `curl -A "PerplexityBot" https://fx3studio.com/` returns 17 KB with full H1/H2/H3 hierarchy — but cheap content extractors were skipping the body because Phase 3's shell was wrapped in inline `<div style="position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;overflow:hidden">`. That is the canonical "sr-only" pattern; HTML parsers that don't run a full layout engine still detect it as inline-hidden and drop the subtree. The cloak we put up for human FOUC also cloaked the content from the very consumers Phase 3 was built for.
+
+**Fix (commit `65d7cca`):**
+- `scripts/prerender.mjs`: replaced the inline `style="${SR}"` wrapper with `class="prerender-shell"` on both `homeShell()` and `projectShell()`. The `SR` constant is gone; the rationale comment now documents *why* class-based hiding is the right move for this consumer mix.
+- `src/styles.css`: added `.prerender-shell { display: none; }` directly after the `body` baseline (line 68). The class lives in the bundled stylesheet, not inline, so a raw-HTML reader that doesn't fetch + parse external CSS sees the content; a real browser blocks first paint on the stylesheet and hides the shell cleanly before React mounts. `main.jsx` uses `createRoot` (not `hydrateRoot`), so React replaces `#root` wholesale on mount — no hydration mismatch concern.
+
+**Verification:**
+- `curl -sS https://fx3studio.com/ | grep -c "clip:rect"` → `0` (was `1` per shell on all 12 prerendered pages)
+- `curl -sS https://fx3studio.com/ | grep -oE '<h[1-3][^>]*>[^<]+</h[1-3]>' | wc -l` → 12 headings present in raw HTML, identical to pre-fix output
+- `.prerender-shell{display:none}` is bundled into `dist/assets/index-<hash>.css`
+- Real-browser load: shell never paints (render-blocking CSS hides it before first frame), React mounts as before
