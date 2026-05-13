@@ -72,13 +72,35 @@ function applyRouteMeta(collection) {
   setCanonical(m.url);
 }
 
+function slugFromPath(pathname) {
+  const m = pathname.match(/^\/work\/([^/]+)\/?$/);
+  return m ? m[1] : null;
+}
+
 export function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  const [openId, setOpenId] = useState(null);
+  const [openId, setOpenId] = useState(() => {
+    if (typeof window === 'undefined') return null;
+    const slug = slugFromPath(window.location.pathname);
+    if (!slug) return null;
+    return COLLECTIONS.some((c) => c.id === slug) ? slug : null;
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', t.theme);
   }, [t.theme]);
+
+  useEffect(() => {
+    const slug = slugFromPath(window.location.pathname);
+    if (slug) {
+      const known = COLLECTIONS.some((c) => c.id === slug);
+      if (known) {
+        window.history.replaceState({ project: slug }, '', `/work/${slug}`);
+      } else {
+        window.history.replaceState({}, '', '/');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const onPop = (e) => setOpenId(e.state?.project ?? null);
@@ -93,12 +115,16 @@ export function App() {
   }, [openId]);
 
   const openProject = (id) => {
-    window.history.pushState({ project: id }, '');
+    window.history.pushState({ project: id, fromHome: true }, '', `/work/${id}`);
     setOpenId(id);
   };
   const closeProject = () => {
-    if (window.history.state?.project) window.history.back();
-    else setOpenId(null);
+    if (window.history.state?.fromHome) {
+      window.history.back();
+    } else {
+      window.history.replaceState({}, '', '/');
+      setOpenId(null);
+    }
   };
 
   return (
