@@ -48,7 +48,7 @@ export const COLLECTIONS = [
     year: "2024",
     role: "mentorship · Otis College",
     blurb:
-      "A junior-year collection developed under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, dying yardage, and deconstructed denim. Every dyed yard was hand-treated by Spencer himself, no studio shortcuts, just a home bathtub and buckets, before being cut, patterned, and constructed for the runway.",
+      "A junior-year collection developed under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, dying yardage, and distressed denim. Every dyed yard was hand-treated by Spencer, no studio shortcuts, just a home bathtub and buckets, before being cut, patterned, and constructed for the runway.",
     concept:
       "The prompt for this mentor project was a night at a club. DJs and dancing.",
     tags: ["Womenswear", "Junior show", "Otis 2024", "Revolve × Otis"],
@@ -215,7 +215,7 @@ export const EXPERIENCE = [
     company: "Junior mentorship Project",
     period: "2024",
     bullets: [
-      "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, exploring dye treatments (starting with white yardage, dyeing it blue then dip-dyeing red) and deconstructed denim.",
+      "Conceptualized and executed a junior-year collection under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, exploring dye treatments (starting with white yardage, dyeing it blue then dip-dyeing red) and distressed denim.",
       "Designed and constructed garments brought to life directly from original illustrations, with three rounds of fittings alongside the REVOLVE design team for real-world exposure to the professional fitting and revision process.",
       "Deepened technical expertise in denim and knit outerwear construction across the mentorship.",
     ],

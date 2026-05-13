@@ -26,7 +26,7 @@ export function RevolveCaseStudy({ collection, onClose }) {
         <div className="fifa-hero-text">
           <div className="fifa-eyebrow">{c.no} · Revolve × Otis · {c.year}</div>
           <h1 className="fifa-title">Revolve<br /><em>× Otis</em></h1>
-          <div className="fifa-subtitle">A junior-year mentorship in dye and deconstructed denim.</div>
+          <div className="fifa-subtitle">A junior-year mentorship in dye and distressed denim.</div>
         </div>
       </div>
 
@@ -38,8 +38,8 @@ export function RevolveCaseStudy({ collection, onClose }) {
             <div className="fifa-meta-row"><span>Year</span><span>{c.year}</span></div>
             <div className="fifa-meta-row"><span>Show</span><span>Otis Junior Fashion Show</span></div>
             <div className="fifa-meta-row"><span>Looks</span><span>Four groups: A · B · C · D</span></div>
-            <div className="fifa-meta-row"><span>Treatments</span><span>Reverse embroidery · ombré dye · deconstructed denim</span></div>
-            <div className="fifa-meta-row"><span>Role</span><span>Conceptualized and illustrated a full collection · dye yardage · drape · pattern · construction · show production</span></div>
+            <div className="fifa-meta-row"><span>Treatments</span><span>Reverse embroidery · ombré dye · distressed denim</span></div>
+            <div className="fifa-meta-row"><span>Role</span><span>Conceptualized and illustrated a full collection · dyed yardage · drape · pattern · construction · show production</span></div>
           </div>
           <div className="fifa-intro-text">
             <p className="fifa-blurb">{c.blurb}</p>
