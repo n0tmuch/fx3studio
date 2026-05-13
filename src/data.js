@@ -50,7 +50,7 @@ export const COLLECTIONS = [
     blurb:
       "A junior-year collection developed under the Revolve × Otis mentorship. Four groups exploring reverse embroidery, dying yardage, and distressed denim. Every dyed yard was hand-treated by Spencer, no studio shortcuts, just a home bathtub and buckets, before being cut, patterned, and constructed for the runway.",
     concept:
-      "The prompt for this mentor project was a night at a club. DJs and dancing.",
+      "The prompt for this mentor project was a night at a club, DJs and dancing. The mentor then selected three looks she liked best and combined them into one new look that incorporated each of the treatments: reverse embroidery, dyed denim, and distressed denim.",
     tags: ["Womenswear", "Junior show", "Otis 2024", "Revolve × Otis"],
     looks: 12,
     feature: false,
