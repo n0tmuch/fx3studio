@@ -573,18 +573,25 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
           <figure>
             <img src={img("Mid Right.jpeg")} alt="Group C flat: mid right" />
           </figure>
+        </div>
+      </section>
+
+      {/* MENTOR PICK FLATS */}
+      <section className="fifa-section">
+        <SectionMark no="10" label="Flats" title="Mentor Pick" />
+        <div className="fifa-flats">
           <figure>
-            <img src={img("Bottom Left.jpeg")} alt="Group C flat: bottom left" />
+            <img src={img("26 Large.jpeg")} alt="Mentor pick flat · 26" />
           </figure>
           <figure>
-            <img src={img("Bottom Right.jpeg")} alt="Group C flat: bottom right" />
+            <img src={img("27 Large.jpeg")} alt="Mentor pick flat · 27" />
           </figure>
         </div>
       </section>
 
       {/* MAKING */}
       <section className="fifa-section">
-        <SectionMark no="10" label="In the studio" title="Mentor Fitting" />
+        <SectionMark no="11" label="In the studio" title="Mentor Fitting" />
         <div className="fifa-pair">
           <figure>
             <img src={img("File_000 (79) Large.jpeg")} alt="FIFA 1904 stencil: spray-painted graphic" />
