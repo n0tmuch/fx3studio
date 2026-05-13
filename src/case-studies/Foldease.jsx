@@ -2,7 +2,7 @@
 // Hybrid format: short hero + intro, then book pages 1–8 as full-bleed plates.
 export function FoldEaseCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/foldease/${n}`;
+  const img = (n) => `/assets/foldease/${n}`;
 
   return (
     <div className="detail fifa revolve foldease" role="dialog" aria-label={c.title}>

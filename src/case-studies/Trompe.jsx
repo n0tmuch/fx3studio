@@ -5,7 +5,7 @@
 
 export function TrompeCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/trompe/${n}`;
+  const img = (n) => `/assets/trompe/${n}`;
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">

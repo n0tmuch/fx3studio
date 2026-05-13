@@ -4,7 +4,7 @@
 
 export function LaRoseCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/larose/${n}`;
+  const img = (n) => `/assets/larose/${n}`;
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">

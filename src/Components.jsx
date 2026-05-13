@@ -114,7 +114,7 @@ function Hero({ videoMode }) {
       <video
         ref={videoRef}
         className="hero-video"
-        src="assets/runway.mp4"
+        src="/assets/runway.mp4"
         autoPlay muted loop playsInline
         poster="" /> :
 
@@ -154,16 +154,16 @@ function WorkGrid({ openProject }) {
   })).filter((g) => g.items.length > 0);
 
   const thumbFor = (c) => {
-    if (c.id === "fifa1904") return { src: "assets/fifa1904/1 Large.jpeg", fit: "cover" };
-    if (c.id === "revolve-otis") return { src: "assets/revolve/IMG_8644.jpeg", fit: "cover" };
-    if (c.id === "frame-salvation") return { src: "assets/frame/runway-8123.jpeg", fit: "cover" };
-    if (c.id === "blood-moon") return { src: "assets/bloodmoon/page-1.jpeg", fit: "contain" };
-    if (c.id === "music-fest") return { src: "assets/musicfest/page-1.jpg", fit: "contain" };
-    if (c.id === "trompe") return { src: "assets/trompe/page-1.jpeg", fit: "contain" };
-    if (c.id === "gothic-winter") return { src: "assets/gothic/page-3.jpeg", fit: "contain" };
-    if (c.id === "la-rose") return { src: "assets/larose/page-1.jpeg", fit: "contain" };
-    if (c.id === "tech-pack") return { src: "assets/techpack/page-1.jpeg", fit: "contain" };
-    if (c.id === "fold-ease") return { src: "assets/foldease/page-1.jpeg", fit: "contain" };
+    if (c.id === "fifa1904") return { src: "/assets/fifa1904/1 Large.jpeg", fit: "cover" };
+    if (c.id === "revolve-otis") return { src: "/assets/revolve/IMG_8644.jpeg", fit: "cover" };
+    if (c.id === "frame-salvation") return { src: "/assets/frame/runway-8123.jpeg", fit: "cover" };
+    if (c.id === "blood-moon") return { src: "/assets/bloodmoon/page-1.jpeg", fit: "contain" };
+    if (c.id === "music-fest") return { src: "/assets/musicfest/page-1.jpg", fit: "contain" };
+    if (c.id === "trompe") return { src: "/assets/trompe/page-1.jpeg", fit: "contain" };
+    if (c.id === "gothic-winter") return { src: "/assets/gothic/page-3.jpeg", fit: "contain" };
+    if (c.id === "la-rose") return { src: "/assets/larose/page-1.jpeg", fit: "contain" };
+    if (c.id === "tech-pack") return { src: "/assets/techpack/page-1.jpeg", fit: "contain" };
+    if (c.id === "fold-ease") return { src: "/assets/foldease/page-1.jpeg", fit: "contain" };
     return null;
   };
 
@@ -372,7 +372,7 @@ function Contact() {
 // Built from real assets in assets/fifa1904/. Long-form deep dive.
 function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
   const c = collection;
-  const img = (n) => `assets/fifa1904/${n}`;
+  const img = (n) => `/assets/fifa1904/${n}`;
 
   return (
     <div className="detail fifa" role="dialog" aria-label={c.title}>

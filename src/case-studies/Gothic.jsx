@@ -5,7 +5,7 @@
 
 export function GothicCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/gothic/${n}`;
+  const img = (n) => `/assets/gothic/${n}`;
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">

@@ -4,7 +4,7 @@
 
 export function BloodMoonCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/bloodmoon/${n}`;
+  const img = (n) => `/assets/bloodmoon/${n}`;
 
   return (
     <div className="detail fifa revolve bloodmoon" role="dialog" aria-label={c.title}>

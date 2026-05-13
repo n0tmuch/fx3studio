@@ -3,7 +3,7 @@
 
 export function MusicFestCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/musicfest/${n}`;
+  const img = (n) => `/assets/musicfest/${n}`;
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">

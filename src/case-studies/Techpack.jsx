@@ -4,7 +4,7 @@
 
 export function TechPackCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/techpack/${n}`;
+  const img = (n) => `/assets/techpack/${n}`;
 
   const Page = ({ n, alt }) =>
   <div className="fifa-fullbleed bm-page">

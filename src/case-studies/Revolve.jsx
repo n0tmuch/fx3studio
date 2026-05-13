@@ -2,7 +2,7 @@
 // Junior-year mentorship collection. Mirrors FifaCaseStudy structure.
 export function RevolveCaseStudy({ collection, onClose }) {
   const c = collection;
-  const img = (n) => `assets/revolve/${n}`;
+  const img = (n) => `/assets/revolve/${n}`;
 
   const Mark = ({ no, label, title }) =>
   <div className="fifa-section-mark">
