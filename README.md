@@ -207,3 +207,36 @@ External AI fetchers (Claude `web_fetch`, Perplexity, link-preview cards) were s
 - `curl -sS https://fx3studio.com/ | grep -oE '<h[1-3][^>]*>[^<]+</h[1-3]>' | wc -l` → 12 headings present in raw HTML, identical to pre-fix output
 - `.prerender-shell{display:none}` is bundled into `dist/assets/index-<hash>.css`
 - Real-browser load: shell never paints (render-blocking CSS hides it before first frame), React mounts as before
+
+### 2026-05-12 (Phase 5): full image inventory in prerendered HTML + hero poster
+
+Round-two crawl by Perplexity (after Phase 3 + class-based hiding shipped) read the text content correctly but reported "no images in the body" because the prerendered shell carried zero `<img>` tags. The recommendation that came back was unambiguous: machine-readable HTML has to mirror the visible case study image-for-image, in order, with alt text — not a curated subset.
+
+**Phase 5A — full body image inventory + JSON-LD `image` arrays (commit `57b6079`):**
+- `scripts/prerender.mjs` now parses each case-study source file and emits every `<img>` from the visible UI into the prerendered shell, in source order, with the same alt text. Single source of truth — the case-study JSX — no data duplication.
+- Three patterns covered (handles all 10 current case studies):
+  - **Literal** `<img src={img("FILE")} alt="ALT" ...>` — FIFA (in `Components.jsx::FifaCaseStudy`), Bloodmoon, Frame, Revolve
+  - **`<Page n="N" alt="ALT">` helper** with `page-N.jpeg` (or `.jpg` for Musicfest) — Gothic, La Rose, Trompe, Techpack, Musicfest
+  - **`[a,b,…].map((n) => <img src={img(\`…${n}…\`)}>)`** — Foldease only
+- Matches are recorded with their source-file index and sorted, so the emitted list mirrors the visible case-study order. Image counts on first run: FIFA 37, Revolve 28, FRAME 25, Gothic 12, La Rose 10, Foldease 8, Musicfest 8, Trompe 6, Blood Moon 6, Tech Pack 6 — 146 total.
+- Each prerendered `<img>` carries `loading="lazy" decoding="async"`. Combined with the existing `.prerender-shell { display: none }` from the earlier visibility-fix round, modern browsers don't fetch the hidden images — they cost zero bytes for human visitors and full inventory for crawlers.
+- Filenames containing spaces are percent-encoded in both body `src` and JSON-LD `image[]` (so `1 Large.jpeg` → `1%20Large.jpeg`), matching what the existing OG image tags already do.
+- `creativeWorkNode(c)` JSON-LD now carries `image:` as an array of absolute URLs for the same images, so schema-aware crawlers can read the inventory even without parsing body HTML.
+- Per-project log line is now `prerender: wrote dist/work/<slug>/index.html (N images)` so any future drop-off in extraction is immediately obvious in the build output.
+
+**Phase 5C — hero poster + accessible video label (commit `12bf131`):**
+- `Components.jsx::Hero` had `poster=""` on the runway `<video>`. Now `poster="/assets/fifa1904/1 Large.jpeg"` — the same FIFA editorial hero that's already the site's OG card image. Reuses an existing asset (no `ffmpeg` step required), gives autoplay-blocked clients (iOS low-power, reduced-motion preference, slow networks) a strong first-paint frame, and stays tonally aligned with the runway video.
+- `aria-label` added to the same `<video>` element so screen readers and crawlers reading the raw tag have a description.
+- `scripts/prerender.mjs::homeShell` now opens with an `<img>` for the same hero shot at the top of the prerendered home, so non-JS crawlers see the editorial frame in the body (not just inside `<meta property="og:image">`).
+- No new asset, no new dependency, no UX change. (Phase 5B — adding full-array `image` JSON-LD — landed inside Phase 5A as a natural extension of the extraction work.)
+
+**What this fixes:**
+- AI fetchers (Perplexity, Claude WebFetch, ChatGPT) doing a raw-HTML body scan now find 6–37 `<img>` tags per project page, in case-study order, with descriptive fashion-language alt text (concept boards, flats, fittings, runway, etc.).
+- LinkedIn / ATS / link-preview crawlers that ignore CSS see the same full image inventory inline.
+- Schema.org-aware tools read `CreativeWork.image[]` and can enumerate the same set without parsing body HTML.
+- Hero is never a black rectangle on autoplay-blocked or slow-network first paints.
+
+**Rollback paths in place:**
+- Safety tag `pre-phase-5` at `c22388f` — `git reset --hard pre-phase-5` reverts Phase 5 entirely
+- Per-phase commits: Phase 5A is `57b6079`, Phase 5C is `12bf131`; `git revert <sha>` undoes either independently. (5C depends on 5A only for the `homeShell` `<img>` line; the `<video poster>`/`aria-label` change is standalone.)
+- Vercel can roll back to any previous production deployment from the dashboard
