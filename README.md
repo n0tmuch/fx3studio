@@ -307,3 +307,23 @@ Yes — for the specific class of extractors Phase 5 was meant to reach but miss
 - Safety tag `pre-ssg-migration` at `fd4c75f` — `git reset --hard pre-ssg-migration` reverts Phase 6 entirely (deletes `entry-server.jsx`, restores `createRoot`, restores the hidden-shell prerender + `.prerender-shell { display: none }` rule).
 - Phase 6 commit on `main`: `f5fe141`. `git revert f5fe141` is the surgical undo.
 - Vercel rollback to the previous Phase 5 production deployment is one CLI command (`vercel rollback`) if a deploy ever needs an instant revert without waiting for a git push.
+
+### 2026-05-13 (evening): Fold Ease page-5 swap + FIFA 1904 reframe (thesis → mentor project)
+
+Two content edits, one deploy each.
+
+**Fold Ease page-5 image refresh** (commit `e69d895`): replaced `public/assets/foldease/page-5.jpeg` with a new construction-flats group A image. File arrived as `.jpg`; renamed to `.jpeg` to match the existing reference in [Bloodmoon.jsx:64](src/case-studies/Bloodmoon.jsx#L64) and the `page-{1..8}.jpeg` convention in [public/assets/foldease/](public/assets/foldease/). No code change.
+
+**FIFA 1904 reframe** (commit `634ba46`): dropped every "thesis" reference across the site in favor of mentor-project framing. Display labels use **Senior Mentorship** (parallel to the existing `FRAME × Salvation Army · Otis Mentorship` label); prose copy uses **Senior mentor project with FIFA 1904.** to avoid stutter with the `Mentorships with FRAME, Revolve, and Salvation Army.` sentence that follows; CV experience entry uses **Senior Mentor Project**. 12 swaps across 4 files:
+
+- [src/Components.jsx:608](src/Components.jsx#L608) FIFA-end footer span: `Senior Thesis` → `Senior Mentorship`
+- [src/Components.jsx:120](src/Components.jsx#L120) runway video `aria-label`: `senior thesis collection` → `senior mentor project collection`
+- [src/data.js:29](src/data.js#L29) FIFA card subtitle: `FIFA × Otis · Senior Thesis` → `FIFA × Otis · Senior Mentorship`
+- [src/data.js:36](src/data.js#L36) FIFA tag: `Senior thesis` → `Senior mentorship`
+- [src/data.js:181](src/data.js#L181) EXPERIENCE `company`: `Senior Thesis Collaboration` → `Senior Mentor Project`
+- [src/App.jsx:16](src/App.jsx#L16) `SITE_BASE_META.description`: `Senior thesis with FIFA 1904.` → `Senior mentor project with FIFA 1904.`
+- [index.html](index.html) meta description, OG description, OG image alt, meta keywords, JSON-LD `CreativeWork.name`, JSON-LD `keywords`, JSON-LD `about`: parallel swaps (display labels → `Senior Mentorship`; prose → `Senior mentor project`; keywords → `senior mentorship, senior mentor project`).
+
+Zero "thesis" references remain in source (`grep -rni thesis` against `*.html *.js *.jsx *.css *.json *.txt *.xml` excluding `node_modules/`, `dist/`, `.ssr-build/`, returns empty). The reframe is consistent with the existing [data.js:27](src/data.js#L27) `category: "Mentor Projects"` grouping — FIFA was always classified as a mentor project; only the display labels lagged.
+
+Both edits shipped directly to `main`; Vercel auto-deployed each in ~9s. No rollback tags taken (single-commit changes; `git revert e69d895` and `git revert 634ba46` are the undo paths).
