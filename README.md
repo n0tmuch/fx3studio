@@ -94,12 +94,36 @@ The old Squarespace site still exists at its `.squarespace.com` URL but is disco
 
 Spencer-led rewrite of every portfolio book and the FIFA 1904 case study. Reframed all "portfolio books" as collections, swapped in Spencer's own copy for blurbs/concepts, removed AI-flavored image captions site-wide, and normalized terms (I-cord always capital I, après-ski with accent, no em dashes).
 
-FIFA 1904 structure now: intro · concept · color & fabric · swipes · seed groups · Group A + Group B sketches · Group A/B flats · Group C sketches and fabric · Group C flats · In the studio (Mentor Fitting) · close.
+FIFA 1904 structure now: intro · concept · color & fabric · swipes · seed groups · Group A + Group B sketches · Group A/B flats · Group C sketches and fabric · Group C flats · Mentor Pick flats · In the studio (Mentor Fitting) · close.
 
 Image conventions:
-- Each portfolio book's cover thumbnail is `assets/<slug>/page-1.jpeg` (tech-pack is the lone exception that switched mid-session).
+- Each portfolio book's cover thumbnail is `assets/<slug>/page-1.jpeg` (tech-pack and musicfest both use `page-1.jpg`).
 - FIFA 1904 flats use semantic filenames (`A1 Large.jpeg`, `B Lineup Large.jpeg`, `Top Right.jpeg`, etc.) rather than the numeric `<n> Large.jpeg` convention from the export.
 
 ### 2026-05-10 (later): FRAME plate regroup
 
 Moved the bottom three plates of FRAME section 02 (`A3.jpeg` lineup, `A4.jpeg` A1 plate, `A5.jpeg` A2 plate) to the top of section 03 so the A3-plate now sits on the second pair-row with the A2-plate to its left, and the rest of B/C cascades down.
+
+### 2026-05-12: Music Festival image refresh + Revolve restructure
+
+Music Festival Performers: replaced pages 2-8 with new artwork and migrated all musicfest page assets from `.jpeg` to `.jpg`. Updated `src/case-studies/Musicfest.jsx` and the home thumbnail in `src/Components.jsx::thumbFor`.
+
+Revolve × Otis copy:
+- Site-wide swap: "deconstructed denim" → "distressed denim" (4 instances across `data.js` + `Revolve.jsx`).
+- Role line: "dye yardage" → "dyed yardage". Blurb: trimmed "by Spencer himself" → "by Spencer".
+- Concept rewritten to describe the mentor selecting three looks and combining them into one.
+
+Revolve × Otis section restructure (top-to-bottom):
+- **01** Concept → **Fabric story** ("Every treatment, on one board.") with `21 Large` + `22 Large` paired.
+- **02** Color & Fabric → **Group A, B, C, D · Lineup pages.** with images 1-4 in two paired rows and image 5 centered below at half-width; color bar preserved.
+- **03** Group A · Ensemble → **A, B, C, D · Flat layout page.** with images 6-17 paired and image 18 centered below.
+- **04** Group B → **Final outcome · Mentor pick.** with images 19 + 20.
+- Deleted old sections 05 (Group C), 06 (Group D), and 07 (Featured Look).
+- **05** (was 08) In the studio → **From dress form to live model · Fittings.** Removed the trailing show-floor image (`IMG_9777`).
+- **06** (was 09) Runway · "Revolve × Otis · show floor." → "Revolve × Otis."
+
+Tech Pack home card: `c.title` "Avenue Collection" → "Tech Pack"; `c.role` → "Army Green Raincoat". Case study `subtitle`, `tags`, and End footer ("End · 10 · Avenue Collection · Tech Pack · Fall") were left untouched.
+
+FIFA 1904: split the bottom row of section 09 (`Bottom Left.jpeg` + `Bottom Right.jpeg`, byte-identical copies of `26 Large.jpeg` + `27 Large.jpeg`) into a new section 10 **Flats · Mentor Pick** using the canonical `26`/`27` filenames; existing **In the studio** section bumped from 10 to 11.
+
+The half-width centered figure pattern used in Revolve sections 02 and 03 is inlined (`flex` wrapper + `width: calc(50% - clamp(8px, 1vw, 14px))` figure) rather than a CSS class — extract to `.fifa-pair-single` if it shows up a third time.
