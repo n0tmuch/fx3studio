@@ -117,7 +117,7 @@ function Hero({ videoMode }) {
         src="/assets/runway.mp4"
         autoPlay muted loop playsInline
         poster="/assets/fifa1904/1 Large.jpeg"
-        aria-label="Fx3 Studio runway: Spencer Harrison's FIFA 1904 × Otis senior thesis collection on the catwalk" /> :
+        aria-label="Fx3 Studio runway: Spencer Harrison's FIFA 1904 × Otis senior mentor project collection on the catwalk" /> :
 
 
       <div className="hero-poster" style={{ background: "var(--bg-2)" }} />
@@ -605,7 +605,7 @@ function FifaCaseStudy({ collection, onClose, fifaHeroMode }) {
 
       {/* CLOSE */}
       <div className="fifa-end">
-        <span>End · 01 · FIFA 1904 · Senior Thesis · 2026</span>
+        <span>End · 01 · FIFA 1904 · Senior Mentorship · 2026</span>
         <button className="fifa-end-close" onClick={onClose}>Back to all work</button>
       </div>
     </div>);

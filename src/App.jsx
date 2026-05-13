@@ -13,7 +13,7 @@ const TWEAK_DEFAULTS = {
 const SITE_BASE_META = {
   title: 'Fx3 Studio · Spencer Harrison — Fashion Designer · Los Angeles',
   description:
-    'Fx3 Studio is the portfolio of Spencer Harrison, a Los Angeles fashion designer and BFA graduate of Otis College of Art and Design. Senior thesis with FIFA 1904. Mentorships with FRAME, Revolve, and Salvation Army.',
+    'Fx3 Studio is the portfolio of Spencer Harrison, a Los Angeles fashion designer and BFA graduate of Otis College of Art and Design. Senior mentor project with FIFA 1904. Mentorships with FRAME, Revolve, and Salvation Army.',
   url: 'https://fx3studio.com/',
   image: 'https://fx3studio.com/assets/fifa1904/1%20Large.jpeg',
 };
