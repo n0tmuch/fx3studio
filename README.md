@@ -127,3 +127,34 @@ Tech Pack home card: `c.title` "Avenue Collection" → "Tech Pack"; `c.role` →
 FIFA 1904: split the bottom row of section 09 (`Bottom Left.jpeg` + `Bottom Right.jpeg`, byte-identical copies of `26 Large.jpeg` + `27 Large.jpeg`) into a new section 10 **Flats · Mentor Pick** using the canonical `26`/`27` filenames; existing **In the studio** section bumped from 10 to 11.
 
 The half-width centered figure pattern used in Revolve sections 02 and 03 is inlined (`flex` wrapper + `width: calc(50% - clamp(8px, 1vw, 14px))` figure) rather than a CSS class — extract to `.fifa-pair-single` if it shows up a third time.
+
+### 2026-05-12 (later): SEO + social-share metadata + deep-link URLs
+
+External crawlers (LinkedIn unfurler, AI WebFetch, Google, recruiter ATS scrapers) were seeing an empty `<div id="root"></div>` shell because the site is a JS-rendered SPA with no static fallback. None of the case studies had a shareable URL — `pushState({ project: id }, '')` was passing an empty URL string. This pair of commits closes both gaps without touching any visual or copy.
+
+**Phase 1 — metadata layer:**
+- `index.html`: full meta description, keywords, author, robots `max-image-preview:large`, canonical link, OG and Twitter card tags, JSON-LD `@graph` with `Person` (Spencer), `Organization` (Fx3 Studio), `WebSite`, and a `CreativeWork` node per collection
+- `public/robots.txt` + `public/sitemap.xml` listing the home and all ten `/work/<slug>` URLs
+- `public/favicon.svg`: minimal placeholder mark using the site's serif italic — flagged as placeholder until Spencer has a real mark
+- `App.jsx::applyRouteMeta`: per-route update of `document.title`, meta description, OG/Twitter title/description/URL/image, and canonical link on open and close
+- `vercel.json`: SPA fallback rewrites for `/work/:slug` plus correct MIME and cache headers for `sitemap.xml` and `robots.txt`
+
+**Phase 2 — real URLs for case studies:**
+- `App.jsx::openProject`: `pushState({ project: id, fromHome: true }, '', /work/<id>)` so each open changes the address bar
+- `App.jsx::closeProject`: `history.back()` when opened from within the app; `replaceState` to `/` when the user deep-linked directly (so close never leaves the site)
+- `App.jsx` initial mount: if `window.location.pathname` matches `/work/<known-slug>`, open that project; unknown slugs `replaceState` to `/`
+
+**What this fixes today:**
+- LinkedIn / Slack / iMessage unfurls of `fx3studio.com` show a proper card with title, description, and the FIFA 1904 hero image
+- AI WebFetch (Claude, ChatGPT, Perplexity) reads the JSON-LD and surfaces Spencer's bio, school, projects, and contact directly
+- Google can index the home page with structured data
+- Every case study has a shareable URL: `fx3studio.com/work/fifa1904`, `/work/revolve-otis`, etc.
+
+**What is still gated on Phase 3 (static prerender):**
+- `curl https://fx3studio.com/work/fifa1904` still returns the same SPA shell as the home; the per-route meta is only set after JS executes. LinkedIn unfurls of deep links will therefore show the home OG card, not a project-specific one. AI crawlers that do not run JS get only the base-site meta when given a `/work/<slug>` URL.
+- The CV is still injected via `document.write` into a popup ([Components.jsx:263](src/Components.jsx#L263)), so Spencer's experience/education are not in the crawlable DOM.
+
+**Rollback paths in place:**
+- Safety tag `pre-seo-discoverability` at `e44428a` — `git reset --hard pre-seo-discoverability` reverts everything in this section
+- Per-phase commits: Phase 1 is `fa3c806`, Phase 2 is `78468f0`; `git revert <sha>` undoes either independently
+- Pre-Phase-1 Vercel production deployment: `fx3studio-8vixiouis-n0tmuchs-projects.vercel.app` — promotable from the Vercel dashboard if a deploy ever breaks the live URL faster than git can
