@@ -220,6 +220,12 @@ function About() {
         <div className="about-grid" style={{ marginTop: 48 }}>
           <div className="about-text">
             {BIO_LONG.map((p, i) => <p key={i}>{p}</p>)}
+            <p style={{ marginTop: 16 }}>
+              <span style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--fg-dim)" }}>
+                Inspirations ·
+              </span>
+              {" "}Music, skateboarding, underground art culture, layering, the handmade.
+            </p>
           </div>
         </div>
       </div>

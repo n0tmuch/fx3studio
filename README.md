@@ -244,3 +244,7 @@ Round-two crawl by Perplexity (after Phase 3 + class-based hiding shipped) read 
 ### 2026-05-13: About section trim
 
 Removed the third `BIO_LONG` paragraph ("Spencer approaches projects...") from `src/data.js` and the "Inspirations · Music, skateboarding..." line from `Components.jsx::About`. The section sizes from content via `#about { padding: clamp(...) }`, so the `var(--bg-2)` panel collapses naturally — no empty space left behind.
+
+### 2026-05-13 (later): About section — replace bio paragraph 2 with Inspirations line
+
+Removed the second `BIO_LONG` paragraph ("We are inspired by music, skateboarding...") from `src/data.js` and restored the "Inspirations · Music, skateboarding, underground art culture, layering, the handmade." line in `Components.jsx::About` (same mono-caps eyebrow + body-copy markup as the earlier version). Section still sizes from content padding; the panel shrinks again to match.
